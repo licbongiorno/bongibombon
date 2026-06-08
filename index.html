@@ -1,12 +1,10 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bongi Bombón | Dulces, Salados y Momentos en Río Segundo</title>
-<meta name="description" content="Descubrí en Bongi Bombón la mayor variedad de golosinas, chocolates y snacks en Río Segundo. Sabores que te hacen volver a ser chico.">
+<meta name="description" content="Una selección irresistible de golosinas y snacks para cumpleaños, mesas dulces y momentos especiales. Sabores que enamoran a chicos y grandes en Río Segundo.">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 /* Variables y Reseteo */
@@ -66,17 +64,28 @@ header {
 
 /* Secciones Generales */
 section { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
-.section-header { text-align: center; margin-bottom: 60px; }
+.section-header { text-align: center; margin-bottom: 50px; }
 h2 { font-family: 'Fredoka', sans-serif; font-size: 2.5rem; color: var(--secondary); margin-bottom: 15px; }
 .subtitle { font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto; line-height: 1.6; }
 
-/* Grid y Tarjetas */
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-.card { background: var(--glass-bg); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.8); padding: 40px 30px; border-radius: 30px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.05); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
-.card:hover { transform: translateY(-15px); box-shadow: 0 20px 45px rgba(239, 71, 111, 0.15); border-color: var(--secondary); }
-.card-icon { font-size: 3.5rem; margin-bottom: 15px; display: inline-block; transition: all 0.4s ease; }
-.card:hover .card-icon { transform: scale(1.2) rotate(8deg); }
-.card-title { font-size: 1.5rem; font-weight: 800; color: var(--dark); }
+/* Grilla de Productos con PNGs */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 25px; margin-bottom: 60px; }
+.product-card {
+    background: var(--glass-bg); backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.8); padding: 25px 15px;
+    border-radius: 25px; text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+}
+.product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(239, 71, 111, 0.15); border-color: var(--secondary); }
+.product-img {
+    width: 90px; height: 90px; object-fit: contain; margin-bottom: 15px;
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1));
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.product-card:hover .product-img { transform: scale(1.2) rotate(5deg); filter: drop-shadow(0 15px 15px rgba(0,0,0,0.15)); }
+.product-title { font-size: 1.1rem; font-weight: 800; color: var(--dark); }
 
 /* Animaciones al Scrollear */
 .reveal { opacity: 0; transform: translateY(60px); transition: all 0.9s cubic-bezier(0.25, 1, 0.5, 1); }
@@ -100,26 +109,6 @@ h2 { font-family: 'Fredoka', sans-serif; font-size: 2.5rem; color: var(--seconda
 .client-name::before { content: "✓"; color: #06d6a0; font-size: 1.1rem; font-weight: bold; }
 
 @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-50% - 15px)); } }
-
-/* Redes Sociales */
-.social-section { text-align: center; padding: 60px 20px; background: #fff; border-radius: 40px; margin: 40px auto; max-width: 900px; box-shadow: 0 15px 40px rgba(0,0,0,0.03); }
-.social-links { display: flex; justify-content: center; gap: 30px; margin-top: 30px; }
-.social-icon { display: flex; align-items: center; justify-content: center; width: 70px; height: 70px; border-radius: 50%; background: #fffaf5; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s; color: var(--secondary); text-decoration: none; }
-.social-icon svg { width: 35px; height: 35px; fill: currentColor; }
-.social-icon:hover { transform: translateY(-10px) scale(1.1); background: var(--secondary); color: #fff; box-shadow: 0 15px 30px rgba(239, 71, 111, 0.3); }
-.social-icon.fb:hover { background: #1877F2; box-shadow: 0 15px 30px rgba(24, 119, 242, 0.3); }
-.social-icon.ig:hover { background: #E4405F; box-shadow: 0 15px 30px rgba(228, 64, 95, 0.3); }
-
-/* Preguntas Frecuentes */
-.faq-container { max-width: 800px; margin: 0 auto; }
-.faq-item { background: #fff; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); overflow: hidden; border: 1px solid transparent; transition: 0.3s; }
-.faq-item:hover { border-color: rgba(239, 71, 111, 0.2); }
-.faq-question { width: 100%; padding: 20px 25px; text-align: left; background: none; border: none; font-size: 1.2rem; font-weight: 800; color: var(--dark); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
-.faq-question:hover { color: var(--primary); }
-.faq-answer { padding: 0 25px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease; color: #666; font-weight: 600; line-height: 1.6; }
-.faq-item.active .faq-answer { padding-bottom: 20px; max-height: 200px; }
-.faq-icon { font-size: 1.5rem; color: var(--primary); transition: 0.4s; }
-.faq-item.active .faq-icon { transform: rotate(45deg); }
 
 /* Footer Estructurado */
 .footer { background: var(--dark); color: #fff; padding: 80px 5% 40px; margin-top: 50px; border-radius: 40px 40px 0 0; }
@@ -159,209 +148,124 @@ h2 { font-family: 'Fredoka', sans-serif; font-size: 2.5rem; color: var(--seconda
         </div>
 
         <h1 class="brand-title">BONGI BOMBÓN</h1>
-        <div class="brand-subtitle">Dulces y Salados</div>
+        <div class="brand-subtitle">Golosinas y Snack's</div>
         <p class="hero-copy">Una selección irresistible de golosinas y snacks para cumpleaños, mesas dulces y momentos especiales. Sabores que enamoran a chicos y grandes.</p>
-        <a class="btn" href="#productos">Explorar Sabores</a>
+        <a class="btn" href="#productos">Explorar Catálogo</a>
     </div>
 </header>
 
 <section id="productos" class="reveal">
     <div class="section-header">
-        <h2>El paraíso de los antojos</h2>
-        <p class="subtitle">Seleccionamos cuidadosamente cada producto para garantizar que tu momento sea perfecto, ya sea para un evento o para darte un gusto.</p>
+        <h2>Nuestro Sector Dulce</h2>
+        <p class="subtitle">Todo lo que necesitás para armar la mesa dulce perfecta.</p>
     </div>
-    <div class="grid">
-        <div class="card"><span class="card-icon">🍫</span><div class="card-title">Chocolates</div></div>
-        <div class="card"><span class="card-icon">🍬</span><div class="card-title">Golosinas</div></div>
-        <div class="card"><span class="card-icon">🍪</span><div class="card-title">Galletitas</div></div>
-        <div class="card"><span class="card-icon">🥨</span><div class="card-title">Snacks</div></div>
-        <div class="card"><span class="card-icon">🍿</span><div class="card-title">Copetín</div></div>
-        <div class="card"><span class="card-icon">🎁</span><div class="card-title">Regalería</div></div>
+    <div class="product-grid">
+        <div class="product-card"><img src="assets/img/golosinas/Alfajores.png" alt="Alfajores" class="product-img" loading="lazy"><div class="product-title">Alfajores</div></div>
+        <div class="product-card"><img src="assets/img/golosinas/Bombones.png" alt="Bombones" class="product-img" loading="lazy"><div class="product-title">Bombones</div></div>
+        <div class="product-card"><img src="assets/img/golosinas/Caramelos.png" alt="Caramelos" class="product-img" loading="lazy"><div class="product-title">Caramelos</div></div>
+        <div class="product-card"><img src="assets/img/golosinas/Chicles.png" alt="Chicles" class="product-img" loading="lazy"><div class="product-title">Chicles</div></div>
+        <div class="product-card"><img src="assets/img/golosinas/Chocolates.png" alt="Chocolates" class="product-img" loading="lazy"><div class="product-title">Chocolates</div></div>
+        <div class="product-card"><img src="assets/img/golosinas/Chupetines.png" alt="Chupetines" class="product-img" loading="lazy"><div class="product-title">Chupetines</div></div>
+        <div class="product-card"><img src="assets/img/golosinas/Confites.png" alt="Confites" class="product-img" loading="lazy"><div class="product-title">Confites</div></div>
+        <div class="product-card"><img src="assets/img/golosinas/Gomitas.png" alt="Gomitas" class="product-img" loading="lazy"><div class="product-title">Gomitas</div></div>
+        <div class="product-card"><img src="assets/img/golosinas/Malvaviscos.png" alt="Malvaviscos" class="product-img" loading="lazy"><div class="product-title">Malvaviscos</div></div>
+        <div class="product-card"><img src="assets/img/golosinas/Mielcitas.png" alt="Mielcitas" class="product-img" loading="lazy"><div class="product-title">Mielcitas</div></div>
+        <div class="product-card"><img src="assets/img/golosinas/Paletitas.png" alt="Paletitas" class="product-img" loading="lazy"><div class="product-title">Paletitas</div></div>
+        <div class="product-card"><img src="assets/img/golosinas/Pastillitas.png" alt="Pastillitas" class="product-img" loading="lazy"><div class="product-title">Pastillitas</div></div>
+        <div class="product-card"><img src="assets/img/golosinas/Regaliz.png" alt="Regaliz" class="product-img" loading="lazy"><div class="product-title">Regaliz</div></div>
+    </div>
+
+    <div class="section-header" style="margin-top: 80px;">
+        <h2>Para los Salados</h2>
+        <p class="subtitle">El copetín ideal para previas y festejos.</p>
+    </div>
+    <div class="product-grid">
+        <div class="product-card"><img src="assets/img/snacks/Cascarones.png" alt="Cascarones" class="product-img" loading="lazy"><div class="product-title">Cascarones</div></div>
+        <div class="product-card"><img src="assets/img/snacks/Chizitos.png" alt="Chizitos" class="product-img" loading="lazy"><div class="product-title">Chizitos</div></div>
+        <div class="product-card"><img src="assets/img/snacks/Mani Salado.png" alt="Maní Salado" class="product-img" loading="lazy"><div class="product-title">Maní Salado</div></div>
+        <div class="product-card"><img src="assets/img/snacks/Palitos Salados.png" alt="Palitos Salados" class="product-img" loading="lazy"><div class="product-title">Palitos Salados</div></div>
+        <div class="product-card"><img src="assets/img/snacks/Papas.png" alt="Papas" class="product-img" loading="lazy"><div class="product-title">Papas Fritas</div></div>
+        <div class="product-card"><img src="assets/img/snacks/Puflitos.png" alt="Puflitos" class="product-img" loading="lazy"><div class="product-title">Puflitos</div></div>
+        <div class="product-card"><img src="assets/img/snacks/Tutucas.png" alt="Tutucas" class="product-img" loading="lazy"><div class="product-title">Tutucas</div></div>
     </div>
 </section>
 
 <div class="stats-wrapper reveal">
     <div class="stats-grid">
-        <div class="counter-box">
-            <div class="counter" data-target="98">0</div>
-            <p>% Clientes Felices</p>
-        </div>
-        <div class="counter-box">
-            <div class="counter" data-target="1500">0</div>
-            <p>Sonrisas entregadas</p>
-        </div>
-        <div class="counter-box">
-            <div class="counter" data-target="10">0</div>
-            <p>Años de trayectoria</p>
-        </div>
+        <div class="counter-box"><div class="counter" data-target="98">0</div><p>% Clientes Felices</p></div>
+        <div class="counter-box"><div class="counter" data-target="1500">0</div><p>Sonrisas entregadas</p></div>
+        <div class="counter-box"><div class="counter" data-target="10">0</div><p>Años de trayectoria</p></div>
     </div>
 </div>
 
 <section class="reveal">
     <div class="section-header">
         <h2>Lo que dicen nuestros clientes</h2>
-        <p class="subtitle">Opiniones reales de quienes nos eligen todos los días en Río Segundo.</p>
     </div>
     <div class="marquee-wrapper">
         <div class="marquee">
             <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Son excelentes! El mejor precio y calidad."</p><div class="client-name">Lic Nicolas Bongiorno</div></div>
             <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Excelente local de venta de golosinas y copetín para fiestas infantiles. Tienen muy buenas promos y gran variedad."</p><div class="client-name">Sebastián M. Castellano</div></div>
             <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Buena atención, muy amables.. excelente calidad de productos.. muy recomendable."</p><div class="client-name">Nora Gomez</div></div>
-            <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Excelente atención, comodidad, precios y combos muy buenos... vuelvo siempre!!!!!!"</p><div class="client-name">Gochy Bongiorno</div></div>
-            <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Recomiendo al 100%, excelente calidad y la mejor atención..."</p><div class="client-name">Sheila Ontivero</div></div>
-            <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Muy buena atención además de que tienen muy buenos combos y precios!!"</p><div class="client-name">Thiago A. Ontivero</div></div>
             
             <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Son excelentes! El mejor precio y calidad."</p><div class="client-name">Lic Nicolas Bongiorno</div></div>
             <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Excelente local de venta de golosinas y copetín para fiestas infantiles. Tienen muy buenas promos y gran variedad."</p><div class="client-name">Sebastián M. Castellano</div></div>
             <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Buena atención, muy amables.. excelente calidad de productos.. muy recomendable."</p><div class="client-name">Nora Gomez</div></div>
-            <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Excelente atención, comodidad, precios y combos muy buenos... vuelvo siempre!!!!!!"</p><div class="client-name">Gochy Bongiorno</div></div>
-            <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Recomiendo al 100%, excelente calidad y la mejor atención..."</p><div class="client-name">Sheila Ontivero</div></div>
-            <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Muy buena atención además de que tienen muy buenos combos y precios!!"</p><div class="client-name">Thiago A. Ontivero</div></div>
         </div>
     </div>
 </section>
-
-<section class="reveal">
-    <div class="section-header">
-        <h2>Preguntas Frecuentes</h2>
-    </div>
-    <div class="faq-container">
-        <div class="faq-item">
-            <button class="faq-question">¿Hacen presupuestos para cumpleaños? <span class="faq-icon">+</span></button>
-            <div class="faq-answer"><p>¡Sí! Te armamos el presupuesto a medida con las mejores golosinas y snacks según la cantidad de invitados.</p></div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">¿Qué métodos de pago aceptan? <span class="faq-icon">+</span></button>
-            <div class="faq-answer"><p>Aceptamos efectivo, tarjetas de débito/crédito, MercadoPago y transferencias bancarias.</p></div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">¿Cuáles son los horarios de atención? <span class="faq-icon">+</span></button>
-            <div class="faq-answer"><p>Abrimos de Lunes a Sábados en dos turnos: de 09:00 a 13:00 hs y por la tarde de 17:00 a 21:30 hs. Los domingos descansamos.</p></div>
-        </div>
-    </div>
-</section>
-
-<div class="social-section reveal">
-    <h2 style="margin-bottom: 10px;">Sumate a nuestra comunidad</h2>
-    <p class="subtitle">Enterate de las últimas promociones, ingresos y sorteos exclusivos en nuestras redes sociales.</p>
-    <div class="social-links">
-        <a href="https://www.instagram.com/bongibombon/" target="_blank" class="social-icon ig" aria-label="Instagram">
-            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        </a>
-        <a href="https://www.facebook.com/bongi.bombon/#" target="_blank" class="social-icon fb" aria-label="Facebook">
-            <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.597 0 0 .597 0 1.325v21.351C0 23.403.597 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.597 1.323-1.324V1.325C24 .597 23.403 0 22.675 0z"/></svg>
-        </a>
-    </div>
-</div>
 
 <footer class="footer">
     <div class="footer-grid">
         <div class="footer-brand">
             <h2>BONGI BOMBÓN</h2>
-            <p>Más que un kiosco, somos el anclaje a tus mejores recuerdos. Tu parada obligatoria para sonreír en Río Segundo.</p>
+            <p>Tu parada obligatoria para sonreír en Río Segundo.</p>
         </div>
         <div class="footer-col">
             <h3>Visitanos</h3>
-            <p>📍 Jujuy 868</p>
-            <p>Río Segundo, Córdoba</p>
+            <p>📍 Jujuy 868, Río Segundo, Córdoba</p>
             <p>🕒 Lun a Sáb: 9 a 13hs / 17 a 21:30hs</p>
         </div>
-        <div class="footer-col">
-            <h3>Contacto Directo</h3>
-            <a href="https://wa.me/5493512469011" target="_blank" class="social-footer-link">
-                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-                WhatsApp: 351 246 9011
-            </a>
-            <a href="https://www.instagram.com/bongibombon/" target="_blank" class="social-footer-link">
-                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                Instagram
-            </a>
-            <a href="https://www.facebook.com/bongi.bombon/#" target="_blank" class="social-footer-link">
-                <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.597 0 0 .597 0 1.325v21.351C0 23.403.597 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.597 1.323-1.324V1.325C24 .597 23.403 0 22.675 0z"/></svg>
-                Facebook
-            </a>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>© 2026 Bongi Bombón. Todos los derechos reservados. Calidad y calidez en cada detalle.</p>
     </div>
 </footer>
 
-<a class="float-btn" target="_blank" href="https://maps.google.com/?q=Jujuy+868,+Río+Segundo,+Córdoba">
-    📍 Cómo llegar
-</a>
+<a class="float-btn" target="_blank" href="https://maps.google.com/?q=Jujuy+868,+Río+Segundo,+Córdoba">📍 Cómo llegar</a>
 
 <script>
-// ----- WIDGET INTELIGENTE DE HORARIOS (TIEMPO REAL ARGENTINA) -----
+// Widget Inteligente de Horarios
 function updateStoreStatus() {
-    // Obtenemos la fecha y hora configurada en la zona horaria de Córdoba/Argentina
     const options = { timeZone: 'America/Argentina/Cordoba', hour: 'numeric', minute: 'numeric', hour12: false, weekday: 'long' };
-    const formatter = new Intl.DateTimeFormat('en-US', options);
+    const dateInAr = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Argentina/Cordoba' }));
     
-    // Parseamos la fecha para extraer datos precisos
-    const now = new Date();
-    const dateInAr = new Date(now.toLocaleString('en-US', { timeZone: 'America/Argentina/Cordoba' }));
-    
-    const day = dateInAr.getDay(); // 0 es Domingo, 1 a 6 de Lunes a Sábado
+    const day = dateInAr.getDay(); 
     const hour = dateInAr.getHours();
     const min = dateInAr.getMinutes();
     const timeNum = hour + (min / 60);
 
     const badge = document.getElementById('smart-status');
-    let text = "";
-    let color = "";
+    let text = ""; let color = "";
 
-    // Lógica de apertura y cierre
-    if (day === 0) {
-        text = "Domingo cerrado. ¡Nos vemos mañana a las 09:00 hs!";
-        color = "#ef476f"; // Rojo
-    } else {
+    if (day === 0) { text = "Domingo cerrado. ¡Nos vemos mañana a las 09:00 hs!"; color = "#ef476f"; } 
+    else {
         if (timeNum < 9) {
-            if (timeNum >= 8.5) {
-                text = "¡Buen día! Abrimos en instantes (09:00 hs)";
-                color = "#ffd166"; // Amarillo
-            } else {
-                text = "Cerrado. ¡Abrimos a las 09:00 hs!";
-                color = "#ef476f"; // Rojo
-            }
+            if (timeNum >= 8.5) { text = "¡Buen día! Abrimos en instantes (09:00 hs)"; color = "#ffd166"; } 
+            else { text = "Cerrado. ¡Abrimos a las 09:00 hs!"; color = "#ef476f"; }
         } else if (timeNum >= 9 && timeNum < 13) {
-            if (timeNum >= 12.5) {
-                text = "¡Apurate! Cerramos al mediodía a las 13:00 hs";
-                color = "#ff9f1c"; // Naranja
-            } else {
-                text = "¡Estamos Abiertos! Vení por tus dulces";
-                color = "#06d6a0"; // Verde
-            }
+            if (timeNum >= 12.5) { text = "¡Apurate! Cerramos al mediodía a las 13:00 hs"; color = "#ff9f1c"; } 
+            else { text = "¡Estamos Abiertos! Vení por tus dulces"; color = "#06d6a0"; }
         } else if (timeNum >= 13 && timeNum < 17) {
-            if (timeNum >= 16.5) {
-                text = "¡Preparate! Volvemos a abrir a las 17:00 hs";
-                color = "#ffd166"; // Amarillo
-            } else {
-                text = "Cerrado. Descansando... Volvemos a las 17:00 hs";
-                color = "#ef476f"; // Rojo
-            }
+            if (timeNum >= 16.5) { text = "¡Preparate! Volvemos a abrir a las 17:00 hs"; color = "#ffd166"; } 
+            else { text = "Cerrado. Descansando... Volvemos a las 17:00 hs"; color = "#ef476f"; }
         } else if (timeNum >= 17 && timeNum < 21.5) {
-            if (timeNum >= 21) {
-                text = "¡Apurate! Cerramos el local a las 21:30 hs";
-                color = "#ff9f1c"; // Naranja
-            } else {
-                text = "¡Estamos Abiertos! Ideal para un antojo";
-                color = "#06d6a0"; // Verde
-            }
-        } else {
-            text = "Cerrado. ¡Hasta mañana a las 09:00 hs!";
-            color = "#ef476f"; // Rojo
-        }
+            if (timeNum >= 21) { text = "¡Apurate! Cerramos el local a las 21:30 hs"; color = "#ff9f1c"; } 
+            else { text = "¡Estamos Abiertos! Ideal para un antojo"; color = "#06d6a0"; }
+        } else { text = "Cerrado. ¡Hasta mañana a las 09:00 hs!"; color = "#ef476f"; }
     }
-
-    badge.innerHTML = `<span class="status-dot" style="color: ${color}"></span> ${text}`;
+    badge.innerHTML = `<span class="status-dot" style="background-color: ${color}"></span> ${text}`;
 }
+updateStoreStatus(); setInterval(updateStoreStatus, 60000);
 
-// Ejecutar el widget y actualizarlo cada 1 minuto (60000 ms)
-updateStoreStatus();
-setInterval(updateStoreStatus, 60000);
-
-// ----- ANIMACIONES REVEAL -----
+// Reveal Animaciones
 document.querySelectorAll('.reveal').forEach(el => {
     const obs = new IntersectionObserver(entries => {
         entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
@@ -369,10 +273,9 @@ document.querySelectorAll('.reveal').forEach(el => {
     obs.observe(el);
 });
 
-// ----- CONTADORES NUMÉRICOS -----
+// Contadores
 document.querySelectorAll('.counter').forEach(c => {
-    let target = +c.dataset.target;
-    let n = 0;
+    let target = +c.dataset.target; let n = 0;
     const obs = new IntersectionObserver(entries => {
         if(entries[0].isIntersecting) {
             let i = setInterval(() => {
@@ -385,17 +288,6 @@ document.querySelectorAll('.counter').forEach(c => {
     });
     obs.observe(c);
 });
-
-// ----- ACORDEÓN DE PREGUNTAS FRECUENTES -----
-document.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const item = btn.parentElement;
-        const isActive = item.classList.contains('active');
-        document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
-        if(!isActive) item.classList.add('active');
-    });
-});
 </script>
-
 </body>
 </html>
