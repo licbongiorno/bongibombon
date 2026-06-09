@@ -120,6 +120,15 @@ h2 { font-family: 'Fredoka', sans-serif; font-size: 2.5rem; color: var(--seconda
 
 @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-50% - 15px)); } }
 
+/* Google Maps Container */
+.map-container {
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    margin: 0 auto;
+    max-width: 900px;
+}
+
 /* Redes Sociales y Comunidad */
 .social-section { text-align: center; padding: 60px 20px; background: #fff; border-radius: 40px; margin: 40px auto; max-width: 900px; box-shadow: 0 15px 40px rgba(0,0,0,0.03); }
 .social-links { display: flex; justify-content: center; gap: 30px; margin-top: 30px; }
@@ -129,7 +138,7 @@ h2 { font-family: 'Fredoka', sans-serif; font-size: 2.5rem; color: var(--seconda
 .social-icon.fb:hover { background: #1877F2; box-shadow: 0 15px 30px rgba(24, 119, 242, 0.3); }
 .social-icon.ig:hover { background: #E4405F; box-shadow: 0 15px 30px rgba(228, 64, 95, 0.3); }
 
-/* Footer Estructurado - Modificado para dar espacio a los botones */
+/* Footer Estructurado */
 .footer { background: var(--dark); color: #fff; padding: 80px 5% 90px; margin-top: 50px; border-radius: 40px 40px 0 0; }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; text-align: left; }
 .footer-brand h2 { font-family: 'Fredoka', sans-serif; font-size: 2.5rem; color: var(--light); margin-bottom: 15px; }
@@ -148,18 +157,18 @@ h2 { font-family: 'Fredoka', sans-serif; font-size: 2.5rem; color: var(--seconda
     right: 20px; 
     bottom: 20px; 
     display: flex; 
-    flex-direction: row; /* Uno al lado del otro */
+    flex-direction: row; 
     gap: 10px; 
     z-index: 1000; 
 }
 .float-btn { 
     background: #06d6a0; 
     color: #fff; 
-    padding: 12px 20px; /* Más chicos */
+    padding: 12px 20px;
     border-radius: 50px; 
     text-decoration: none; 
     font-weight: 800; 
-    font-size: 0.95rem; /* Letra ajustada */
+    font-size: 0.95rem;
     box-shadow: 0 8px 20px rgba(6, 214, 160, 0.4); 
     display: flex; align-items: center; justify-content: center; gap: 8px; 
     transition: 0.3s; 
@@ -180,10 +189,9 @@ h2 { font-family: 'Fredoka', sans-serif; font-size: 2.5rem; color: var(--seconda
 @media(max-width:768px){ 
     section { padding: 60px 5%; } 
     .carousel-btn { display: none; }
-    .footer { border-radius: 20px 20px 0 0; padding: 50px 20px 90px; } /* Espacio extra en celular */
+    .footer { border-radius: 20px 20px 0 0; padding: 50px 20px 90px; }
     .footer-grid { text-align: center; } 
     .footer-col .social-footer-link { justify-content: center; } 
-    /* Ajuste extra de botones flotantes para pantallas muy chicas */
     .float-btn { padding: 10px 15px; font-size: 0.85rem; }
 }
 </style>
@@ -266,9 +274,9 @@ h2 { font-family: 'Fredoka', sans-serif; font-size: 2.5rem; color: var(--seconda
 
 <div class="stats-wrapper reveal">
     <div class="stats-grid">
-        <div class="counter-box"><div class="counter" data-target="99.9">0</div><p>% Clientes Felices</p></div>
-        <div class="counter-box"><div class="counter" data-target="1500">0</div><p>Sonrisas entregadas</p></div>
-        <div class="counter-box"><div class="counter" data-target="10!">0</div><p>Años de trayectoria</p></div>
+        <div class="counter-box"><div class="counter" data-target="99.9" data-suffix="%">0</div><p>Clientes Felices</p></div>
+        <div class="counter-box"><div class="counter" data-target="1500" data-suffix="+">0</div><p>Sonrisas entregadas</p></div>
+        <div class="counter-box"><div class="counter" data-target="10" data-suffix="+">0</div><p>Años de trayectoria</p></div>
     </div>
 </div>
 
@@ -293,6 +301,16 @@ h2 { font-family: 'Fredoka', sans-serif; font-size: 2.5rem; color: var(--seconda
             <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Recomiendo al 100%, excelente calidad y la mejor atención..."</p><div class="client-name">Sheila Ontivero</div></div>
             <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Muy buena atención además de que tienen muy buenos combos y precios!!"</p><div class="client-name">Thiago A. Ontivero</div></div>
         </div>
+    </div>
+</section>
+
+<section class="reveal">
+    <div class="section-header">
+        <h2>Encontranos acá</h2>
+        <p class="subtitle">Vení a visitarnos y llevate tus golosinas favoritas.</p>
+    </div>
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3396.6041100860693!2d-63.91695432438356!3d-31.64468817415728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432ca53a623f127%3A0x8c39d4651655331!2sJujuy%20868%2C%20X5960%20R%C3%ADo%20Segundo%2C%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1781036842785!5m2!1ses!2sar" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </section>
 
@@ -396,9 +414,10 @@ document.querySelectorAll('.reveal').forEach(el => {
     obs.observe(el);
 });
 
-// ----- CONTADORES CON DECIMALES SOPORTADOS -----
+// ----- CONTADORES DINÁMICOS CON SUFIJOS Y DECIMALES -----
 document.querySelectorAll('.counter').forEach(c => {
     let targetStr = c.dataset.target;
+    let suffix = c.dataset.suffix || ""; // Toma el sufijo dinámicamente
     let isFloat = targetStr.includes('.');
     let target = parseFloat(targetStr);
     let n = 0;
@@ -411,7 +430,7 @@ document.querySelectorAll('.counter').forEach(c => {
                 if(n >= target) { n = target; clearInterval(i); }
                 
                 let displayNum = isFloat ? n.toFixed(1).replace('.', ',') : Math.ceil(n);
-                c.textContent = displayNum + (target > 500 ? "+" : "%");
+                c.textContent = displayNum + suffix;
             }, 30);
             obs.disconnect();
         }
@@ -419,5 +438,6 @@ document.querySelectorAll('.counter').forEach(c => {
     obs.observe(c);
 });
 </script>
+<script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_DBwkbhi6CXBziKmkWATbsL4Nwy1Y" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
 </body>
 </html>
