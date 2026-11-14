@@ -60,6 +60,7 @@ partials['arcade-cards'] = `<ul class="arcade-cards" data-arcade-grid>\n${GAMES.
       <button type="button" class="btn btn--sm btn--banana" data-play="${g.id}">Jugar</button>
     </div>
   </li>`).join('\n')}\n</ul>`;
+partials['home-arcade'] = `<ul class="game-cards pop-in" aria-label="Juegos de Bongi Arcade">\n${GAMES.filter(g => g.arcade).map(g => `  <li><a class="game-card" style="--bg:${g.color}" href="/juegos#${g.id}"><span class="game-card__icon" aria-hidden="true">${candySVG(g.icon)}</span><div><strong>${esc(g.title)}</strong><span>${esc(g.tag)}</span></div></a></li>`).join('\n')}\n</ul>`;
 partials['mini-cards'] = `<ul class="arcade__grid" data-grid>\n${GAMES.filter(g => !g.arcade).map(g => `  <li class="gcard" id="${g.id}" style="--c:${g.color}"><div class="gcard__icon" aria-hidden="true">${candySVG(g.icon)}</div><h3>${esc(g.title)}</h3><p>${esc(g.desc)}</p><p class="gcard__best" data-best="${g.id}">Sin récord todavía</p><button type="button" class="btn btn--sm" data-play="${g.id}">Jugar</button></li>`).join('\n')}\n</ul>`;
 const GENRE = { crush: 'Puzle', world: 'Plataformas', maze: 'Laberinto', blocks: 'Puzle', breaker: 'Arcade', bombi: 'Acción y laberinto', pong: 'Deportes', candyof: 'Acción', atrapa: 'Arcade', memoria: 'Memoria', match: 'Puzle', trivia: 'Trivia', desafio: 'Habilidad', carrera: 'Arcade', globo: 'Habilidad', frascos: 'Música y memoria' };
 const gamesItemList = {

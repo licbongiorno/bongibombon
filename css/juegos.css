@@ -319,7 +319,8 @@ html.is-playing { overflow: hidden; }
 .arc-pad__acts { display: flex; gap: 10px; margin-left: auto; }
 .arc-btn { width: 64px; height: 64px; border-radius: 50%; border: 0; background: rgb(255 255 255 / .12); color: #fff; font: 700 1.2rem var(--font-display); box-shadow: 0 4px 0 rgb(0 0 0 / .4); touch-action: none; -webkit-tap-highlight-color: transparent; }
 .arc-btn--act { width: 76px; height: 76px; background: var(--frutilla-oscura); font-size: .9rem; line-height: 1.05; padding: 4px; }
-.arc-btn--act + .arc-btn--act { background: #6b4a55; }
+.arc-btn--act { background: #6b4a55; }
+.arc-btn--act:last-child { background: var(--frutilla-oscura); }
 .arc-btn.is-down { transform: translateY(3px) scale(.95); box-shadow: 0 1px 0 rgb(0 0 0 / .4); filter: brightness(1.2); }
 .arc-pause { position: absolute; inset: 0; z-index: 20; display: grid; place-items: center; background: rgb(18 9 15 / .82); backdrop-filter: blur(3px); padding: 16px; }
 .arc-pause__box { width: min(100%, 380px); text-align: center; }

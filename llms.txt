@@ -17,7 +17,7 @@ Datos del comercio:
 
 - [Inicio](https://bongibombon.com.ar/): qué es Bongi Bombón, horarios, ubicación y preguntas frecuentes.
 - [Golosinas y snacks](https://bongibombon.com.ar/golosinas): las 20 categorías que vende el local (sector dulce y sector copetín).
-- [Bongi Juegos](https://bongibombon.com.ar/juegos): ocho minijuegos gratuitos con temática de golosinas.
+- [Bongi Arcade](https://bongibombon.com.ar/juegos): sala de videojuegos gratuita de Bongi Bombón con 8 juegos arcade originales (plataformas, laberinto, encastre, rompebloques, bombas, duelo, acción y combinar golosinas) y 8 minijuegos.
 
 ## Guías
 

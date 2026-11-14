@@ -34,12 +34,12 @@ scripts/              build.mjs (generador), frasco.mjs (ilustración del hero)
 docs/INFORME.md       informe del proyecto
 ```
 
-## Agregar un juego
+## Agregar un juego a Bongi Arcade
 
-1. Crear `js/juegos/games/<id>.js` que exporte `default { mount(root, ctx) }` y devuelva `{ destroy() }`.
-   `ctx` ofrece `hud()`, `sfx`, `float()`, `shake()`, `confetti()` y `end({ score, extra, summary })`.
-2. Sumar la entrada en `js/juegos/core/registry.js` (título, instrucciones, xp, meta diaria).
-3. Agregar la tarjeta en `src/pages/juegos.html` y regenerar.
+1. Crear `js/juegos/games/<id>.js` que exporte `default { mount(root, ctx) }` y devuelva `{ destroy(), togglePause?, pause? }`.
+   `ctx` ofrece `hud()`, `sfx`, `music(pista)`, `data` (progreso propio que persiste con `save()`), `again`, `restart()`, `exit()`, `float()`, `shake()`, `confetti()` y `end({ score, won, stars, extra, summary, title, againLabel })`.
+2. Para un juego de acción, usar el motor `js/juegos/core/arcade.js`: `arcade(root, ctx, { width, height, update, draw, controls, onPointer, help })` da escalado, paso fijo, teclado, controles táctiles, partículas (`fx.burst`, `fx.text`, `fx.shake`), carteles y menú de pausa.
+3. Sumar la entrada en `js/juegos/core/registry.js` (con `arcade: true`, dificultad, duración, etiquetas y controles) y, si corresponde, su ilustración en `scripts/posters.mjs`. Las tarjetas del hub y de la home se generan solas al correr `node scripts/build.mjs`.
 
 ## Medición
 

@@ -240,11 +240,12 @@ address { font-style: normal; }
 @media (min-width: 900px) { .game-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1100px) { .game-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .game-card { position: relative; border-radius: var(--radius-m); padding: 16px; min-height: 150px; display: flex; flex-direction: column; justify-content: space-between; color: var(--cacao); text-decoration: none; background: var(--bg, var(--banana)); box-shadow: 0 6px 0 rgb(0 0 0 / .25); transition: transform .3s var(--ease-pop); overflow: hidden; }
-.game-card svg { width: 56px; height: 56px; transition: transform .45s var(--ease-pop); }
+.game-card svg, .game-card__icon { width: 56px; height: 56px; transition: transform .45s var(--ease-pop); }
+.game-card__icon svg { width: 100%; height: 100%; }
 .game-card strong { font: 600 1.15rem/1.1 var(--font-display); display: block; }
 .game-card span { font-size: .85rem; font-weight: 700; opacity: .85; }
 .game-card:hover { transform: translateY(-4px) rotate(-1deg); }
-.game-card:hover svg { transform: rotate(-16deg) scale(1.15); }
+.game-card:hover .game-card__icon { transform: rotate(-16deg) scale(1.15); }
 
 /* ---------- El local ---------- */
 .local { display: grid; gap: 24px; }

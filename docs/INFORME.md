@@ -104,3 +104,38 @@ Conviene volver a medir en producción con PageSpeed Insights, porque la red rea
 7. Ranking compartido: si se quiere un ranking real entre jugadores, hace falta un backend (por ejemplo, una función de Vercel con una base KV) que valide las partidas en el servidor (semilla por partida, tiempo mínimo, límite por IP y moderación de apodos). Hoy no existe, y por eso la web no promete un ranking global.
 
 Para medir cada mes: posición para “golosinería Río Segundo” en Search Console, acciones del perfil de Google (llamadas, cómo llegar, clics al sitio), eventos `whatsapp_click` y `maps_click`, y partidas por visitante.
+
+---
+
+## 8. Ampliación: Bongi Arcade (sala de videojuegos)
+
+Bongi Juegos pasó a ser **Bongi Arcade** (`/juegos`): 8 juegos arcade originales más los 8 minijuegos existentes, con perfil compartido.
+
+### Juegos arcade (en el orden de prioridad pedido)
+
+| Juego | Inspiración mecánica | Qué tiene |
+|---|---|---|
+| Bongi Crush | Combinar 3 | 30 niveles en 3 mundos con mapa y estrellas. Objetivos de puntos, glaseado, golosinas para juntar, bloques de chocolate y especiales. Especiales: Chupetín relámpago (4 en línea), Chocolate explosivo (L/T), Gomita arcoíris (5), Caramelo multicolor (cuadrado) y Bombón sorpresa. Combinaciones entre especiales, cascadas, pista, mezcla automática y "Dulce final". |
+| Bongi World | Plataformas | 5 mundos de 2 niveles (Chocolates, Gomitas, Alfajores, Fábrica, Castillo), cada uno con música, fondo, enemigos y jefe. Física con tiempo de gracia, salto anticipado y salto variable. Doble salto desbloqueable, escudo, velocidad, confites lanzables, bloques sorpresa y ocultos, plataformas móviles, trampolines, pinches, puntos de control y bonus de tiempo. |
+| Bongi Maze | Laberinto | Laberintos generados por nivel (simétricos, sin callejones sin salida, comprobados para que se puedan completar). Cuatro enemigos con personalidad: Choco persigue, Gomi corta el paso, Ácido se espanta, Azuquita flanquea. Bombón dorado, pasadizos, golosina bonus y velocidad creciente. |
+| Bongi Blocks | Encastre | Piezas de golosina, rotación con correcciones contra paredes, pieza fantasma, guardar, 3 próximas, retardo de fijación, combos, multiplicador por cuádruples seguidos, niveles y explosión de confites. Gestos táctiles y botones. |
+| Bongi Breaker | Rompebloques | 10 niveles, bloques de 1 a 3 golpes, dorados y explosivos. Física en pasos pequeños (el bombón no atraviesa bloques). 8 poderes y combos. |
+| Bombi Bongi | Bombas en laberinto | Bombas en cruz con reacción en cadena, 6 poderes (rango, bombas, velocidad, escudo, bomba especial, caramelo explosivo con detonación a distancia), golosinas escondidas, 3 enemigos, portal y reloj. 3 escenarios. |
+| Bongi Pong | Ping-pong | Contra el Bongi Bot (3 dificultades, con predicción y error humano), 2 jugadores en el mismo dispositivo (multitáctil y teclado) y modo desafío. Efecto según el movimiento de la barra. 3 escenarios. |
+| Candy of Bongi | Acción con disparos (parodia) | Operación Dulce: 5 lanzadores de golosinas y bombas de chocolate, 4 tipos de Ácidos y el jefe Gran Limón Ácido. Modos Oleadas (misión de 10 con jefes), Supervivencia y Contrarreloj. Doble palanca táctil o teclado y mouse. Sin violencia: los ácidos se convierten en caramelos. |
+
+**Propiedad intelectual:** se tomaron solo las mecánicas de género. Nombres, personajes (Bongi, Choco, Gomi, Ácido, Azuquita, Gran Limón Ácido), gráficos (dibujados en código), laberintos (generados), niveles, música y sonidos (sintetizados) son originales. No se usa ningún recurso de otros juegos. Las piezas de encastre son las formas geométricas propias del género, con estética de golosina y paneles propios.
+
+### Plataforma común
+- **Motor arcade compartido** (`js/juegos/core/arcade.js`): resolución lógica escalada, paso fijo de 1/60 s, teclado y controles táctiles (que flotan sobre la pantalla en celulares apaisados), partículas, sacudón opcional, carteles y menú de pausa con Continuar, Reiniciar y Salir.
+- **Barra del juego:** pausa, reiniciar, sonido y salir. Esc pausa en lugar de cerrar. "Jugar de nuevo" o "Siguiente nivel" arranca sin repetir las instrucciones. La pantalla de inicio muestra instrucciones y controles; la de resultado, victoria o derrota, estrellas, récord, recompensas y logros.
+- **Progresión:** apodo con filtro, avatar (12 golosinas), Puntos Bongi (virtuales, sin valor monetario, aclarado en la página), experiencia y niveles, 32 logros, desafío diario sobre los 16 juegos, racha, estadísticas y golosinas recogidas. Récords locales, presentados como tales: no hay ranking global.
+- **Hub:** tarjetas con ilustración propia, dificultad, duración, récord, etiqueta de nuevo y filtros (Nuevos, Tus más jugados, Clásicos, Aventura, Puzle, 2 jugadores).
+- **Música** por juego y por mundo (9 pistas originales), siempre opcional.
+
+### Pruebas
+Cada juego arcade se jugó de principio a fin con Playwright en celular y se recorrieron sus pantallas de inicio, pausa (Esc), victoria, derrota y reinicio, sin errores de consola. Los 8 minijuegos anteriores se volvieron a probar completos. Lighthouse en celular: inicio 99/100/100/100; Bongi Arcade 96/100/100/100.
+
+### Pendiente o posible a futuro
+- **Ranking compartido:** requiere un backend que valide las partidas en el servidor (semilla por partida, repetición o validación de eventos, límites por IP y moderación de apodos). No se implementó para no mostrar un ranking que se pueda falsear.
+- **Más contenido:** más niveles de Bongi Crush y Bongi World. Agregarlos es sumar datos (`SPEC` en `crush.js` y trozos en `world.js`).
