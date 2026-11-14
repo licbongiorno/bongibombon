@@ -1,0 +1,183 @@
+<!--meta {
+  "path": "",
+  "nav": "inicio",
+  "priority": "1.0",
+  "title": "Bongi Bombón | Golosinería en Río Segundo, Córdoba",
+  "description": "Golosinería en Jujuy 868, Río Segundo: chocolates, alfajores, gomitas, chupetines y snacks de copetín para fiestas. Precios por WhatsApp y minijuegos.",
+  "head": "<link rel=\"modulepreload\" href=\"/js/hero.js\"><link rel=\"modulepreload\" href=\"/js/candies.js\">",
+  "ld": [{
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Dónde hay una golosinería en Río Segundo?", "acceptedAnswer": { "@type": "Answer", "text": "Bongi Bombón es una golosinería ubicada en Jujuy 868, Río Segundo, Córdoba. Vende golosinas, chocolates, alfajores, caramelos, gomitas, chupetines y snacks de copetín. Abre de lunes a sábado de 9 a 13 h y de 17 a 21:30 h." } },
+      { "@type": "Question", "name": "¿Qué venden en Bongi Bombón?", "acceptedAnswer": { "@type": "Answer", "text": "En el sector dulce: alfajores, bombones, caramelos, chicles, chocolates, chupetines, confites, gomitas, malvaviscos, mielcitas, paletitas, pastillitas y regaliz. En el sector copetín: cascarones, chizitos, maní salado, palitos salados, papas fritas, puflitos y tutucas." } },
+      { "@type": "Question", "name": "¿Cuál es el horario de Bongi Bombón?", "acceptedAnswer": { "@type": "Answer", "text": "De lunes a sábado de 9 a 13 h y de 17 a 21:30 h. Los domingos el local está cerrado." } },
+      { "@type": "Question", "name": "¿Cómo consulto los precios?", "acceptedAnswer": { "@type": "Answer", "text": "El catálogo con precios está publicado en el WhatsApp de Bongi Bombón (+54 351 246-9011). También podés escribir por WhatsApp para consultar variedades." } },
+      { "@type": "Question", "name": "¿Tienen golosinas para cumpleaños y mesas dulces?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Bongi Bombón trabaja golosinas y snacks pensados para cumpleaños, mesas dulces, sorpresitas y fiestas. Hay promociones en el local que cambian día a día." } },
+      { "@type": "Question", "name": "¿Bongi Bombón queda cerca de Pilar?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Río Segundo y Pilar son ciudades vecinas, separadas por el río Segundo (Xanaes). El local está en Jujuy 868, Río Segundo." } }
+    ]
+  }]
+} -->
+<section class="hero" aria-labelledby="titulo-hero">
+  <canvas class="hero__canvas" aria-hidden="true"></canvas>
+  <div class="hero__jar" aria-hidden="true"><img src="/assets/brand/frasco.svg" width="500" height="680" alt="" loading="lazy" decoding="async"><span class="hero__jar-label">Bongi<br><b>Bombón</b></span></div>
+  <div class="wrap hero__inner">
+    <p class="status-pill" data-store-status><span class="status-pill__dot" aria-hidden="true"></span><span data-status-text>Lunes a sábado · 9 a 13 h y 17 a 21:30 h</span></p>
+    <h1 id="titulo-hero"><span class="hero__line">Bongi</span><span class="hero__line">Bombón</span><span class="hero__sub">El mundo de las golosinas, en Río Segundo</span></h1>
+    <p class="hero__copy">Chocolates, alfajores, gomitas, chupetines y todo el copetín para tu fiesta. Vení a Jujuy 868 o mirá los precios por WhatsApp.</p>
+    <div class="hero__actions">
+      <a class="btn btn--wa" href="{{site.whatsappCatalog}}" rel="noopener" target="_blank" data-track="whatsapp_click" data-track-label="hero_catalogo"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#whatsapp"/></svg>Ver precios por WhatsApp</a>
+      <a class="btn btn--light" href="{{site.mapsUrl}}" rel="noopener" target="_blank" data-track="maps_click" data-track-label="hero"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#pin"/></svg>Cómo llegar</a>
+    </div>
+    <ul class="hero__chips" aria-label="Accesos rápidos">
+      <li><a href="/golosinas#alfajores">Alfajores</a></li>
+      <li><a href="/golosinas#chocolates">Chocolates</a></li>
+      <li><a href="/golosinas#gomitas">Gomitas</a></li>
+      <li><a href="/golosinas#chupetines">Chupetines</a></li>
+      <li><a href="/golosinas?sector=copetin">Copetín</a></li>
+      <li><a href="/juegos">Bongi Juegos</a></li>
+    </ul>
+    <p class="hero__hint" aria-hidden="true">Tocá la pantalla: llueven confites.</p>
+  </div>
+</section>
+
+<div class="ribbon" role="note" aria-label="Novedades del local">
+  <div class="ribbon__track">
+    <span>Siempre hay una promo para vos: preguntá por el descuento del día</span><span>Golosinas y snacks para cumpleaños, mesas dulces y fiestas</span><span>Jujuy 868, Río Segundo</span>
+    <span aria-hidden="true">Siempre hay una promo para vos: preguntá por el descuento del día</span><span aria-hidden="true">Golosinas y snacks para cumpleaños, mesas dulces y fiestas</span><span aria-hidden="true">Jujuy 868, Río Segundo</span>
+  </div>
+</div>
+
+<section class="section" aria-labelledby="vidriera">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="vidriera">Lo que te espera en la vidriera</h2>
+      <p>Una muestra de lo que encontrás en el local. Las variedades cambian seguido: el catálogo con precios actualizados está en WhatsApp.</p>
+    </div>
+    {{> shelf-home}}
+    <p class="mt-l row"><a class="btn" href="/golosinas">Ver las 20 categorías</a><a class="btn btn--light" href="{{site.whatsappCatalog}}" rel="noopener" target="_blank" data-track="whatsapp_click" data-track-label="vidriera">Catálogo con precios</a></p>
+  </div>
+</section>
+
+<section class="section section--banana" aria-labelledby="como-comprar">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="como-comprar">Tu próximo antojo, en tres pasos</h2>
+      <p>Sin vueltas: mirás, consultás y pasás a buscarlo.</p>
+    </div>
+    <ol class="steps">
+      <li><h3>Mirá el catálogo</h3><p>Los precios actualizados están en el <a href="{{site.whatsappCatalog}}" rel="noopener" target="_blank" data-track="whatsapp_click" data-track-label="paso1">catálogo de WhatsApp</a>.</p></li>
+      <li><h3>Escribinos</h3><p>Contanos qué buscás o armá tu lista en la <a href="/golosinas">página de golosinas</a> y mandala por WhatsApp.</p></li>
+      <li><h3>Pasá por el local</h3><p>Te esperamos en Jujuy 868, Río Segundo, de lunes a sábado en dos turnos.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section section--cacao" aria-labelledby="juegos">
+  <div class="wrap games-teaser">
+    <div>
+      <h2 id="juegos">Bongi Juegos: jugá, divertite y sumá puntos</h2>
+      <p class="muted" style="color:#f6dbe3">Ocho minijuegos dulces para jugar desde el celu: atrapá golosinas, combiná caramelos, inflá globos de chicle, seguí la melodía de los frascos y demostrá cuánto sabés de chocolates y alfajores. Con récords, logros y un desafío nuevo cada día.</p>
+      <p class="row"><a class="btn btn--banana" href="/juegos"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#joystick"/></svg>Jugar ahora</a></p>
+    </div>
+    <ul class="game-cards pop-in" aria-label="Juegos disponibles">
+      <li><a class="game-card" style="--bg:#ffd166" href="/juegos#atrapa"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-caramelo"/></svg><div><strong>Atrapa Golosinas</strong><span>Reflejos</span></div></a></li>
+      <li><a class="game-card" style="--bg:#06d6a0" href="/juegos#memoria"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-gomita"/></svg><div><strong>Memoria Dulce</strong><span>Memoria</span></div></a></li>
+      <li><a class="game-card" style="--bg:#ff8fb1" href="/juegos#match"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-confite"/></svg><div><strong>Candy Match</strong><span>Combinar</span></div></a></li>
+      <li><a class="game-card" style="--bg:#ffb38f" href="/juegos#trivia"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-alfajor"/></svg><div><strong>Trivia dulce</strong><span>Preguntas</span></div></a></li>
+      <li><a class="game-card" style="--bg:#bfe9ff" href="/juegos#desafio"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-chupetin"/></svg><div><strong>El desafío Bongi</strong><span>Rapidez</span></div></a></li>
+      <li><a class="game-card" style="--bg:#f6dbe3" href="/juegos#carrera"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-chocolate"/></svg><div><strong>Carrera de Chocolates</strong><span>Esquivar</span></div></a></li>
+      <li><a class="game-card" style="--bg:#d9c8ff" href="/juegos#globo"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-chicle"/></svg><div><strong>Globo de Chicle</strong><span>Precisión</span></div></a></li>
+      <li><a class="game-card" style="--bg:#b8f2c8" href="/juegos#frascos"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-frasco"/></svg><div><strong>Frascos Musicales</strong><span>Ritmo</span></div></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="local" aria-labelledby="titulo-local">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="titulo-local">Bongi Bombón, tu golosinería en Río Segundo</h2>
+      <p>Estamos en Jujuy 868. Río Segundo está sobre la Ruta Nacional 9: si venís de Pilar, Toledo, Laguna Larga u Oncativo, te queda de paso.</p>
+    </div>
+    <div class="local">
+      <div class="info-card">
+        <p class="status-pill" data-store-status style="margin-bottom:20px"><span class="status-pill__dot" aria-hidden="true"></span><span data-status-text>Consultá nuestro horario</span></p>
+        <ul class="info-list">
+          <li><svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#pin"/></svg><div><strong>Dirección</strong>{{site.streetAddress}}, {{site.locality}}, {{site.region}} ({{site.postalCode}})</div></li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#clock"/></svg><div><strong>Horarios</strong>
+            <table class="hours"><caption class="sr-only">Horario de atención</caption><tbody>
+              <tr data-day="Monday,Tuesday,Wednesday,Thursday,Friday,Saturday"><td>Lunes a sábado</td><td>9 a 13 h · 17 a 21:30 h</td></tr>
+              <tr data-day="Sunday"><td>Domingo</td><td>Cerrado</td></tr>
+            </tbody></table></div></li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#whatsapp"/></svg><div><strong>WhatsApp y teléfono</strong><a href="https://wa.me/{{site.whatsapp}}" rel="noopener" target="_blank" data-track="whatsapp_click" data-track-label="local">{{site.phoneDisplay}}</a></div></li>
+        </ul>
+        <p class="row"><a class="btn btn--wa" href="https://wa.me/{{site.whatsapp}}?text=%C2%A1Hola%20Bongi%20Bomb%C3%B3n!%20Quiero%20hacer%20una%20consulta." rel="noopener" target="_blank" data-track="whatsapp_click" data-track-label="local_btn"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#whatsapp"/></svg>Escribinos</a>
+        <a class="btn btn--light" href="{{site.mapsUrl}}" rel="noopener" target="_blank" data-track="maps_click" data-track-label="local_btn">Abrir en Google Maps</a></p>
+      </div>
+      <div class="map-facade" data-map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3396.6041100860693!2d-63.91695432438356!3d-31.64468817415728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432ca53a623f127%3A0x8c39d4651655331!2sJujuy%20868%2C%20X5960%20R%C3%ADo%20Segundo%2C%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1781036842785!5m2!1ses!2sar">
+        <svg class="map-facade__art" viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="400" height="340" fill="#fde2e8"/>
+          <path d="M-10 250 C 80 230, 120 290, 210 260 S 360 220, 420 250" stroke="#bfe9ff" stroke-width="26" fill="none"/>
+          <g stroke="#fff" stroke-width="14"><path d="M0 120H400M0 190H400M90 0V340M220 0V340M320 0V340"/></g>
+          <g stroke="#ffd166" stroke-width="18"><path d="M0 60 L400 140"/></g>
+          <circle cx="220" cy="150" r="30" fill="#ef476f" opacity=".2"/>
+          <path d="M220 104a24 24 0 0 0-24 24c0 18 24 44 24 44s24-26 24-44a24 24 0 0 0-24-24" fill="#c41e4a"/><circle cx="220" cy="128" r="9" fill="#fff"/>
+        </svg>
+        <div>
+          <p style="margin:0 0 10px;font-weight:700">Jujuy 868, Río Segundo</p>
+          <button class="btn btn--sm" type="button">Cargar mapa interactivo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--blanco" aria-labelledby="resenas">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="resenas">Lo que dicen quienes nos visitan</h2>
+      <p>Comentarios de clientes del local.</p>
+    </div>
+    <ul class="reviews pop-in">
+      <li><figure class="review"><blockquote>“Excelente local de venta de golosinas y copetín para fiestas infantiles. Tienen muy buenas promos y gran variedad.”</blockquote><figcaption>Sebastián M. Castellano</figcaption></figure></li>
+      <li><figure class="review"><blockquote>“Buena atención, muy amables. Excelente calidad de productos, muy recomendable.”</blockquote><figcaption>Nora Gómez</figcaption></figure></li>
+      <li><figure class="review"><blockquote>“Recomiendo al 100 %, excelente calidad y la mejor atención.”</blockquote><figcaption>Sheila Ontivero</figcaption></figure></li>
+      <li><figure class="review"><blockquote>“Muy buena atención, además tienen muy buenos combos y precios.”</blockquote><figcaption>Thiago A. Ontivero</figcaption></figure></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="preguntas" aria-labelledby="titulo-faq">
+  <div class="wrap">
+    <div class="section-head"><h2 id="titulo-faq">Preguntas frecuentes</h2></div>
+    <div class="faq">
+      <details><summary>¿Dónde hay una golosinería en Río Segundo?</summary><div><p>Bongi Bombón está en <strong>Jujuy 868, Río Segundo, Córdoba</strong>. Vendemos golosinas, chocolates, alfajores, caramelos, gomitas, chupetines y snacks de copetín. Abrimos de lunes a sábado de 9 a 13 h y de 17 a 21:30 h.</p></div></details>
+      <details><summary>¿Qué venden en Bongi Bombón?</summary><div><p>En el sector dulce: alfajores, bombones, caramelos, chicles, chocolates, chupetines, confites, gomitas, malvaviscos, mielcitas, paletitas, pastillitas y regaliz. En el sector copetín: cascarones, chizitos, maní salado, palitos salados, papas fritas, puflitos y tutucas. Mirá todo en la <a href="/golosinas">página de golosinas</a>.</p></div></details>
+      <details><summary>¿Cuál es el horario?</summary><div><p>De lunes a sábado de 9 a 13 h y de 17 a 21:30 h. Los domingos el local está cerrado.</p></div></details>
+      <details><summary>¿Cómo consulto los precios?</summary><div><p>El catálogo con precios está en nuestro <a href="{{site.whatsappCatalog}}" rel="noopener" target="_blank" data-track="whatsapp_click" data-track-label="faq">WhatsApp ({{site.phoneDisplay}})</a>. También podés escribirnos para consultar variedades.</p></div></details>
+      <details><summary>¿Tienen golosinas para cumpleaños y mesas dulces?</summary><div><p>Sí: trabajamos golosinas y snacks pensados para cumpleaños, mesas dulces, sorpresitas y fiestas, y en el local siempre hay alguna promo. Para calcular cuánto llevar, usá nuestra <a href="/blog/golosinas-para-cumpleanos">guía de golosinas para cumpleaños</a>.</p></div></details>
+      <details><summary>¿Queda cerca de Pilar?</summary><div><p>Sí. Río Segundo y Pilar son ciudades vecinas, separadas por el río Segundo (Xanaes). El local está en Jujuy 868, Río Segundo.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="section section--blanco" aria-labelledby="blog">
+  <div class="wrap">
+    <div class="section-head"><h2 id="blog">Del blog dulce</h2><p>Ideas para fiestas, curiosidades y todo lo que querías saber sobre golosinas.</p></div>
+    <ul class="cards">
+      <li class="card"><span class="card__kicker">Guía práctica</span><h3><a href="/blog/golosinas-para-cumpleanos">Cuántas golosinas llevar a un cumpleaños</a></h3><p>Una calculadora orientativa y una lista para armar la mesa dulce sin que falte ni sobre.</p></li>
+      <li class="card"><span class="card__kicker">Diccionario dulce</span><h3><a href="/blog/tipos-de-golosinas">Tipos de golosinas y sus diferencias</a></h3><p>Caramelos, gomitas, confites, mielcitas y regaliz: qué es cada uno.</p></li>
+      <li class="card"><span class="card__kicker">Curiosidades</span><h3><a href="/blog/curiosidades-del-chocolate">Curiosidades del chocolate</a></h3><p>Del cacao a la tableta: datos verificados para sorprender en la sobremesa.</p></li>
+    </ul>
+  </div>
+</section>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ic-caramelo" viewBox="0 0 64 64"><path d="M15 32 4 22c-1-1 0-2.6 1.4-2.4L17 22v20L5.4 44.4C4 44.6 3 43 4 42z" fill="#fff"/><path d="m49 32 11-10c1-1 0-2.6-1.4-2.4L47 22v20l11.6 2.4c1.4.2 2.4-1.4 1.4-2.4z" fill="#fff"/><ellipse cx="32" cy="32" rx="17" ry="14.5" fill="#ef476f"/><path d="M22 20.5c-2.6 3.4-4 7.2-4 11.5s1.4 8.1 4 11.5M32 17.5v29M42 20.5c2.6 3.4 4 7.2 4 11.5s-1.4 8.1-4 11.5" stroke="#fff" stroke-width="3" fill="none"/></symbol>
+  <symbol id="ic-gomita" viewBox="0 0 64 64"><g fill="#3b1f2b"><circle cx="21" cy="13" r="6"/><circle cx="43" cy="13" r="6"/><circle cx="32" cy="21" r="12"/><ellipse cx="32" cy="44" rx="15" ry="15"/><circle cx="17" cy="35" r="6"/><circle cx="47" cy="35" r="6"/><circle cx="21" cy="56" r="6.5"/><circle cx="43" cy="56" r="6.5"/></g></symbol>
+  <symbol id="ic-confite" viewBox="0 0 64 64"><ellipse cx="22" cy="40" rx="14" ry="11" fill="#06d6a0"/><ellipse cx="42" cy="42" rx="14" ry="11" fill="#ffd166"/><ellipse cx="32" cy="24" rx="14" ry="11" fill="#c41e4a"/></symbol>
+  <symbol id="ic-alfajor" viewBox="0 0 64 64"><ellipse cx="32" cy="42" rx="25" ry="10" fill="#4a2318"/><rect x="7" y="27" width="50" height="15" fill="#4a2318"/><rect x="7" y="31" width="50" height="5" fill="#fff3f5"/><ellipse cx="32" cy="27" rx="25" ry="10" fill="#6b3524"/></symbol>
+  <symbol id="ic-chupetin" viewBox="0 0 64 64"><rect x="29.5" y="36" width="5" height="26" rx="2.5" fill="#fff"/><circle cx="32" cy="24" r="20" fill="#ff6b35"/><path d="M32 24m0-2a2 2 0 1 1-2 2 4 4 0 0 1 4-4 6 6 0 0 1 6 6 8 8 0 0 1-8 8 10 10 0 0 1-10-10 12 12 0 0 1 12-12 14 14 0 0 1 14 14" stroke="#ffd166" stroke-width="3.2" fill="none" stroke-linecap="round"/></symbol>
+  <symbol id="ic-chicle" viewBox="0 0 64 64"><circle cx="32" cy="28" r="22" fill="#ff8fb1"/><ellipse cx="24" cy="18" rx="7" ry="3.5" fill="#fff" opacity=".6" transform="rotate(-25 24 18)"/><circle cx="32" cy="56" r="7" fill="#4a2318"/></symbol>
+  <symbol id="ic-frasco" viewBox="0 0 64 64"><rect x="14" y="6" width="36" height="9" rx="3" fill="#c41e4a"/><path d="M16 15h32v38a6 6 0 0 1-6 6H22a6 6 0 0 1-6-6z" fill="#fff" stroke="#3b1f2b" stroke-width="3"/><circle cx="26" cy="46" r="6" fill="#ef476f"/><circle cx="38" cy="48" r="6" fill="#ffd166"/><circle cx="32" cy="36" r="6" fill="#06d6a0"/><path d="M44 22v4" stroke="#3b1f2b" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="ic-chocolate" viewBox="0 0 64 64"><path d="M10 18h44v34a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4z" fill="#ef476f"/><path d="M14 8h36a4 4 0 0 1 4 4v20H10V12a4 4 0 0 1 4-4" fill="#7a3e2b"/><path d="M10 32h44v6H10z" fill="#c41e4a"/></symbol>
+</svg>

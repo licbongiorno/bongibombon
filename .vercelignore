@@ -1,0 +1,9 @@
+# No se publican: fuentes del generador, originales pesados y herramientas del agente
+src
+scripts
+docs
+assets/originales
+.agents
+.claude
+skills-lock.json
+README.md

@@ -1,0 +1,8 @@
+# Bongi Bombón — golosinería en Río Segundo, Córdoba
+# Se permite el rastreo a buscadores y asistentes de IA (búsqueda y respuestas).
+User-agent: *
+Allow: /
+Disallow: /src/
+Disallow: /scripts/
+
+Sitemap: https://bongibombon.com.ar/sitemap.xml

@@ -1,0 +1,25 @@
+{
+  "_comment": "Fuente única de datos del negocio. Todo dato marcado en docs/INFORME.md como 'a confirmar' debe validarse con el dueño antes de ampliarlo.",
+  "name": "Bongi Bombón",
+  "url": "https://bongibombon.com.ar",
+  "tagline": "El mundo de las golosinas",
+  "streetAddress": "Jujuy 868",
+  "locality": "Río Segundo",
+  "region": "Córdoba",
+  "postalCode": "X5960",
+  "country": "AR",
+  "lat": -31.6446,
+  "lng": -63.9169,
+  "phoneDisplay": "+54 351 246-9011",
+  "phoneE164": "+543512469011",
+  "whatsapp": "5493512469011",
+  "whatsappCatalog": "https://wa.me/c/5493512469011",
+  "instagram": "https://www.instagram.com/bongibombon/",
+  "facebook": "https://www.facebook.com/bongi.bombon/",
+  "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Jujuy+868%2C+R%C3%ADo+Segundo%2C+C%C3%B3rdoba",
+  "hoursText": "Lunes a sábado de 9 a 13 h y de 17 a 21:30 h",
+  "hours": [
+    { "days": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "09:00", "closes": "13:00" },
+    { "days": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "17:00", "closes": "21:30" }
+  ]
+}

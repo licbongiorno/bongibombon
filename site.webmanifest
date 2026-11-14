@@ -1,0 +1,15 @@
+{
+  "name": "Bongi Bombón — Golosinería en Río Segundo",
+  "short_name": "Bongi Bombón",
+  "description": "Golosinas, chocolates, alfajores y snacks en Río Segundo, Córdoba. Con Bongi Juegos.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff3f5",
+  "theme_color": "#ef476f",
+  "lang": "es-AR",
+  "icons": [
+    { "src": "/assets/brand/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/brand/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  { "slug": "alfajores", "name": "Alfajores", "sector": "dulce", "home": true, "desc": "El clásico argentino para la merienda o el recreo.", "alt": "Alfajores Marte blanco y negro" },
+  { "slug": "chocolates", "name": "Chocolates", "sector": "dulce", "home": true, "desc": "Tabletas y barritas para el antojo de chocolate.", "alt": "Chocolates Daqui Max de leche y maní" },
+  { "slug": "gomitas", "name": "Gomitas", "sector": "dulce", "home": true, "desc": "Gomitas de colores, con formas y sabores frutales.", "alt": "Gomitas de colores con formas de frutas y animalitos" },
+  { "slug": "chupetines", "name": "Chupetines", "sector": "dulce", "home": true, "desc": "Chupetines frutales, ideales para cumpleaños y sorpresitas.", "alt": "Bolsa de chupetines frutales Marengo" },
+  { "slug": "caramelos", "name": "Caramelos", "sector": "dulce", "home": true, "desc": "Caramelos en bolsa para piñatas, cotillón y mesas dulces.", "alt": "Bolsa de caramelos Cremosita" },
+  { "slug": "bombones", "name": "Bombones", "sector": "dulce", "home": false, "desc": "Bombones surtidos para compartir o regalar.", "alt": "Cajas de bombones Dadinho" },
+  { "slug": "confites", "name": "Confites", "sector": "dulce", "home": false, "desc": "Confites de colores para decorar tortas y mesas dulces.", "alt": "Confites de chocolate Coloreti Festa" },
+  { "slug": "chicles", "name": "Chicles", "sector": "dulce", "home": false, "desc": "Chicles frutales y ácidos para hacer globos.", "alt": "Chicles Bluper Ensalada de Frutas ácidos" },
+  { "slug": "malvaviscos", "name": "Malvaviscos", "sector": "dulce", "home": false, "desc": "Malvaviscos esponjosos, rosas y blancos.", "alt": "Malvaviscos rosados y blancos en un bowl" },
+  { "slug": "mielcitas", "name": "Mielcitas", "sector": "dulce", "home": false, "desc": "Tubitos de caramelo líquido, un clásico de kiosco.", "alt": "Mielcitas: tubitos de caramelo líquido de colores" },
+  { "slug": "paletitas", "name": "Paletitas", "sector": "dulce", "home": false, "desc": "Mini paletas frutales de colores.", "alt": "Mini paletas frutales Pico Dulce" },
+  { "slug": "pastillitas", "name": "Pastillitas", "sector": "dulce", "home": false, "desc": "Pastillas frutales en bolsa.", "alt": "Bolsas de pastillas frutales Lucky" },
+  { "slug": "regaliz", "name": "Regaliz", "sector": "dulce", "home": false, "desc": "Tiras de regaliz, también en versión ácida.", "alt": "Regaliz ácido Bull Dog" },
+  { "slug": "papas-fritas", "name": "Papas fritas", "sector": "copetin", "home": true, "desc": "Papas fritas en bolsa para la previa y el copetín.", "alt": "Bolsa de papas fritas corte clásico Tippys" },
+  { "slug": "chizitos", "name": "Chizitos", "sector": "copetin", "home": true, "desc": "Palitos de maíz sabor queso, crocantes y livianos.", "alt": "Bolsa de palitos de maíz sabor queso Tippys" },
+  { "slug": "mani-salado", "name": "Maní salado", "sector": "copetin", "home": false, "desc": "Maní salado para picar.", "alt": "Bolsa de maní salado" },
+  { "slug": "palitos-salados", "name": "Palitos salados", "sector": "copetin", "home": false, "desc": "Palitos salados crocantes.", "alt": "Bolsa de palitos salados" },
+  { "slug": "cascarones", "name": "Cascarones", "sector": "copetin", "home": true, "desc": "Cascarones sabor pizza para la mesa salada.", "alt": "Bolsa de cascarones sabor pizza Tippys" },
+  { "slug": "puflitos", "name": "Puflitos", "sector": "copetin", "home": false, "desc": "Bolitas de maíz de colores.", "alt": "Bolsa de bolitas de color Tippys" },
+  { "slug": "tutucas", "name": "Tutucas", "sector": "copetin", "home": false, "desc": "Maíz inflado azucarado, crocante y dulce.", "alt": "Bolsa de maíz inflado azucarado Tippys" }
+]

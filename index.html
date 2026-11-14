@@ -1,1224 +1,502 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bongi Bombón | Golosinas y Snacks al por Mayor en Río Segundo, Córdoba</title>
-<meta name="description" content="Golosinas, chocolates y snacks de calidad para cumpleaños, mesas dulces y fiestas. Excelentes precios, variedad y atención personalizada en Río Segundo, Córdoba.">
-<meta name="keywords" content="golosinas Río Segundo, snacks Córdoba, mesas dulces, chocolates mayorista, caramelos, copetín">
-<meta name="theme-color" content="#ff6b35">
-
-<!-- Open Graph para redes sociales -->
-<meta property="og:type" content="business.business">
-<meta property="og:title" content="Bongi Bombón | Golosinas y Snacks">
-<meta property="og:description" content="Tu parada obligatoria para sonreír. Golosinas y snacks de calidad en Río Segundo.">
-<meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect fill='%23ff6b35' width='1200' height='630'/%3E%3Ctext x='600' y='315' font-size='120' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='middle' font-family='Fredoka'%3EBONGI BOMBÓN%3C/text%3E%3C/svg%3E">
-<meta property="og:url" content="https://bongibombon.com">
-
-<!-- Preconnect a recursos externos para optimizar tiempo de conexión -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<!-- Cargar solo los pesos necesarios de Google Fonts de forma diferida -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Nunito:wght@400;700;900&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-
-<!-- Fallback si falla Google Fonts -->
-<style>
-@font-face { font-family: 'Fredoka'; src: local('Arial Bold'); }
-@font-face { font-family: 'Nunito'; src: local('Arial'); }
-</style>
-
-<!-- CSS CRÍTICO INLINE para evitar render-blocking -->
-<style>
-:root {
-    --primary: #ff6b35;
-    --secondary: #ef476f;
-    --accent: #ffd166;
-    --dark: #2b2d42;
-    --light: #ffffff;
-    --glass-bg: rgba(255, 255, 255, 0.85);
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-
-body { 
-    background: #fffaf5; 
-    color: var(--dark); 
-    overflow-x: hidden; 
-    padding-top: 40px;
-    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-}
-
-/* Scroll Progress Bar */
-.scroll-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary));
-    width: 0%;
-    z-index: 1001;
-    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
-}
-
-/* Top Banner Promo */
-.top-banner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: var(--dark);
-    color: var(--accent);
-    text-align: center;
-    padding: 10px;
-    font-weight: 800;
-    font-size: 0.95rem;
-    z-index: 1000;
-    letter-spacing: 1px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-/* Hero Section Animado */
-header {
-    min-height: calc(100vh - 40px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--light);
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(-45deg, var(--primary), var(--secondary), var(--accent), #ff9f1c);
-    background-size: 400% 400%;
-    animation: gradientMove 15s ease infinite;
-    padding: 20px;
-}
-
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Floating Bubbles */
-.bubble {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    will-change: transform;
-}
-
-.b1 { width: 150px; height: 150px; left: 8%; top: 15%; animation: float 8s infinite ease-in-out; }
-.b2 { width: 90px; height: 90px; left: 22%; bottom: 18%; animation: float 8s infinite ease-in-out 2s; }
-.b3 { width: 220px; height: 220px; right: 6%; top: 20%; animation: float 8s infinite ease-in-out 4s; }
-
-@keyframes float {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-35px) scale(1.05); }
-}
-
-/* Hero Content - Animaciones Orquestadas */
-.hero-content {
-    z-index: 2;
-    max-width: 1000px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: heroFadeIn 0.8s ease-out forwards;
-}
-
-@keyframes heroFadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Stagger animations para elementos del hero */
-.store-status-badge {
-    background: rgba(0,0,0,0.3);
-    backdrop-filter: blur(10px);
-    padding: 10px 25px;
-    border-radius: 50px;
-    font-weight: 800;
-    font-size: 1.1rem;
-    margin-bottom: 25px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    border: 1px solid rgba(255,255,255,0.4);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    animation: slideUpBounce 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    opacity: 0;
-}
-
-@keyframes slideUpBounce {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-.status-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    display: inline-block;
-    box-shadow: 0 0 10px currentColor;
-    animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-}
-
-.brand-title {
-    font-family: 'Fredoka', sans-serif;
-    font-size: clamp(4rem, 12vw, 9rem);
-    line-height: 1;
-    margin-bottom: 10px;
-    text-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    letter-spacing: -2px;
-    animation: slideUpScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s forwards;
-    opacity: 0;
-}
-
-@keyframes slideUpScale {
-    0% { opacity: 0; transform: translateY(30px) scale(0.95); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-.brand-subtitle {
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    font-weight: 900;
-    margin-bottom: 25px;
-    background: rgba(255,255,255,0.25);
-    padding: 5px 25px;
-    border-radius: 50px;
-    display: inline-block;
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.3);
-    animation: slideUpScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards;
-    opacity: 0;
-}
-
-.hero-copy {
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
-    font-weight: 700;
-    margin-bottom: 40px;
-    max-width: 700px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    line-height: 1.5;
-    animation: slideUpScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.45s forwards;
-    opacity: 0;
-}
-
-/* Buttons */
-.btn-group {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-    animation: slideUpScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards;
-    opacity: 0;
-}
-
-.btn {
-    background: var(--light);
-    color: var(--secondary);
-    padding: 18px 45px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 900;
-    font-size: 1.2rem;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    position: relative;
-    overflow: hidden;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(0,0,0,0.1);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-}
-
-.btn:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
-.btn.primary {
-    background: #06d6a0;
-    color: #fff;
-}
-
-.btn:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-}
-
-.btn:not(.primary):hover {
-    color: var(--primary);
-}
-
-/* Secciones */
-section {
-    padding: 100px 5%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 50px;
-    animation: fadeInUp 0.8s ease-out forwards;
-}
-
-h2 {
-    font-family: 'Fredoka', sans-serif;
-    font-size: 2.5rem;
-    color: var(--secondary);
-    margin-bottom: 15px;
-}
-
-.subtitle {
-    font-size: 1.2rem;
-    color: #666;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-</style>
-
-<!-- CSS DIFERIDO para el resto del contenido -->
-<style>
-/* Carruseles Dinámicos */
-.carousel-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-bottom: 60px;
-}
-
-.carousel-btn {
-    background: var(--light);
-    color: var(--secondary);
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    z-index: 10;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s;
-}
-
-.carousel-btn:hover {
-    background: var(--secondary);
-    color: #fff;
-    transform: scale(1.1);
-}
-
-.carousel-btn.prev {
-    left: -20px;
-}
-
-.carousel-btn.next {
-    right: -20px;
-}
-
-.carousel-track {
-    display: flex;
-    gap: 25px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    padding: 20px 10px;
-    -webkit-overflow-scrolling: touch;
-}
-
-.carousel-track::-webkit-scrollbar {
-    height: 8px;
-}
-
-.carousel-track::-webkit-scrollbar-track {
-    background: rgba(0,0,0,0.05);
-    border-radius: 10px;
-}
-
-.carousel-track::-webkit-scrollbar-thumb {
-    background: rgba(239, 71, 111, 0.5);
-    border-radius: 10px;
-}
-
-/* Product Cards con Skeleton Loaders */
-.product-card {
-    flex: 0 0 180px;
-    scroll-snap-align: center;
-    background: var(--glass-bg);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255,255,255,0.8);
-    padding: 25px 15px;
-    border-radius: 25px;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.04);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-}
-
-.product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(239, 71, 111, 0.15);
-    border-color: var(--secondary);
-}
-
-.product-img {
-    width: 90px;
-    height: 90px;
-    object-fit: contain;
-    margin-bottom: 15px;
-    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1));
-    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-    animation: fadeInScale 0.6s ease-out forwards;
-    opacity: 0;
-}
-
-@keyframes fadeInScale {
-    from { opacity: 0; transform: scale(0.8); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-.product-card:hover .product-img {
-    transform: scale(1.2) rotate(5deg);
-    filter: drop-shadow(0 15px 15px rgba(0,0,0,0.15));
-}
-
-.product-title {
-    font-size: 1.1rem;
-    font-weight: 800;
-    color: var(--dark);
-}
-
-/* Skeleton Loader */
-.skeleton {
-    background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
-    background-size: 200% 100%;
-    animation: shimmer 2s infinite;
-    border-radius: 10px;
-}
-
-@keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
-}
-
-.product-img.loading {
-    background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
-    background-size: 200% 100%;
-    animation: shimmer 2s infinite;
-}
-
-/* Estadísticas */
-.stats-wrapper {
-    background: linear-gradient(135deg, #fff5f5, #fff0f0);
-    border-radius: 40px;
-    padding: 60px 5%;
-    margin: 50px auto;
-    max-width: 1100px;
-    border: 1px solid rgba(239, 71, 111, 0.1);
-    animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    text-align: center;
-}
-
-.counter-box p {
-    font-weight: 800;
-    color: #666;
-    margin-top: 10px;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.counter {
-    font-family: 'Fredoka', sans-serif;
-    font-size: 4.5rem;
-    color: var(--primary);
-    line-height: 1;
-    display: inline-block;
-    font-weight: 800;
-}
-
-/* Testimonios con Loop Infinito */
-.marquee-wrapper {
-    width: 100%;
-    overflow: hidden;
-    padding: 20px 0;
-    background: #fff;
-    border-radius: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-    margin-top: 20px;
-}
-
-.marquee {
-    display: flex;
-    width: max-content;
-    animation: scrollMarquee 40s linear infinite;
-    gap: 30px;
-    padding-left: 30px;
-    will-change: transform;
-}
-
-.marquee:hover {
-    animation-play-state: paused;
-}
-
-.testimonial-box {
-    background: var(--glass-bg);
-    border: 1px solid #f0f0f0;
-    padding: 30px;
-    border-radius: 20px;
-    width: 380px;
-    flex-shrink: 0;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-}
-
-.testimonial-box:hover {
-    background: #fff;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    transform: translateY(-5px);
-    clip-path: polygon(2% 0, 100% 2%, 98% 100%, 0 98%);
-}
-
-.stars {
-    color: #ffd166;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-.testimonial-text {
-    font-style: italic;
-    color: #555;
-    font-weight: 600;
-    font-size: 1.1rem;
-    line-height: 1.5;
-}
-
-.client-name {
-    margin-top: 15px;
-    font-weight: 800;
-    color: var(--dark);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.client-name::before {
-    content: "✓";
-    color: #06d6a0;
-    font-size: 1.1rem;
-    font-weight: bold;
-}
-
-@keyframes scrollMarquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-50% - 15px)); }
-}
-
-/* Maps Container */
-.map-container {
-    border-radius: 30px;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-    margin: 0 auto;
-    max-width: 900px;
-    animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.map-container iframe {
-    width: 100%;
-    height: 450px;
-    border: none;
-}
-
-/* Social Section */
-.social-section {
-    text-align: center;
-    padding: 60px 20px;
-    background: #fff;
-    border-radius: 40px;
-    margin: 40px auto;
-    max-width: 900px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.03);
-    animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 30px;
-    flex-wrap: wrap;
-}
-
-.social-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: #fffaf5;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    color: var(--secondary);
-    text-decoration: none;
-    position: relative;
-}
-
-.social-icon svg {
-    width: 35px;
-    height: 35px;
-    fill: currentColor;
-    transition: transform 0.3s;
-}
-
-.social-icon:hover {
-    transform: translateY(-10px) scale(1.1);
-    background: var(--secondary);
-    color: #fff;
-    box-shadow: 0 15px 30px rgba(239, 71, 111, 0.3);
-}
-
-.social-icon.fb:hover {
-    background: #1877F2;
-    box-shadow: 0 15px 30px rgba(24, 119, 242, 0.3);
-}
-
-.social-icon.ig:hover {
-    background: #E4405F;
-    box-shadow: 0 15px 30px rgba(228, 64, 95, 0.3);
-}
-
-/* Footer */
-.footer {
-    background: var(--dark);
-    color: #fff;
-    padding: 80px 5% 90px;
-    margin-top: 50px;
-    border-radius: 40px 40px 0 0;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.footer-brand h2 {
-    font-family: 'Fredoka', sans-serif;
-    font-size: 2.5rem;
-    color: var(--light);
-    margin-bottom: 15px;
-}
-
-.footer-brand p {
-    color: #ccc;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.footer-col h3 {
-    font-family: 'Fredoka', sans-serif;
-    font-size: 1.3rem;
-    color: var(--accent);
-    margin-bottom: 20px;
-}
-
-.footer-col p {
-    color: #ddd;
-    margin-bottom: 12px;
-    font-size: 1.05rem;
-}
-
-.footer-col .social-footer-link {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: #ddd;
-    text-decoration: none;
-    margin-bottom: 15px;
-    font-size: 1.05rem;
-    transition: all 0.3s;
-}
-
-.footer-col .social-footer-link svg {
-    width: 22px;
-    height: 22px;
-    fill: currentColor;
-    transition: transform 0.3s;
-}
-
-.footer-col .social-footer-link:hover {
-    color: var(--accent);
-    padding-left: 5px;
-}
-
-.footer-col .social-footer-link:hover svg {
-    transform: scale(1.2);
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 60px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    color: #888;
-    font-size: 0.9rem;
-    padding-bottom: 20px;
-}
-
-/* Floating Buttons */
-.float-container {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    z-index: 999;
-}
-
-.float-btn {
-    background: #06d6a0;
-    color: #fff;
-    padding: 12px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 0.95rem;
-    box-shadow: 0 8px 20px rgba(6, 214, 160, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    border: none;
-    cursor: pointer;
-}
-
-.float-btn.catalog {
-    background: #ff9f1c;
-    box-shadow: 0 8px 20px rgba(255, 159, 28, 0.4);
-    animation: pulseCat 2s infinite;
-}
-
-.float-btn:hover {
-    transform: scale(1.05);
-}
-
-@keyframes pulseCat {
-    0% { box-shadow: 0 0 0 0 rgba(255, 159, 28, 0.6); }
-    70% { box-shadow: 0 0 0 12px rgba(255, 159, 28, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(255, 159, 28, 0); }
-}
-
-/* Reveal Animation */
-.reveal {
-    opacity: 0;
-    transform: translateY(60px);
-    transition: all 0.9s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Responsive */
-@media(max-width: 768px) {
-    section { padding: 60px 5%; }
-    .carousel-btn { display: none; }
-    .footer { border-radius: 20px 20px 0 0; padding: 50px 20px 90px; }
-    .footer-grid { text-align: center; }
-    .footer-col .social-footer-link { justify-content: center; }
-    .float-btn { padding: 10px 15px; font-size: 0.85rem; }
-    .testimonial-box { width: 90vw; }
-}
-
-/* Reduced Motion Respect */
-@media (prefers-reduced-motion: reduce) {
-    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-}
-</style>
-
-<!-- Schema.org Local Business Structured Data -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bongi Bombón | Golosinería en Río Segundo, Córdoba</title>
+<meta name="description" content="Golosinería en Jujuy 868, Río Segundo: chocolates, alfajores, gomitas, chupetines y snacks de copetín para fiestas. Precios por WhatsApp y minijuegos.">
+<link rel="canonical" href="https://bongibombon.com.ar/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#ef476f">
+<meta name="geo.region" content="AR-X">
+<meta name="geo.placename" content="Río Segundo, Córdoba">
+<meta name="geo.position" content="-31.6446;-63.9169">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="Bongi Bombón">
+<meta property="og:title" content="Bongi Bombón | Golosinería en Río Segundo, Córdoba">
+<meta property="og:description" content="Golosinería en Jujuy 868, Río Segundo: chocolates, alfajores, gomitas, chupetines y snacks de copetín para fiestas. Precios por WhatsApp y minijuegos.">
+<meta property="og:url" content="https://bongibombon.com.ar/">
+<meta property="og:image" content="https://bongibombon.com.ar/assets/brand/og-bongi-bombon.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Bongi Bombón, golosinería en Río Segundo, Córdoba">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bongi Bombón | Golosinería en Río Segundo, Córdoba">
+<meta name="twitter:description" content="Golosinería en Jujuy 868, Río Segundo: chocolates, alfajores, gomitas, chupetines y snacks de copetín para fiestas. Precios por WhatsApp y minijuegos.">
+<meta name="twitter:image" content="https://bongibombon.com.ar/assets/brand/og-bongi-bombon.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/fredoka.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/nunito.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="/css/main.css?v=2026-11-14">
+<link rel="modulepreload" href="/js/hero.js"><link rel="modulepreload" href="/js/candies.js">
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Bongi Bombón",
-  "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect fill='%23ff6b35' width='1200' height='630'/%3E%3Ctext x='600' y='315' font-size='120' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='middle' font-family='Fredoka'%3EBONGI BOMBÓN%3C/text%3E%3C/svg%3E",
-  "description": "Golosinas, chocolates y snacks de calidad para cumpleaños, mesas dulces y fiestas en Río Segundo, Córdoba.",
-  "telephone": "+54-3512-469011",
-  "email": "info@bongibombon.com",
-  "address": {
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://bongibombon.com.ar/#web",
+   "url": "https://bongibombon.com.ar/",
+   "name": "Bongi Bombón",
+   "inLanguage": "es-AR",
+   "publisher": {
+    "@id": "https://bongibombon.com.ar/#comercio"
+   }
+  },
+  {
+   "@type": "Store",
+   "@id": "https://bongibombon.com.ar/#comercio",
+   "name": "Bongi Bombón",
+   "description": "Golosinería en Río Segundo, Córdoba: golosinas, chocolates, alfajores, caramelos, gomitas y snacks de copetín para cumpleaños, mesas dulces y fiestas.",
+   "url": "https://bongibombon.com.ar/",
+   "image": "https://bongibombon.com.ar/assets/brand/og-bongi-bombon.png",
+   "logo": "https://bongibombon.com.ar/assets/brand/logo-bongi-bombon.png",
+   "telephone": "+543512469011",
+   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Jujuy 868",
     "addressLocality": "Río Segundo",
     "addressRegion": "Córdoba",
     "postalCode": "X5960",
     "addressCountry": "AR"
-  },
-  "geo": {
+   },
+   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": "-31.6446",
-    "longitude": "-63.9169"
-  },
-  "openingHoursSpecification": [
+    "latitude": -31.6446,
+    "longitude": -63.9169
+   },
+   "hasMap": "https://www.google.com/maps/search/?api=1&query=Jujuy+868%2C+R%C3%ADo+Segundo%2C+C%C3%B3rdoba",
+   "areaServed": [
     {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "09:00",
-      "closes": "13:00"
+     "@type": "City",
+     "name": "Río Segundo"
+    }
+   ],
+   "openingHoursSpecification": [
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+     ],
+     "opens": "09:00",
+     "closes": "13:00"
     },
     {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "17:00",
-      "closes": "21:30"
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+     ],
+     "opens": "17:00",
+     "closes": "21:30"
     }
-  ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "ratingCount": "50"
+   ],
+   "sameAs": [
+    "https://www.instagram.com/bongibombon/",
+    "https://www.facebook.com/bongi.bombon/"
+   ],
+   "knowsAbout": [
+    "golosinas",
+    "chocolates",
+    "alfajores",
+    "caramelos",
+    "gomitas",
+    "chupetines",
+    "confites",
+    "snacks",
+    "mesas dulces"
+   ],
+   "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Golosinas y snacks",
+    "url": "https://bongibombon.com.ar/golosinas",
+    "itemListElement": [
+     {
+      "@type": "OfferCatalog",
+      "name": "Sector dulce: alfajores, bombones, caramelos, chicles, chocolates, chupetines, confites, gomitas, malvaviscos, mielcitas, paletitas, pastillitas y regaliz"
+     },
+     {
+      "@type": "OfferCatalog",
+      "name": "Sector copetín: cascarones, chizitos, maní salado, palitos salados, papas fritas, puflitos y tutucas"
+     }
+    ]
+   }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://bongibombon.com.ar/#pagina",
+   "url": "https://bongibombon.com.ar/",
+   "name": "Bongi Bombón | Golosinería en Río Segundo, Córdoba",
+   "description": "Golosinería en Jujuy 868, Río Segundo: chocolates, alfajores, gomitas, chupetines y snacks de copetín para fiestas. Precios por WhatsApp y minijuegos.",
+   "inLanguage": "es-AR",
+   "isPartOf": {
+    "@id": "https://bongibombon.com.ar/#web"
+   },
+   "about": {
+    "@id": "https://bongibombon.com.ar/#comercio"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "¿Dónde hay una golosinería en Río Segundo?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Bongi Bombón es una golosinería ubicada en Jujuy 868, Río Segundo, Córdoba. Vende golosinas, chocolates, alfajores, caramelos, gomitas, chupetines y snacks de copetín. Abre de lunes a sábado de 9 a 13 h y de 17 a 21:30 h."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Qué venden en Bongi Bombón?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "En el sector dulce: alfajores, bombones, caramelos, chicles, chocolates, chupetines, confites, gomitas, malvaviscos, mielcitas, paletitas, pastillitas y regaliz. En el sector copetín: cascarones, chizitos, maní salado, palitos salados, papas fritas, puflitos y tutucas."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Cuál es el horario de Bongi Bombón?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "De lunes a sábado de 9 a 13 h y de 17 a 21:30 h. Los domingos el local está cerrado."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Cómo consulto los precios?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "El catálogo con precios está publicado en el WhatsApp de Bongi Bombón (+54 351 246-9011). También podés escribir por WhatsApp para consultar variedades."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Tienen golosinas para cumpleaños y mesas dulces?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sí. Bongi Bombón trabaja golosinas y snacks pensados para cumpleaños, mesas dulces, sorpresitas y fiestas. Hay promociones en el local que cambian día a día."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Bongi Bombón queda cerca de Pilar?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sí. Río Segundo y Pilar son ciudades vecinas, separadas por el río Segundo (Xanaes). El local está en Jujuy 868, Río Segundo."
+     }
+    }
+   ]
   }
+ ]
 }
 </script>
-
 </head>
-<body>
-
-<!-- Scroll Progress Bar -->
-<div class="scroll-progress"></div>
-
-<!-- Top Banner Promo -->
-<div class="top-banner">
-    🎉 SIEMPRE HAY UNA PROMOCIÓN PARA VOS - Acercate al local y descubrí el descuento del día 🎁
-</div>
-
-<!-- Hero Section -->
-<header>
-    <div class="bubble b1"></div>
-    <div class="bubble b2"></div>
-    <div class="bubble b3"></div>
-    <div class="hero-content">
-        <div id="smart-status" class="store-status-badge">
-            <span class="status-dot" style="color: #fff"></span> Cargando horario...
-        </div>
-        <h1 class="brand-title">BONGI BOMBÓN</h1>
-        <div class="brand-subtitle">Golosinas y Snack's</div>
-        <p class="hero-copy">Una selección irresistible de golosinas y snacks para cumpleaños, mesas dulces y momentos especiales. Sabores que enamoran a chicos y grandes.</p>
-        <div class="btn-group">
-            <a class="btn primary" target="_blank" href="https://wa.me/c/5493512469011" aria-label="Ver catálogo con precios en WhatsApp">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-1.96-2.36L6.5 17h11l-3.54-4.71z"/></svg>
-                Ver Catálogo con Precios
-            </a>
-            <a class="btn" href="#productos" aria-label="Explorar sabores disponibles">Explorar Sabores</a>
-        </div>
-    </div>
+<body class="">
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="logo" href="/" aria-label="Bongi Bombón, ir al inicio">
+      <svg class="logo__mark" aria-hidden="true" viewBox="0 0 64 64"><use href="/assets/brand/iconos.svg#logo-caramelo"/></svg>
+      <span class="logo__word">Bongi <span>Bombón</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu">
+      <span class="nav-toggle__bars" aria-hidden="true"></span><span class="sr-only">Abrir menú</span>
+    </button>
+    <nav id="menu" class="nav" aria-label="Principal">
+      <ul>
+        <li><a href="/golosinas">Golosinas</a></li>
+        <li><a href="/juegos">Bongi Juegos</a></li>
+        <li><a href="/#local">El local</a></li>
+        <li><a href="/blog">Blog dulce</a></li>
+      </ul>
+      <a class="btn btn--wa btn--sm nav__cta" href="https://wa.me/c/5493512469011" data-track="whatsapp_click" data-track-label="header_catalogo" rel="noopener" target="_blank">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#whatsapp"/></svg>Ver precios</a>
+    </nav>
+  </div>
 </header>
 
-<!-- Productos Section -->
-<section id="productos" class="reveal">
-    <div class="section-header">
-        <h2>Nuestro Sector Dulce</h2>
-        <p class="subtitle">Todo lo que necesitas para armar la mesa dulce y sorpresitas. Todo esto y mucho más!!!.</p>
+<main id="contenido">
+<section class="hero" aria-labelledby="titulo-hero">
+  <canvas class="hero__canvas" aria-hidden="true"></canvas>
+  <div class="hero__jar" aria-hidden="true"><img src="/assets/brand/frasco.svg" width="500" height="680" alt="" loading="lazy" decoding="async"><span class="hero__jar-label">Bongi<br><b>Bombón</b></span></div>
+  <div class="wrap hero__inner">
+    <p class="status-pill" data-store-status><span class="status-pill__dot" aria-hidden="true"></span><span data-status-text>Lunes a sábado · 9 a 13 h y 17 a 21:30 h</span></p>
+    <h1 id="titulo-hero"><span class="hero__line">Bongi</span><span class="hero__line">Bombón</span><span class="hero__sub">El mundo de las golosinas, en Río Segundo</span></h1>
+    <p class="hero__copy">Chocolates, alfajores, gomitas, chupetines y todo el copetín para tu fiesta. Vení a Jujuy 868 o mirá los precios por WhatsApp.</p>
+    <div class="hero__actions">
+      <a class="btn btn--wa" href="https://wa.me/c/5493512469011" rel="noopener" target="_blank" data-track="whatsapp_click" data-track-label="hero_catalogo"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#whatsapp"/></svg>Ver precios por WhatsApp</a>
+      <a class="btn btn--light" href="https://www.google.com/maps/search/?api=1&query=Jujuy+868%2C+R%C3%ADo+Segundo%2C+C%C3%B3rdoba" rel="noopener" target="_blank" data-track="maps_click" data-track-label="hero"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#pin"/></svg>Cómo llegar</a>
     </div>
-    
-    <div class="carousel-wrapper">
-        <button class="carousel-btn prev" onclick="scrollCarousel('track-golosinas', -1)" aria-label="Carrusel anterior de golosinas">‹</button>
-        <div class="carousel-track" id="track-golosinas">
-            <div class="product-card"><img src="assets/img/golosinas/Alfajores.png" alt="Alfajores - golosinas Río Segundo" class="product-img" width="90" height="90" loading="lazy"><div class="product-title">Alfajores</div></div>
-            <div class="product-card"><img src="assets/img/golosinas/Bombones.png" alt="Bombones - chocolates mayorista Córdoba" class="product-img" width="90" height="90" loading="lazy"><div class="product-title">Bombones</div></div>
-            <div class="product-card"><img src="assets/img/golosinas/Caramelos.png" alt="Caramelos - golosinas para fiestas" class="product-img" width="90" height="90" loading="lazy"><div class="product-title">Caramelos</div></div>
-            <div class="product-card"><img src="assets/img/golosinas/Chicles.png" alt="Chicles - golosinas variadas" class="product-img" width="90" height="90" loading="lazy"><div class="product-title">Chicles</div></div>
-            <div class="product-card"><img src="assets/img/golosinas/Chocolates.png" alt="Chocolates - snacks gourmet" class="product-img" width="90" height="90" loading="lazy"><div class="product-title">Chocolates</div></div>
-            <div class="product-card"><img src="assets/img/golosinas/Chupetines.png" alt="Chupetines - golosinas infantiles" class="product-img" width="90" height="90" loading="lazy"><div class="product-title">Chupetines</div></div>
-            <div class="product-card"><img src="assets/img/golosinas/Confites.png" alt="Confites - decoración para tortas" class="product-img" width="90" height="90" loading="lazy"><div class="product-title">Confites</div></div>
-            <div class="product-card"><img src="assets/img/golosinas/Gomitas.png" alt="Gomitas - golosinas de frutas" class="product-img" width="90" height="90" loading="lazy"><div class="product-title">Gomitas</div></div>
-            <div class="product-card"><img src="assets/img/golosinas/Malvaviscos.png" alt="Malvaviscos - snacks dulces" class="product-img" width="90" height="90" loading="lazy"><div class="product-title">Malvaviscos</div></div>
-            <div class="product-card"><img src="assets/img/golosinas/Mielcitas.png" alt="Mielcitas - golosinas con miel" class="product-img" width="90" height="90" loading="lazy"><div class="product-title">Mielcitas</div></div>
-            <div class="product-card"><img src="assets/img/golosinas/Paletitas.png" alt="Paletitas - caramelos populares" class="product-img" width="90" height="90" loading="lazy"><div class="product-title">Paletitas</div></div>
-            <div class="product-card"><img src="assets/img/golosinas/Pastillitas.png" alt="Pastillitas - golosinas de menta" class="product-img" width="90" height="90" loading="lazy"><div class="product-title">Pastillitas</div></div>
-            <div class="product-card"><img src="assets/img/golosinas/Regaliz.png" alt="Regaliz - golosinas clásicas" class="product-img" width="90" height="90" loading="lazy"><div class="product-title">Regaliz</div></div>
-        </div>
-        <button class="carousel-btn next" onclick="scrollCarousel('track-golosinas', 1)" aria-label="Carrusel siguiente de golosinas">›</button>
-    </div>
-
-    <div class="section-header" style="margin-top: 80px;">
-        <h2>Sector Copetín</h2>
-        <p class="subtitle">El copetín ideal para previas y festejos.</p>
-    </div>
-    
-    <div class="carousel-wrapper">
-        <button class="carousel-btn prev" onclick="scrollCarousel('track-snacks', -1)" aria-label="Carrusel anterior de snacks">‹</button>
-        <div class="carousel-track" id="track-snacks">
-            <div class="product-card"><img src="assets/img/snacks/Cascarones.png" alt="Cascarones - snacks salados" class="product-img" width="90" height="90" loading="lazy"><div class="product-title">Cascarones</div></div>
-            <div class="product-card"><img src="assets/img/snacks/Chizitos.png" alt="Chizitos - copetín popular" class="product-img" width="90" height="90" loading="lazy"><div class="product-title">Chizitos</div></div>
-            <div class="product-card"><img src="assets/img/snacks/Mani Salado.png" alt="Maní Salado - snacks nutritivos" class="product-img" width="90" height="90" loading="lazy"><div class="product-title">Maní Salado</div></div>
-            <div class="product-card"><img src="assets/img/snacks/Palitos Salados.png" alt="Palitos Salados - copetín crujiente" class="product-img" width="90" height="90" loading="lazy"><div class="product-title">Palitos Salados</div></div>
-            <div class="product-card"><img src="assets/img/snacks/Papas.png" alt="Papas Fritas - snacks clásicos" class="product-img" width="90" height="90" loading="lazy"><div class="product-title">Papas Fritas</div></div>
-            <div class="product-card"><img src="assets/img/snacks/Puflitos.png" alt="Puflitos - snacks de maíz" class="product-img" width="90" height="90" loading="lazy"><div class="product-title">Puflitos</div></div>
-            <div class="product-card"><img src="assets/img/snacks/Tutucas.png" alt="Tutucas - copetín crocante" class="product-img" width="90" height="90" loading="lazy"><div class="product-title">Tutucas</div></div>
-        </div>
-        <button class="carousel-btn next" onclick="scrollCarousel('track-snacks', 1)" aria-label="Carrusel siguiente de snacks">›</button>
-    </div>
+    <ul class="hero__chips" aria-label="Accesos rápidos">
+      <li><a href="/golosinas#alfajores">Alfajores</a></li>
+      <li><a href="/golosinas#chocolates">Chocolates</a></li>
+      <li><a href="/golosinas#gomitas">Gomitas</a></li>
+      <li><a href="/golosinas#chupetines">Chupetines</a></li>
+      <li><a href="/golosinas?sector=copetin">Copetín</a></li>
+      <li><a href="/juegos">Bongi Juegos</a></li>
+    </ul>
+    <p class="hero__hint" aria-hidden="true">Tocá la pantalla: llueven confites.</p>
+  </div>
 </section>
 
-<!-- Stats Section -->
-<div class="stats-wrapper reveal">
-    <div class="stats-grid">
-        <div class="counter-box"><div class="counter" data-target="99.9" data-suffix="%">0</div><p>Clientes Felices</p></div>
-        <div class="counter-box"><div class="counter" data-target="1500" data-suffix="+">0</div><p>Sonrisas entregadas</p></div>
-        <div class="counter-box"><div class="counter" data-target="10" data-suffix="+">0</div><p>Años de trayectoria</p></div>
-    </div>
+<div class="ribbon" role="note" aria-label="Novedades del local">
+  <div class="ribbon__track">
+    <span>Siempre hay una promo para vos: preguntá por el descuento del día</span><span>Golosinas y snacks para cumpleaños, mesas dulces y fiestas</span><span>Jujuy 868, Río Segundo</span>
+    <span aria-hidden="true">Siempre hay una promo para vos: preguntá por el descuento del día</span><span aria-hidden="true">Golosinas y snacks para cumpleaños, mesas dulces y fiestas</span><span aria-hidden="true">Jujuy 868, Río Segundo</span>
+  </div>
 </div>
 
-<!-- Testimonios Section -->
-<section class="reveal">
-    <div class="section-header">
-        <h2>Lo que dicen nuestros clientes</h2>
-        <p class="subtitle">Opiniones reales de quienes nos eligen todos los días en Río Segundo.</p>
+<section class="section" aria-labelledby="vidriera">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="vidriera">Lo que te espera en la vidriera</h2>
+      <p>Una muestra de lo que encontrás en el local. Las variedades cambian seguido: el catálogo con precios actualizados está en WhatsApp.</p>
     </div>
-    <div class="marquee-wrapper">
-        <div class="marquee">
-            <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Son excelentes! El mejor precio y calidad."</p><div class="client-name">Lic Nicolas Bongiorno</div></div>
-            <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Excelente local de venta de golosinas y copetín para fiestas infantiles. Tienen muy buenas promos y gran variedad."</p><div class="client-name">Sebastián M. Castellano</div></div>
-            <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Buena atención, muy amables.. excelente calidad de productos.. muy recomendable."</p><div class="client-name">Nora Gomez</div></div>
-            <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Excelente atención, comodidad, precios y combos muy buenos... vuelvo siempre!!!!!!"</p><div class="client-name">Gochy Bongiorno</div></div>
-            <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Recomiendo al 100%, excelente calidad y la mejor atención..."</p><div class="client-name">Sheila Ontivero</div></div>
-            <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Muy buena atención además de que tienen muy buenos combos y precios!!"</p><div class="client-name">Thiago A. Ontivero</div></div>
-            
-            <!-- Loop infinito duplicado -->
-            <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Son excelentes! El mejor precio y calidad."</p><div class="client-name">Lic Nicolas Bongiorno</div></div>
-            <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Excelente local de venta de golosinas y copetín para fiestas infantiles. Tienen muy buenas promos y gran variedad."</p><div class="client-name">Sebastián M. Castellano</div></div>
-            <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Buena atención, muy amables.. excelente calidad de productos.. muy recomendable."</p><div class="client-name">Nora Gomez</div></div>
-            <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Excelente atención, comodidad, precios y combos muy buenos... vuelvo siempre!!!!!!"</p><div class="client-name">Gochy Bongiorno</div></div>
-            <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Recomiendo al 100%, excelente calidad y la mejor atención..."</p><div class="client-name">Sheila Ontivero</div></div>
-            <div class="testimonial-box"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Muy buena atención además de que tienen muy buenos combos y precios!!"</p><div class="client-name">Thiago A. Ontivero</div></div>
-        </div>
-    </div>
+    <ul class="shelf pop-in">
+  <li class="jar">
+    <picture>
+      <source type="image/avif" srcset="/assets/img/productos/alfajores-360.avif 360w, /assets/img/productos/alfajores-720.avif 720w" sizes="(min-width: 1000px) 270px, (min-width: 640px) 31vw, 46vw">
+      <img class="jar__img" src="/assets/img/productos/alfajores-360.webp" srcset="/assets/img/productos/alfajores-360.webp 360w, /assets/img/productos/alfajores-720.webp 720w" sizes="(min-width: 1000px) 270px, (min-width: 640px) 31vw, 46vw" width="360" height="450" alt="Alfajores Marte blanco y negro" loading="lazy" decoding="async">
+    </picture>
+    <div class="jar__body"><h3 class="jar__name"><a href="/golosinas#alfajores" data-track="category_view" data-track-label="alfajores">Alfajores</a></h3><span class="jar__tag">Dulce</span></div>
+  </li>
+  <li class="jar">
+    <picture>
+      <source type="image/avif" srcset="/assets/img/productos/chocolates-360.avif 360w, /assets/img/productos/chocolates-720.avif 720w" sizes="(min-width: 1000px) 270px, (min-width: 640px) 31vw, 46vw">
+      <img class="jar__img" src="/assets/img/productos/chocolates-360.webp" srcset="/assets/img/productos/chocolates-360.webp 360w, /assets/img/productos/chocolates-720.webp 720w" sizes="(min-width: 1000px) 270px, (min-width: 640px) 31vw, 46vw" width="360" height="450" alt="Chocolates Daqui Max de leche y maní" loading="lazy" decoding="async">
+    </picture>
+    <div class="jar__body"><h3 class="jar__name"><a href="/golosinas#chocolates" data-track="category_view" data-track-label="chocolates">Chocolates</a></h3><span class="jar__tag">Dulce</span></div>
+  </li>
+  <li class="jar">
+    <picture>
+      <source type="image/avif" srcset="/assets/img/productos/gomitas-360.avif 360w, /assets/img/productos/gomitas-720.avif 720w" sizes="(min-width: 1000px) 270px, (min-width: 640px) 31vw, 46vw">
+      <img class="jar__img" src="/assets/img/productos/gomitas-360.webp" srcset="/assets/img/productos/gomitas-360.webp 360w, /assets/img/productos/gomitas-720.webp 720w" sizes="(min-width: 1000px) 270px, (min-width: 640px) 31vw, 46vw" width="360" height="450" alt="Gomitas de colores con formas de frutas y animalitos" loading="lazy" decoding="async">
+    </picture>
+    <div class="jar__body"><h3 class="jar__name"><a href="/golosinas#gomitas" data-track="category_view" data-track-label="gomitas">Gomitas</a></h3><span class="jar__tag">Dulce</span></div>
+  </li>
+  <li class="jar">
+    <picture>
+      <source type="image/avif" srcset="/assets/img/productos/chupetines-360.avif 360w, /assets/img/productos/chupetines-720.avif 720w" sizes="(min-width: 1000px) 270px, (min-width: 640px) 31vw, 46vw">
+      <img class="jar__img" src="/assets/img/productos/chupetines-360.webp" srcset="/assets/img/productos/chupetines-360.webp 360w, /assets/img/productos/chupetines-720.webp 720w" sizes="(min-width: 1000px) 270px, (min-width: 640px) 31vw, 46vw" width="360" height="450" alt="Bolsa de chupetines frutales Marengo" loading="lazy" decoding="async">
+    </picture>
+    <div class="jar__body"><h3 class="jar__name"><a href="/golosinas#chupetines" data-track="category_view" data-track-label="chupetines">Chupetines</a></h3><span class="jar__tag">Dulce</span></div>
+  </li>
+  <li class="jar">
+    <picture>
+      <source type="image/avif" srcset="/assets/img/productos/caramelos-360.avif 360w, /assets/img/productos/caramelos-720.avif 720w" sizes="(min-width: 1000px) 270px, (min-width: 640px) 31vw, 46vw">
+      <img class="jar__img" src="/assets/img/productos/caramelos-360.webp" srcset="/assets/img/productos/caramelos-360.webp 360w, /assets/img/productos/caramelos-720.webp 720w" sizes="(min-width: 1000px) 270px, (min-width: 640px) 31vw, 46vw" width="360" height="450" alt="Bolsa de caramelos Cremosita" loading="lazy" decoding="async">
+    </picture>
+    <div class="jar__body"><h3 class="jar__name"><a href="/golosinas#caramelos" data-track="category_view" data-track-label="caramelos">Caramelos</a></h3><span class="jar__tag">Dulce</span></div>
+  </li>
+  <li class="jar">
+    <picture>
+      <source type="image/avif" srcset="/assets/img/productos/papas-fritas-360.avif 360w, /assets/img/productos/papas-fritas-720.avif 720w" sizes="(min-width: 1000px) 270px, (min-width: 640px) 31vw, 46vw">
+      <img class="jar__img" src="/assets/img/productos/papas-fritas-360.webp" srcset="/assets/img/productos/papas-fritas-360.webp 360w, /assets/img/productos/papas-fritas-720.webp 720w" sizes="(min-width: 1000px) 270px, (min-width: 640px) 31vw, 46vw" width="360" height="450" alt="Bolsa de papas fritas corte clásico Tippys" loading="lazy" decoding="async">
+    </picture>
+    <div class="jar__body"><h3 class="jar__name"><a href="/golosinas#papas-fritas" data-track="category_view" data-track-label="papas-fritas">Papas fritas</a></h3><span class="jar__tag jar__tag--salado">Copetín</span></div>
+  </li>
+  <li class="jar">
+    <picture>
+      <source type="image/avif" srcset="/assets/img/productos/chizitos-360.avif 360w, /assets/img/productos/chizitos-720.avif 720w" sizes="(min-width: 1000px) 270px, (min-width: 640px) 31vw, 46vw">
+      <img class="jar__img" src="/assets/img/productos/chizitos-360.webp" srcset="/assets/img/productos/chizitos-360.webp 360w, /assets/img/productos/chizitos-720.webp 720w" sizes="(min-width: 1000px) 270px, (min-width: 640px) 31vw, 46vw" width="360" height="450" alt="Bolsa de palitos de maíz sabor queso Tippys" loading="lazy" decoding="async">
+    </picture>
+    <div class="jar__body"><h3 class="jar__name"><a href="/golosinas#chizitos" data-track="category_view" data-track-label="chizitos">Chizitos</a></h3><span class="jar__tag jar__tag--salado">Copetín</span></div>
+  </li>
+  <li class="jar">
+    <picture>
+      <source type="image/avif" srcset="/assets/img/productos/cascarones-360.avif 360w, /assets/img/productos/cascarones-720.avif 720w" sizes="(min-width: 1000px) 270px, (min-width: 640px) 31vw, 46vw">
+      <img class="jar__img" src="/assets/img/productos/cascarones-360.webp" srcset="/assets/img/productos/cascarones-360.webp 360w, /assets/img/productos/cascarones-720.webp 720w" sizes="(min-width: 1000px) 270px, (min-width: 640px) 31vw, 46vw" width="360" height="450" alt="Bolsa de cascarones sabor pizza Tippys" loading="lazy" decoding="async">
+    </picture>
+    <div class="jar__body"><h3 class="jar__name"><a href="/golosinas#cascarones" data-track="category_view" data-track-label="cascarones">Cascarones</a></h3><span class="jar__tag jar__tag--salado">Copetín</span></div>
+  </li>
+</ul>
+    <p class="mt-l row"><a class="btn" href="/golosinas">Ver las 20 categorías</a><a class="btn btn--light" href="https://wa.me/c/5493512469011" rel="noopener" target="_blank" data-track="whatsapp_click" data-track-label="vidriera">Catálogo con precios</a></p>
+  </div>
 </section>
 
-<!-- Maps Section -->
-<section class="reveal">
-    <div class="section-header">
-        <h2>Encontranos acá</h2>
-        <p class="subtitle">Vení a visitarnos y llevate tus golosinas favoritas.</p>
+<section class="section section--banana" aria-labelledby="como-comprar">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="como-comprar">Tu próximo antojo, en tres pasos</h2>
+      <p>Sin vueltas: mirás, consultás y pasás a buscarlo.</p>
     </div>
-    <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3396.6041100860693!2d-63.91695432438356!3d-31.64468817415728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432ca53a623f127%3A0x8c39d4651655331!2sJujuy%20868%2C%20X5960%20R%C3%ADo%20Segundo%2C%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1781036842785!5m2!1ses!2sar" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
+    <ol class="steps">
+      <li><h3>Mirá el catálogo</h3><p>Los precios actualizados están en el <a href="https://wa.me/c/5493512469011" rel="noopener" target="_blank" data-track="whatsapp_click" data-track-label="paso1">catálogo de WhatsApp</a>.</p></li>
+      <li><h3>Escribinos</h3><p>Contanos qué buscás o armá tu lista en la <a href="/golosinas">página de golosinas</a> y mandala por WhatsApp.</p></li>
+      <li><h3>Pasá por el local</h3><p>Te esperamos en Jujuy 868, Río Segundo, de lunes a sábado en dos turnos.</p></li>
+    </ol>
+  </div>
 </section>
 
-<!-- Social Section -->
-<div class="social-section reveal">
-    <h2 style="margin-bottom: 10px;">Sumate a nuestra comunidad</h2>
-    <p class="subtitle">Enterate de las últimas promociones, ingresos y sorteos exclusivos en nuestras redes sociales.</p>
-    <div class="social-links">
-        <a href="https://www.instagram.com/bongibombon/" target="_blank" class="social-icon ig" aria-label="Síguenos en Instagram">
-            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        </a>
-        <a href="https://www.facebook.com/bongi.bombon/" target="_blank" class="social-icon fb" aria-label="Síguenos en Facebook">
-            <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.597 0 0 .597 0 1.325v21.351C0 23.403.597 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.597 1.323-1.324V1.325C24 .597 23.403 0 22.675 0z"/></svg>
-        </a>
+<section class="section section--cacao" aria-labelledby="juegos">
+  <div class="wrap games-teaser">
+    <div>
+      <h2 id="juegos">Bongi Juegos: jugá, divertite y sumá puntos</h2>
+      <p class="muted" style="color:#f6dbe3">Ocho minijuegos dulces para jugar desde el celu: atrapá golosinas, combiná caramelos, inflá globos de chicle, seguí la melodía de los frascos y demostrá cuánto sabés de chocolates y alfajores. Con récords, logros y un desafío nuevo cada día.</p>
+      <p class="row"><a class="btn btn--banana" href="/juegos"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#joystick"/></svg>Jugar ahora</a></p>
     </div>
-</div>
+    <ul class="game-cards pop-in" aria-label="Juegos disponibles">
+      <li><a class="game-card" style="--bg:#ffd166" href="/juegos#atrapa"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-caramelo"/></svg><div><strong>Atrapa Golosinas</strong><span>Reflejos</span></div></a></li>
+      <li><a class="game-card" style="--bg:#06d6a0" href="/juegos#memoria"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-gomita"/></svg><div><strong>Memoria Dulce</strong><span>Memoria</span></div></a></li>
+      <li><a class="game-card" style="--bg:#ff8fb1" href="/juegos#match"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-confite"/></svg><div><strong>Candy Match</strong><span>Combinar</span></div></a></li>
+      <li><a class="game-card" style="--bg:#ffb38f" href="/juegos#trivia"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-alfajor"/></svg><div><strong>Trivia dulce</strong><span>Preguntas</span></div></a></li>
+      <li><a class="game-card" style="--bg:#bfe9ff" href="/juegos#desafio"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-chupetin"/></svg><div><strong>El desafío Bongi</strong><span>Rapidez</span></div></a></li>
+      <li><a class="game-card" style="--bg:#f6dbe3" href="/juegos#carrera"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-chocolate"/></svg><div><strong>Carrera de Chocolates</strong><span>Esquivar</span></div></a></li>
+      <li><a class="game-card" style="--bg:#d9c8ff" href="/juegos#globo"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-chicle"/></svg><div><strong>Globo de Chicle</strong><span>Precisión</span></div></a></li>
+      <li><a class="game-card" style="--bg:#b8f2c8" href="/juegos#frascos"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-frasco"/></svg><div><strong>Frascos Musicales</strong><span>Ritmo</span></div></a></li>
+    </ul>
+  </div>
+</section>
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="footer-grid">
-        <div class="footer-brand">
-            <h2>BONGI BOMBÓN</h2>
-            <p>Tu parada obligatoria para sonreír en Río Segundo.</p>
-        </div>
-        <div class="footer-col">
-            <h3>Visitanos</h3>
-            <p>📍 Jujuy 868, Río Segundo, Córdoba</p>
-            <p>🕒 Lun a Sáb: 9 a 13hs / 17 a 21:30hs</p>
-            <p>☎️ <a href="tel:+543512469011" style="color: inherit; text-decoration: none;">+54 351 2469011</a></p>
-        </div>
+<section class="section" id="local" aria-labelledby="titulo-local">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="titulo-local">Bongi Bombón, tu golosinería en Río Segundo</h2>
+      <p>Estamos en Jujuy 868. Río Segundo está sobre la Ruta Nacional 9: si venís de Pilar, Toledo, Laguna Larga u Oncativo, te queda de paso.</p>
     </div>
-    <div class="footer-bottom">
-        <p>© 2026 Bongi Bombón. Todos los derechos reservados. Diseñado para entregar sonrisas. 😊</p>
+    <div class="local">
+      <div class="info-card">
+        <p class="status-pill" data-store-status style="margin-bottom:20px"><span class="status-pill__dot" aria-hidden="true"></span><span data-status-text>Consultá nuestro horario</span></p>
+        <ul class="info-list">
+          <li><svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#pin"/></svg><div><strong>Dirección</strong>Jujuy 868, Río Segundo, Córdoba (X5960)</div></li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#clock"/></svg><div><strong>Horarios</strong>
+            <table class="hours"><caption class="sr-only">Horario de atención</caption><tbody>
+              <tr data-day="Monday,Tuesday,Wednesday,Thursday,Friday,Saturday"><td>Lunes a sábado</td><td>9 a 13 h · 17 a 21:30 h</td></tr>
+              <tr data-day="Sunday"><td>Domingo</td><td>Cerrado</td></tr>
+            </tbody></table></div></li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#whatsapp"/></svg><div><strong>WhatsApp y teléfono</strong><a href="https://wa.me/5493512469011" rel="noopener" target="_blank" data-track="whatsapp_click" data-track-label="local">+54 351 246-9011</a></div></li>
+        </ul>
+        <p class="row"><a class="btn btn--wa" href="https://wa.me/5493512469011?text=%C2%A1Hola%20Bongi%20Bomb%C3%B3n!%20Quiero%20hacer%20una%20consulta." rel="noopener" target="_blank" data-track="whatsapp_click" data-track-label="local_btn"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#whatsapp"/></svg>Escribinos</a>
+        <a class="btn btn--light" href="https://www.google.com/maps/search/?api=1&query=Jujuy+868%2C+R%C3%ADo+Segundo%2C+C%C3%B3rdoba" rel="noopener" target="_blank" data-track="maps_click" data-track-label="local_btn">Abrir en Google Maps</a></p>
+      </div>
+      <div class="map-facade" data-map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3396.6041100860693!2d-63.91695432438356!3d-31.64468817415728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432ca53a623f127%3A0x8c39d4651655331!2sJujuy%20868%2C%20X5960%20R%C3%ADo%20Segundo%2C%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1781036842785!5m2!1ses!2sar">
+        <svg class="map-facade__art" viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="400" height="340" fill="#fde2e8"/>
+          <path d="M-10 250 C 80 230, 120 290, 210 260 S 360 220, 420 250" stroke="#bfe9ff" stroke-width="26" fill="none"/>
+          <g stroke="#fff" stroke-width="14"><path d="M0 120H400M0 190H400M90 0V340M220 0V340M320 0V340"/></g>
+          <g stroke="#ffd166" stroke-width="18"><path d="M0 60 L400 140"/></g>
+          <circle cx="220" cy="150" r="30" fill="#ef476f" opacity=".2"/>
+          <path d="M220 104a24 24 0 0 0-24 24c0 18 24 44 24 44s24-26 24-44a24 24 0 0 0-24-24" fill="#c41e4a"/><circle cx="220" cy="128" r="9" fill="#fff"/>
+        </svg>
+        <div>
+          <p style="margin:0 0 10px;font-weight:700">Jujuy 868, Río Segundo</p>
+          <button class="btn btn--sm" type="button">Cargar mapa interactivo</button>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
+
+<section class="section section--blanco" aria-labelledby="resenas">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="resenas">Lo que dicen quienes nos visitan</h2>
+      <p>Comentarios de clientes del local.</p>
+    </div>
+    <ul class="reviews pop-in">
+      <li><figure class="review"><blockquote>“Excelente local de venta de golosinas y copetín para fiestas infantiles. Tienen muy buenas promos y gran variedad.”</blockquote><figcaption>Sebastián M. Castellano</figcaption></figure></li>
+      <li><figure class="review"><blockquote>“Buena atención, muy amables. Excelente calidad de productos, muy recomendable.”</blockquote><figcaption>Nora Gómez</figcaption></figure></li>
+      <li><figure class="review"><blockquote>“Recomiendo al 100 %, excelente calidad y la mejor atención.”</blockquote><figcaption>Sheila Ontivero</figcaption></figure></li>
+      <li><figure class="review"><blockquote>“Muy buena atención, además tienen muy buenos combos y precios.”</blockquote><figcaption>Thiago A. Ontivero</figcaption></figure></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="preguntas" aria-labelledby="titulo-faq">
+  <div class="wrap">
+    <div class="section-head"><h2 id="titulo-faq">Preguntas frecuentes</h2></div>
+    <div class="faq">
+      <details><summary>¿Dónde hay una golosinería en Río Segundo?</summary><div><p>Bongi Bombón está en <strong>Jujuy 868, Río Segundo, Córdoba</strong>. Vendemos golosinas, chocolates, alfajores, caramelos, gomitas, chupetines y snacks de copetín. Abrimos de lunes a sábado de 9 a 13 h y de 17 a 21:30 h.</p></div></details>
+      <details><summary>¿Qué venden en Bongi Bombón?</summary><div><p>En el sector dulce: alfajores, bombones, caramelos, chicles, chocolates, chupetines, confites, gomitas, malvaviscos, mielcitas, paletitas, pastillitas y regaliz. En el sector copetín: cascarones, chizitos, maní salado, palitos salados, papas fritas, puflitos y tutucas. Mirá todo en la <a href="/golosinas">página de golosinas</a>.</p></div></details>
+      <details><summary>¿Cuál es el horario?</summary><div><p>De lunes a sábado de 9 a 13 h y de 17 a 21:30 h. Los domingos el local está cerrado.</p></div></details>
+      <details><summary>¿Cómo consulto los precios?</summary><div><p>El catálogo con precios está en nuestro <a href="https://wa.me/c/5493512469011" rel="noopener" target="_blank" data-track="whatsapp_click" data-track-label="faq">WhatsApp (+54 351 246-9011)</a>. También podés escribirnos para consultar variedades.</p></div></details>
+      <details><summary>¿Tienen golosinas para cumpleaños y mesas dulces?</summary><div><p>Sí: trabajamos golosinas y snacks pensados para cumpleaños, mesas dulces, sorpresitas y fiestas, y en el local siempre hay alguna promo. Para calcular cuánto llevar, usá nuestra <a href="/blog/golosinas-para-cumpleanos">guía de golosinas para cumpleaños</a>.</p></div></details>
+      <details><summary>¿Queda cerca de Pilar?</summary><div><p>Sí. Río Segundo y Pilar son ciudades vecinas, separadas por el río Segundo (Xanaes). El local está en Jujuy 868, Río Segundo.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="section section--blanco" aria-labelledby="blog">
+  <div class="wrap">
+    <div class="section-head"><h2 id="blog">Del blog dulce</h2><p>Ideas para fiestas, curiosidades y todo lo que querías saber sobre golosinas.</p></div>
+    <ul class="cards">
+      <li class="card"><span class="card__kicker">Guía práctica</span><h3><a href="/blog/golosinas-para-cumpleanos">Cuántas golosinas llevar a un cumpleaños</a></h3><p>Una calculadora orientativa y una lista para armar la mesa dulce sin que falte ni sobre.</p></li>
+      <li class="card"><span class="card__kicker">Diccionario dulce</span><h3><a href="/blog/tipos-de-golosinas">Tipos de golosinas y sus diferencias</a></h3><p>Caramelos, gomitas, confites, mielcitas y regaliz: qué es cada uno.</p></li>
+      <li class="card"><span class="card__kicker">Curiosidades</span><h3><a href="/blog/curiosidades-del-chocolate">Curiosidades del chocolate</a></h3><p>Del cacao a la tableta: datos verificados para sorprender en la sobremesa.</p></li>
+    </ul>
+  </div>
+</section>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ic-caramelo" viewBox="0 0 64 64"><path d="M15 32 4 22c-1-1 0-2.6 1.4-2.4L17 22v20L5.4 44.4C4 44.6 3 43 4 42z" fill="#fff"/><path d="m49 32 11-10c1-1 0-2.6-1.4-2.4L47 22v20l11.6 2.4c1.4.2 2.4-1.4 1.4-2.4z" fill="#fff"/><ellipse cx="32" cy="32" rx="17" ry="14.5" fill="#ef476f"/><path d="M22 20.5c-2.6 3.4-4 7.2-4 11.5s1.4 8.1 4 11.5M32 17.5v29M42 20.5c2.6 3.4 4 7.2 4 11.5s-1.4 8.1-4 11.5" stroke="#fff" stroke-width="3" fill="none"/></symbol>
+  <symbol id="ic-gomita" viewBox="0 0 64 64"><g fill="#3b1f2b"><circle cx="21" cy="13" r="6"/><circle cx="43" cy="13" r="6"/><circle cx="32" cy="21" r="12"/><ellipse cx="32" cy="44" rx="15" ry="15"/><circle cx="17" cy="35" r="6"/><circle cx="47" cy="35" r="6"/><circle cx="21" cy="56" r="6.5"/><circle cx="43" cy="56" r="6.5"/></g></symbol>
+  <symbol id="ic-confite" viewBox="0 0 64 64"><ellipse cx="22" cy="40" rx="14" ry="11" fill="#06d6a0"/><ellipse cx="42" cy="42" rx="14" ry="11" fill="#ffd166"/><ellipse cx="32" cy="24" rx="14" ry="11" fill="#c41e4a"/></symbol>
+  <symbol id="ic-alfajor" viewBox="0 0 64 64"><ellipse cx="32" cy="42" rx="25" ry="10" fill="#4a2318"/><rect x="7" y="27" width="50" height="15" fill="#4a2318"/><rect x="7" y="31" width="50" height="5" fill="#fff3f5"/><ellipse cx="32" cy="27" rx="25" ry="10" fill="#6b3524"/></symbol>
+  <symbol id="ic-chupetin" viewBox="0 0 64 64"><rect x="29.5" y="36" width="5" height="26" rx="2.5" fill="#fff"/><circle cx="32" cy="24" r="20" fill="#ff6b35"/><path d="M32 24m0-2a2 2 0 1 1-2 2 4 4 0 0 1 4-4 6 6 0 0 1 6 6 8 8 0 0 1-8 8 10 10 0 0 1-10-10 12 12 0 0 1 12-12 14 14 0 0 1 14 14" stroke="#ffd166" stroke-width="3.2" fill="none" stroke-linecap="round"/></symbol>
+  <symbol id="ic-chicle" viewBox="0 0 64 64"><circle cx="32" cy="28" r="22" fill="#ff8fb1"/><ellipse cx="24" cy="18" rx="7" ry="3.5" fill="#fff" opacity=".6" transform="rotate(-25 24 18)"/><circle cx="32" cy="56" r="7" fill="#4a2318"/></symbol>
+  <symbol id="ic-frasco" viewBox="0 0 64 64"><rect x="14" y="6" width="36" height="9" rx="3" fill="#c41e4a"/><path d="M16 15h32v38a6 6 0 0 1-6 6H22a6 6 0 0 1-6-6z" fill="#fff" stroke="#3b1f2b" stroke-width="3"/><circle cx="26" cy="46" r="6" fill="#ef476f"/><circle cx="38" cy="48" r="6" fill="#ffd166"/><circle cx="32" cy="36" r="6" fill="#06d6a0"/><path d="M44 22v4" stroke="#3b1f2b" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="ic-chocolate" viewBox="0 0 64 64"><path d="M10 18h44v34a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4z" fill="#ef476f"/><path d="M14 8h36a4 4 0 0 1 4 4v20H10V12a4 4 0 0 1 4-4" fill="#7a3e2b"/><path d="M10 32h44v6H10z" fill="#c41e4a"/></symbol>
+</svg>
+
+</main>
+<footer class="site-footer">
+  <div class="wrapper-twist" aria-hidden="true"></div>
+  <div class="site-footer__grid">
+    <div>
+      <p class="site-footer__brand">Bongi Bombón</p>
+      <p>Golosinería en Río Segundo, Córdoba. Golosinas, chocolates, alfajores y snacks de copetín para el antojo de todos los días y para tus fiestas.</p>
+      <p class="site-footer__social">
+        <a href="https://www.instagram.com/bongibombon/" rel="noopener" target="_blank" data-track="social_click" data-track-label="instagram"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#instagram"/></svg>Instagram</a>
+        <a href="https://www.facebook.com/bongi.bombon/" rel="noopener" target="_blank" data-track="social_click" data-track-label="facebook"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#facebook"/></svg>Facebook</a>
+      </p>
+    </div>
+    <div>
+      <h2 class="site-footer__title">Visitanos</h2>
+      <address>
+        <a href="https://www.google.com/maps/search/?api=1&query=Jujuy+868%2C+R%C3%ADo+Segundo%2C+C%C3%B3rdoba" rel="noopener" target="_blank" data-track="maps_click" data-track-label="footer">Jujuy 868, Río Segundo, Córdoba</a><br>
+        Lunes a sábado de 9 a 13 h y de 17 a 21:30 h<br>
+        <a href="tel:+543512469011" data-track="phone_click" data-track-label="footer">+54 351 246-9011</a>
+      </address>
+    </div>
+    <div>
+      <h2 class="site-footer__title">Explorá</h2>
+      <ul class="site-footer__links">
+        <li><a href="/golosinas">Catálogo de golosinas y snacks</a></li>
+        <li><a href="/juegos">Bongi Juegos</a></li>
+        <li><a href="/blog">Blog dulce</a></li>
+        <li><a href="/#preguntas">Preguntas frecuentes</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="site-footer__legal">© 2026 Bongi Bombón · Río Segundo, Córdoba, Argentina. Las marcas que aparecen en las fotos pertenecen a sus respectivos dueños.</p>
 </footer>
 
-<!-- Floating Buttons -->
-<div class="float-container">
-    <a class="float-btn catalog" target="_blank" href="https://wa.me/c/5493512469011" aria-label="Ver catálogo y precios">
-        📦 Ver Precios
-    </a>
-    <a class="float-btn" target="_blank" href="https://maps.google.com/?q=Jujuy+868,+Río+Segundo,+Córdoba" aria-label="Cómo llegar">
-        📍 Cómo llegar
-    </a>
-</div>
-
-<!-- SCRIPTS -->
-<script>
-// ============================================
-// SCROLL PROGRESS BAR
-// ============================================
-function updateScrollProgress() {
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = (scrollTop / docHeight) * 100;
-    document.querySelector('.scroll-progress').style.width = progress + '%';
-}
-window.addEventListener('scroll', updateScrollProgress);
-
-// ============================================
-// PARALLAX EN MOUSE PARA BURBUJAS
-// ============================================
-const bubbles = document.querySelectorAll('.bubble');
-document.addEventListener('mousemove', (e) => {
-    const x = e.clientX / window.innerWidth;
-    const y = e.clientY / window.innerHeight;
-    
-    bubbles.forEach((bubble, index) => {
-        const offset = (index + 1) * 5;
-        bubble.style.transform = `translate(${x * offset}px, ${y * offset}px)`;
-    });
-});
-
-// ============================================
-// STORE STATUS BADGE - PRE-CALCULO
-// ============================================
-function updateStoreStatus() {
-    const dateInAr = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Argentina/Cordoba' }));
-    const day = dateInAr.getDay();
-    const timeNum = dateInAr.getHours() + (dateInAr.getMinutes() / 60);
-    const badge = document.getElementById('smart-status');
-    let text = "";
-    let color = "";
-
-    if (day === 0) {
-        text = "Domingo cerrado. ¡Nos vemos mañana a las 09:00 hs!";
-        color = "#ef476f";
-    } else {
-        if (timeNum < 9) {
-            if (timeNum >= 8.5) {
-                text = "¡Buen día! Abrimos en instantes (09:00 hs)";
-                color = "#ffd166";
-            } else {
-                text = "Cerrado. ¡Abrimos a las 09:00 hs!";
-                color = "#ef476f";
-            }
-        } else if (timeNum >= 9 && timeNum < 13) {
-            if (timeNum >= 12.5) {
-                text = "¡Apurata! Cerramos al mediodía a las 13:00 hs";
-                color = "#ff9f1c";
-            } else {
-                text = "¡Estamos Abiertos! Vení por tus dulces 🍬";
-                color = "#06d6a0";
-            }
-        } else if (timeNum >= 13 && timeNum < 17) {
-            if (timeNum >= 16.5) {
-                text = "¡Preparate! Volvemos a abrir a las 17:00 hs";
-                color = "#ffd166";
-            } else {
-                text = "Cerrado. Descansando... Volvemos a las 17:00 hs";
-                color = "#ef476f";
-            }
-        } else if (timeNum >= 17 && timeNum < 21.5) {
-            if (timeNum >= 21) {
-                text = "¡Apurata! Cerramos el local a las 21:30 hs";
-                color = "#ff9f1c";
-            } else {
-                text = "¡Estamos Abiertos! Ideal para un antojo 🤤";
-                color = "#06d6a0";
-            }
-        } else {
-            text = "Cerrado. ¡Hasta mañana a las 09:00 hs!";
-            color = "#ef476f";
-        }
-    }
-    
-    badge.innerHTML = `<span class="status-dot" style="background-color: ${color}"></span> ${text}`;
-}
-
-// Ejecutar antes del primer render
-updateStoreStatus();
-setInterval(updateStoreStatus, 60000);
-
-// ============================================
-// CARRUSEL CON LOOP INFINITO SMOOTH
-// ============================================
-function scrollCarousel(id, direction) {
-    const track = document.getElementById(id);
-    const scrollAmount = 205;
-    track.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
-}
-
-// Autoplay mejorado
-const carousels = ['track-golosinas', 'track-snacks'];
-carousels.forEach(id => {
-    const track = document.getElementById(id);
-    let autoScroll = setInterval(() => {
-        // Suave loop infinito
-        if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
-            track.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-            scrollCarousel(id, 1);
-        }
-    }, 4000);
-
-    track.parentElement.addEventListener('mouseenter', () => clearInterval(autoScroll));
-    track.parentElement.addEventListener('mouseleave', () => {
-        autoScroll = setInterval(() => {
-            if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
-                track.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-                scrollCarousel(id, 1);
-            }
-        }, 4000);
-    });
-
-    track.parentElement.addEventListener('touchstart', () => clearInterval(autoScroll));
-    track.parentElement.addEventListener('touchend', () => {
-        autoScroll = setInterval(() => {
-            if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
-                track.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-                scrollCarousel(id, 1);
-            }
-        }, 4000);
-    });
-});
-
-// ============================================
-// REVEAL ANIMATIONS AL SCROLL
-// ============================================
-const revealElements = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-        }
-    });
-}, { threshold: 0.15 });
-
-revealElements.forEach(el => revealObserver.observe(el));
-
-// ============================================
-// CONTADORES CON requestAnimationFrame + EASING
-// ============================================
-function easeOutExpo(t) {
-    return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
-}
-
-document.querySelectorAll('.counter').forEach(counter => {
-    const targetStr = counter.dataset.target;
-    const suffix = counter.dataset.suffix || "";
-    const isFloat = targetStr.includes('.');
-    const target = parseFloat(targetStr);
-    
-    const observer = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-            let startTime;
-            const duration = 2000; // 2 segundos de animación
-            
-            const animate = (currentTime) => {
-                if (!startTime) startTime = currentTime;
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const easedProgress = easeOutExpo(progress);
-                const current = target * easedProgress;
-                
-                let displayNum = isFloat ? current.toFixed(1).replace('.', ',') : Math.ceil(current);
-                counter.textContent = displayNum + suffix;
-                
-                if (progress < 1) {
-                    requestAnimationFrame(animate);
-                }
-            };
-            
-            requestAnimationFrame(animate);
-            observer.disconnect();
-        }
-    }, { threshold: 0.5 });
-    
-    observer.observe(counter);
-});
-
-// ============================================
-// IMAGE LAZY LOADING CON SKELETON EFFECT
-// ============================================
-const images = document.querySelectorAll('img[loading="lazy"]');
-images.forEach(img => {
-    img.classList.add('loading');
-    img.addEventListener('load', () => {
-        img.classList.remove('loading');
-    });
-});
-
-// ============================================
-// RESPETA PREFERS-REDUCED-MOTION
-// ============================================
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (prefersReducedMotion) {
-    document.documentElement.style.setProperty('--scroll-behavior', 'auto');
-}
-</script>
+<nav class="action-bar" aria-label="Acciones rápidas">
+  <a href="https://wa.me/5493512469011?text=%C2%A1Hola%20Bongi%20Bomb%C3%B3n!%20Quiero%20hacer%20una%20consulta." class="action-bar__btn action-bar__btn--wa" data-track="whatsapp_click" data-track-label="barra_movil" rel="noopener" target="_blank">
+    <svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#whatsapp"/></svg>WhatsApp</a>
+  <a href="https://www.google.com/maps/search/?api=1&query=Jujuy+868%2C+R%C3%ADo+Segundo%2C+C%C3%B3rdoba" class="action-bar__btn" data-track="maps_click" data-track-label="barra_movil" rel="noopener" target="_blank">
+    <svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#pin"/></svg>Cómo llegar</a>
+  <a href="/juegos" class="action-bar__btn">
+    <svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#joystick"/></svg>Juegos</a>
+</nav>
+<script type="application/json" id="bb-config">{"whatsapp":"5493512469011","hours":[{"days":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:00","closes":"13:00"},{"days":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"17:00","closes":"21:30"}],"tz":"America/Argentina/Cordoba"}</script>
+<script type="module" src="/js/site.js?v=2026-11-14"></script>
 
 </body>
 </html>

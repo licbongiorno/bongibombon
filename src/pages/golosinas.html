@@ -1,0 +1,45 @@
+<!--meta {
+  "path": "golosinas",
+  "nav": "golosinas",
+  "priority": "0.9",
+  "title": "Golosinas y snacks en Río Segundo | Catálogo de Bongi Bombón",
+  "description": "Alfajores, chocolates, gomitas, chupetines, caramelos, confites y snacks de copetín en Río Segundo. Armá tu lista y consultá precios por WhatsApp.",
+  "pageType": "CollectionPage",
+  "catalogLd": true,
+  "breadcrumbs": [{ "name": "Golosinas", "url": "/golosinas" }],
+  "scripts": ["/js/catalog.js"]
+} -->
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="breadcrumbs" aria-label="Migas de pan"><ol><li><a href="/">Inicio</a></li><li aria-current="page">Golosinas</li></ol></nav>
+    <h1>Golosinas y snacks en Río Segundo</h1>
+    <p>Estas son las categorías que encontrás en Bongi Bombón. Marcá con el corazón lo que te interesa y mandanos tu lista por WhatsApp: te pasamos variedades y precios del día.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:28px" aria-label="Catálogo">
+  <div class="wrap">
+    <div class="filters" role="toolbar" aria-label="Filtrar categorías">
+      <button class="chip" type="button" data-filter="todo" aria-pressed="true">Todo</button>
+      <button class="chip" type="button" data-filter="dulce" aria-pressed="false">Sector dulce</button>
+      <button class="chip" type="button" data-filter="copetin" aria-pressed="false">Copetín</button>
+      <button class="chip" type="button" data-filter="lista" aria-pressed="false">Mi lista <span data-fav-count>(0)</span></button>
+    </div>
+    <p class="sr-only" role="status" data-filter-status></p>
+    {{> shelf-full}}
+    <div class="empty" data-empty hidden>
+      <p><strong>Tu lista está vacía.</strong> Tocá el corazón de las golosinas que te gustan y volvé a este filtro.</p>
+      <button class="btn btn--sm" type="button" data-filter-reset>Ver todo el catálogo</button>
+    </div>
+
+    <div class="callout mt-l">
+      <h2 style="font-size:var(--step-1)">¿Buscás algo que no está en la lista?</h2>
+      <p style="margin:0">En el local hay más variedades de las que podemos mostrar acá, y llegan novedades seguido. <a href="https://wa.me/{{site.whatsapp}}?text=%C2%A1Hola%20Bongi%20Bomb%C3%B3n!%20%C2%BFTienen%20" rel="noopener" target="_blank" data-track="whatsapp_click" data-track-label="catalogo_otro">Preguntanos por WhatsApp</a> o mirá el <a href="{{site.whatsappCatalog}}" rel="noopener" target="_blank" data-track="whatsapp_click" data-track-label="catalogo_completo">catálogo completo con precios</a>.</p>
+    </div>
+  </div>
+</section>
+
+<div class="list-bar" data-list-bar hidden>
+  <span><strong data-fav-total>0</strong> en tu lista</span>
+  <a class="btn btn--wa btn--sm" data-list-send href="#" rel="noopener" target="_blank"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#whatsapp"/></svg>Consultar mi lista</a>
+</div>

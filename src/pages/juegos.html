@@ -1,0 +1,118 @@
+<!--meta {
+  "path": "juegos",
+  "nav": "juegos",
+  "priority": "0.8",
+  "bodyClass": "game-page",
+  "title": "Bongi Juegos | Minijuegos de golosinas gratis | Bongi Bombón",
+  "description": "Ocho minijuegos de golosinas gratis para el celu: Atrapa Golosinas, Candy Match, Globo de Chicle, trivia y más, con récords, logros y desafío diario.",
+  "breadcrumbs": [{ "name": "Bongi Juegos", "url": "/juegos" }],
+  "head": "<link rel=\"stylesheet\" href=\"/css/juegos.css?v={{today}}\">",
+  "pageLd": { "mainEntity": { "@type": "ItemList", "name": "Bongi Juegos", "itemListElement": [
+    { "@type": "ListItem", "position": 1, "item": { "@type": "VideoGame", "name": "Atrapa Golosinas", "url": "https://bongibombon.com.ar/juegos#atrapa", "gamePlatform": "Navegador web", "genre": "Arcade", "applicationCategory": "Game", "isAccessibleForFree": true } },
+    { "@type": "ListItem", "position": 2, "item": { "@type": "VideoGame", "name": "Memoria Dulce", "url": "https://bongibombon.com.ar/juegos#memoria", "gamePlatform": "Navegador web", "genre": "Memoria", "applicationCategory": "Game", "isAccessibleForFree": true } },
+    { "@type": "ListItem", "position": 3, "item": { "@type": "VideoGame", "name": "Candy Match", "url": "https://bongibombon.com.ar/juegos#match", "gamePlatform": "Navegador web", "genre": "Puzle", "applicationCategory": "Game", "isAccessibleForFree": true } },
+    { "@type": "ListItem", "position": 4, "item": { "@type": "VideoGame", "name": "¿Cuánto conocés de golosinas?", "url": "https://bongibombon.com.ar/juegos#trivia", "gamePlatform": "Navegador web", "genre": "Trivia", "applicationCategory": "Game", "isAccessibleForFree": true } },
+    { "@type": "ListItem", "position": 5, "item": { "@type": "VideoGame", "name": "El desafío Bongi", "url": "https://bongibombon.com.ar/juegos#desafio", "gamePlatform": "Navegador web", "genre": "Habilidad", "applicationCategory": "Game", "isAccessibleForFree": true } },
+    { "@type": "ListItem", "position": 6, "item": { "@type": "VideoGame", "name": "Carrera de Chocolates", "url": "https://bongibombon.com.ar/juegos#carrera", "gamePlatform": "Navegador web", "genre": "Arcade", "applicationCategory": "Game", "isAccessibleForFree": true } },
+    { "@type": "ListItem", "position": 7, "item": { "@type": "VideoGame", "name": "Globo de Chicle", "url": "https://bongibombon.com.ar/juegos#globo", "gamePlatform": "Navegador web", "genre": "Habilidad", "applicationCategory": "Game", "isAccessibleForFree": true } },
+    { "@type": "ListItem", "position": 8, "item": { "@type": "VideoGame", "name": "Frascos Musicales", "url": "https://bongibombon.com.ar/juegos#frascos", "gamePlatform": "Navegador web", "genre": "Música y memoria", "applicationCategory": "Game", "isAccessibleForFree": true } }
+  ] } },
+  "scripts": ["/js/juegos/core/shell.js"]
+} -->
+<section class="arcade">
+  <div class="wrap arcade__top">
+    <div class="arcade__title">
+      <nav class="breadcrumbs" aria-label="Migas de pan"><ol><li><a href="/">Inicio</a></li><li aria-current="page">Bongi Juegos</li></ol></nav>
+      <h1>Bongi Juegos <span>¡Jugá, divertite y sumá puntos!</span></h1>
+      <p>Ocho minijuegos dulces, gratis y sin registrarte. Tus puntos, récords y logros se guardan en este dispositivo.</p>
+    </div>
+
+    <aside class="player" aria-label="Tu perfil de jugador">
+      <div class="player__head">
+        <div class="player__avatar" data-avatar aria-hidden="true"></div>
+        <div>
+          <p class="player__nick"><span data-nick>Jugador sin apodo</span> <button type="button" class="link-btn" data-edit-nick>Elegir apodo</button></p>
+          <p class="player__level">Nivel <b data-level>1</b> · <span data-level-name>Caramelito</span></p>
+        </div>
+      </div>
+      <div class="xpbar" role="progressbar" aria-label="Experiencia para el próximo nivel" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-xpbar><span></span></div>
+      <dl class="player__stats">
+        <div><dt>Racha</dt><dd data-streak>0 días</dd></div>
+        <div><dt>Partidas</dt><dd data-played>0</dd></div>
+        <div><dt>Logros</dt><dd data-ach-count>0</dd></div>
+      </dl>
+      <div class="sound-panel" role="group" aria-label="Sonido">
+        <button type="button" class="icon-btn" data-sound-toggle aria-pressed="true"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#sound-on"/></svg><span>Sonido activado</span></button>
+        <label class="vol"><span class="sr-only">Volumen de efectos</span><input type="range" min="0" max="1" step="0.05" value="0.7" data-volume></label>
+        <label class="switch"><input type="checkbox" data-music> <span>Música</span></label>
+      </div>
+    </aside>
+  </div>
+
+  <div class="wrap">
+    <div class="daily" data-daily>
+      <svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#star"/></svg>
+      <div><p class="daily__label">Desafío de hoy</p><p class="daily__text" data-daily-text>Cargando desafío…</p></div>
+      <button type="button" class="btn btn--banana btn--sm" data-daily-play>Jugar el desafío</button>
+    </div>
+
+    <h2 class="sr-only">Elegí un juego</h2>
+    <ul class="arcade__grid" data-grid>
+      <li class="gcard" id="atrapa" style="--c:#ffd166"><div class="gcard__icon" data-icon="caramelo"></div><h3>Atrapa Golosinas</h3><p>Mové la bolsa y atrapá todo lo dulce que cae. Esquivá el brócoli y el ají.</p><p class="gcard__best" data-best="atrapa">Sin récord todavía</p><button type="button" class="btn btn--sm" data-play="atrapa">Jugar</button></li>
+      <li class="gcard" id="memoria" style="--c:#06d6a0"><div class="gcard__icon" data-icon="paleta"></div><h3>Memoria Dulce</h3><p>Encontrá los pares de golosinas con la menor cantidad de movimientos.</p><p class="gcard__best" data-best="memoria">Sin récord todavía</p><button type="button" class="btn btn--sm" data-play="memoria">Jugar</button></li>
+      <li class="gcard" id="match" style="--c:#ff8fb1"><div class="gcard__icon" data-icon="confite"></div><h3>Candy Match</h3><p>Intercambiá golosinas vecinas y armá filas de tres o más iguales.</p><p class="gcard__best" data-best="match">Sin récord todavía</p><button type="button" class="btn btn--sm" data-play="match">Jugar</button></li>
+      <li class="gcard" id="trivia" style="--c:#ffb38f"><div class="gcard__icon" data-icon="alfajor"></div><h3>¿Cuánto conocés de golosinas?</h3><p>Diez preguntas sobre chocolates, alfajores y golosinas. Datos verificados.</p><p class="gcard__best" data-best="trivia">Sin récord todavía</p><button type="button" class="btn btn--sm" data-play="trivia">Jugar</button></li>
+      <li class="gcard" id="desafio" style="--c:#bfe9ff"><div class="gcard__icon" data-icon="chupetin"></div><h3>El desafío Bongi</h3><p>45 segundos de consignas rápidas: clasificá, reconocé y contá golosinas.</p><p class="gcard__best" data-best="desafio">Sin récord todavía</p><button type="button" class="btn btn--sm" data-play="desafio">Jugar</button></li>
+      <li class="gcard" id="carrera" style="--c:#f6dbe3"><div class="gcard__icon" data-icon="chocolate"></div><h3>Carrera de Chocolates</h3><p>Corré por el camino de caramelo, juntá chocolates y esquivá obstáculos.</p><p class="gcard__best" data-best="carrera">Sin récord todavía</p><button type="button" class="btn btn--sm" data-play="carrera">Jugar</button></li>
+      <li class="gcard" id="globo" style="--c:#d9c8ff"><div class="gcard__icon" data-icon="chicle"></div><h3>Globo de Chicle</h3><p>Inflá el globo de chicle hasta el aro dorado… sin que te explote.</p><p class="gcard__best" data-best="globo">Sin récord todavía</p><button type="button" class="btn btn--sm" data-play="globo">Jugar</button></li>
+      <li class="gcard" id="frascos" style="--c:#b8f2c8"><div class="gcard__icon" data-icon="mielcita"></div><h3>Frascos Musicales</h3><p>Mirá y escuchá la secuencia de frascos y repetila sin equivocarte.</p><p class="gcard__best" data-best="frascos">Sin récord todavía</p><button type="button" class="btn btn--sm" data-play="frascos">Jugar</button></li>
+    </ul>
+    <noscript><p class="arcade__note">Los juegos necesitan JavaScript activado.</p></noscript>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="logros">
+  <div class="wrap">
+    <div class="section-head"><h2 id="logros">Logros</h2><p>Desbloquealos jugando. Algunos son fáciles; otros, solo para golosos de verdad.</p></div>
+    <ul class="badges" data-badges></ul>
+  </div>
+</section>
+
+<section class="section section--blanco" aria-labelledby="records">
+  <div class="wrap">
+    <div class="section-head"><h2 id="records">Tus récords</h2><p>Los mejores resultados guardados en este dispositivo. No es un ranking global: si cambiás de celular o borrás los datos del navegador, empezás de cero.</p></div>
+    <div class="records" data-records></div>
+    <p class="mt-l"><button type="button" class="btn btn--light btn--sm" data-reset>Borrar mi progreso</button></p>
+  </div>
+</section>
+
+<section class="section section--banana" aria-labelledby="antojo">
+  <div class="wrap row" style="justify-content:space-between">
+    <div style="max-width:52ch"><h2 id="antojo">¿Te dio antojo de verdad?</h2><p style="margin:0">Las golosinas de los juegos existen: te esperan en Bongi Bombón, Jujuy 868, Río Segundo.</p></div>
+    <p class="row" style="margin:0"><a class="btn" href="/golosinas">Ver golosinas</a><a class="btn btn--wa" href="{{site.whatsappCatalog}}" rel="noopener" target="_blank" data-track="whatsapp_click" data-track-label="juegos"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#whatsapp"/></svg>Precios</a></p>
+  </div>
+</section>
+
+<dialog class="stage" data-stage aria-labelledby="stage-title">
+  <div class="stage__bar">
+    <h2 id="stage-title" data-stage-title>Juego</h2>
+    <div class="hud" data-hud aria-live="off"></div>
+    <div class="stage__tools">
+      <button type="button" class="icon-btn icon-btn--dark" data-sound-toggle aria-pressed="true"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="/assets/brand/iconos.svg#sound-on"/></svg><span class="sr-only">Sonido activado</span></button>
+      <button type="button" class="icon-btn icon-btn--dark" data-close aria-label="Salir del juego">✕</button>
+    </div>
+  </div>
+  <div class="stage__body" data-stage-body></div>
+</dialog>
+
+<dialog class="mini-dialog" data-nick-dialog aria-labelledby="nick-title">
+  <form method="dialog" data-nick-form novalidate>
+    <h2 id="nick-title">Elegí tu apodo</h2>
+    <p class="muted">Aparece en tus récords. Solo se guarda en este dispositivo: no pongas tu nombre completo ni datos personales.</p>
+    <label class="field">Apodo<input name="nick" maxlength="16" autocomplete="off" required aria-describedby="nick-err"></label>
+    <p class="form-error" id="nick-err" role="alert"></p>
+    <div class="row"><button class="btn btn--sm" value="ok">Guardar</button><button class="btn btn--sm btn--light" value="cancel" formnovalidate>Cancelar</button></div>
+  </form>
+</dialog>
+
+<div class="toasts" aria-live="polite" data-toasts></div>
