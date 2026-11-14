@@ -1,6 +1,6 @@
 // Atrapa Golosinas: mover la bolsa, atrapar lo dulce, esquivar lo que no.
-import { canvasGame } from '../core/loop.js';
-import { candyImage, preload, SWEET_IDS } from '../../candies.js';
+import { canvasGame } from '../core/loop.js?v=cfab42284a';
+import { candyImage, preload, SWEET_IDS } from '../../candies.js?v=cfab42284a';
 
 const BAD = ['brocoli', 'aji', 'piedra'];
 const DURATION = 60;

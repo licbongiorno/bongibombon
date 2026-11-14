@@ -1,5 +1,5 @@
 // ¿Cuánto conocés de golosinas?: 10 preguntas con tiempo, rachas y curiosidades.
-import { TRIVIA } from '../data/trivia.js';
+import { TRIVIA } from '../data/trivia.js?v=cfab42284a';
 
 const DIFF = {
   facil: { label: 'Fácil', time: 20, mult: 1, note: 'Para empezar a picar' },

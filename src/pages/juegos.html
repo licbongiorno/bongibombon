@@ -4,9 +4,9 @@
   "priority": "0.8",
   "bodyClass": "game-page",
   "title": "Bongi Arcade | Videojuegos de golosinas gratis | Bongi Bombón",
-  "description": "La sala de videojuegos de Bongi Bombón: plataformas, laberintos, encastre, rompebloques y más, con golosinas, récords, logros y desafío diario. Gratis.",
+  "description": "La sala de videojuegos de Bongi Bombón: 16 juegos de golosinas gratis, con plataformas, laberintos, encastre, trivia y más. Récords, logros y desafío diario.",
   "breadcrumbs": [{ "name": "Bongi Arcade", "url": "/juegos" }],
-  "head": "<link rel=\"stylesheet\" href=\"/css/juegos.css?v={{today}}\">",
+  "head": "<link rel=\"stylesheet\" href=\"/css/juegos.css?v={{ver}}\">",
   "gamesLd": true,
   "scripts": ["/js/juegos/core/shell.js"]
 } -->
@@ -15,7 +15,7 @@
     <div class="arcade__title">
       <nav class="breadcrumbs" aria-label="Migas de pan"><ol><li><a href="/">Inicio</a></li><li aria-current="page">Bongi Arcade</li></ol></nav>
       <h1>Bongi Arcade <span>La sala de videojuegos de Bongi Bombón</span></h1>
-      <p>Ocho juegos arcade originales y ocho minijuegos dulces, gratis y sin registrarte. Tus Puntos Bongi, récords y logros se guardan en este dispositivo.</p>
+      <p>16 juegos de golosinas, gratis y sin registrarte: aventuras arcade con niveles y minijuegos para una partida rápida. Tus Puntos Bongi, récords y logros se guardan en este dispositivo.</p>
     </div>
 
     <aside class="player" aria-label="Tu perfil de jugador">
@@ -51,21 +51,22 @@
     </div>
 
     <div class="arcade__head">
-      <h2>Juegos arcade</h2>
+      <h2>Todos los juegos</h2>
       <div class="arcade-filters" role="toolbar" aria-label="Filtrar juegos">
-        <button type="button" class="chip chip--dark" data-arcade-filter="todo" aria-pressed="true">Todos</button>
-        <button type="button" class="chip chip--dark" data-arcade-filter="nuevo" aria-pressed="false">Nuevos</button>
+        <button type="button" class="chip chip--dark" data-arcade-filter="todo" aria-pressed="true">Todos <span>16</span></button>
+        <button type="button" class="chip chip--dark" data-arcade-filter="arcade" aria-pressed="false">Arcade <span>8</span></button>
+        <button type="button" class="chip chip--dark" data-arcade-filter="mini" aria-pressed="false">Minijuegos <span>8</span></button>
         <button type="button" class="chip chip--dark" data-arcade-filter="fav" aria-pressed="false">Tus más jugados</button>
-        <button type="button" class="chip chip--dark" data-arcade-filter="clasico" aria-pressed="false">Clásicos</button>
+        <button type="button" class="chip chip--dark" data-arcade-filter="rapido" aria-pressed="false">Partidas rápidas</button>
         <button type="button" class="chip chip--dark" data-arcade-filter="aventura" aria-pressed="false">Aventura</button>
         <button type="button" class="chip chip--dark" data-arcade-filter="puzle" aria-pressed="false">Puzle</button>
+        <button type="button" class="chip chip--dark" data-arcade-filter="clasico" aria-pressed="false">Clásicos</button>
         <button type="button" class="chip chip--dark" data-arcade-filter="2jugadores" aria-pressed="false">2 jugadores</button>
       </div>
     </div>
     {{> arcade-cards}}
-
-    <h2 class="arcade__sub">Minijuegos rápidos</h2>
-    {{> mini-cards}}
+    <p class="arcade__empty" data-arcade-empty hidden>Todavía no jugaste ningún juego. Elegí uno y va a aparecer acá.</p>
+    <p class="arcade__legend"><span class="kind kind--arcade">Arcade</span> juegos largos con niveles, mundos y jefes. <span class="kind kind--mini">Minijuego</span> partidas cortas de uno o dos minutos.</p>
     <noscript><p class="arcade__note">Los juegos necesitan JavaScript activado.</p></noscript>
   </div>
 </section>

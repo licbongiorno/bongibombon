@@ -2,7 +2,7 @@
 // Parodia caricaturesca y no violenta: los Ácidos quieren robar la receta secreta del chocolate.
 // Lanzadores de golosinas, bombas de chocolate, 4 tipos de enemigos, jefe Gran Limón Ácido
 // y tres modos: Oleadas (misión), Supervivencia y Contrarreloj. Los ácidos derrotados se vuelven caramelos.
-import { arcade, FONT, roundRect, drawBongi } from '../core/arcade.js';
+import { arcade, FONT, roundRect, drawBongi } from '../core/arcade.js?v=cfab42284a';
 
 const W = 360, H = 300, FX = W / 2, FY = H - 30;
 const WEAPONS = {

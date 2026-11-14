@@ -4,6 +4,7 @@
 // Uso: node scripts/build.mjs
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -11,6 +12,22 @@ const site = JSON.parse(readFileSync(join(root, 'src/site.json'), 'utf8'));
 const partialsDir = join(root, 'src/partials');
 const pagesDir = join(root, 'src/pages');
 const today = new Date().toISOString().slice(0, 10);
+
+// ---------- Versión de recursos (evita que el navegador use JS/CSS viejos) ----------
+// Se calcula con el contenido de js/ y css/ y se agrega como ?v= a todas las importaciones
+// relativas entre módulos y a las URLs del HTML. Es idempotente: re-ejecutar no cambia nada si el código no cambió.
+const VREG = /((?:from\s*|import\s*\(\s*)['"])(\.{1,2}\/[^'"?]+\.(?:js|mjs))(?:\?v=\w+)?(['"])/g;
+const codeFiles = [];
+(function collect(dir) { for (const f of readdirSync(dir)) { const p = join(dir, f); if (statSync(p).isDirectory()) collect(p); else if (/\.(js|css)$/.test(f)) codeFiles.push(p); } })(join(root, 'js'));
+codeFiles.push(...readdirSync(join(root, 'css')).map(f => join(root, 'css', f)));
+const hash = createHash('sha1');
+for (const f of codeFiles.sort()) hash.update(readFileSync(f, 'utf8').replace(VREG, '$1$2$3'));
+const VERSION = hash.digest('hex').slice(0, 10);
+for (const f of codeFiles) {
+  if (!f.endsWith('.js')) continue;
+  const src = readFileSync(f, 'utf8'), out = src.replace(VREG, `$1$2?v=${VERSION}$3`);
+  if (out !== src) writeFileSync(f, out);
+}
 
 const partials = Object.fromEntries(
   readdirSync(partialsDir).filter(f => f.endsWith('.html'))
@@ -50,12 +67,12 @@ const { GAMES } = await import('../js/juegos/core/registry.js');
 const { POSTERS } = await import('./posters.mjs');
 const { candySVG } = await import('../js/candies.js');
 const DIFF_CLASS = { 'Fácil': 'easy', 'Media': 'mid', 'Difícil': 'hard' };
-partials['arcade-cards'] = `<ul class="arcade-cards" data-arcade-grid>\n${GAMES.filter(g => g.arcade).map(g => `  <li class="acard" id="${g.id}" data-id="${g.id}" data-tags="${g.tags}" style="--c:${g.color}">
+partials['arcade-cards'] = `<ul class="arcade-cards" data-arcade-grid>\n${GAMES.map(g => `  <li class="acard" id="${g.id}" data-id="${g.id}" data-tags="${g.tags}" style="--c:${g.color}">
     <div class="acard__screen">${POSTERS[g.id]()}${g.isNew ? '<span class="acard__new">Nuevo</span>' : ''}<span class="acard__fav">Tus más jugados</span></div>
     <div class="acard__body">
       <h3>${esc(g.title)}</h3>
       <p>${esc(g.desc)}</p>
-      <ul class="acard__meta" aria-label="Datos del juego"><li class="lvl lvl--${DIFF_CLASS[g.difficulty]}">${g.difficulty}</li><li>${esc(g.duration)}</li><li>${esc(g.tag)}</li></ul>
+      <ul class="acard__meta" aria-label="Datos del juego"><li class="kind kind--${g.arcade ? 'arcade' : 'mini'}">${g.kind}</li><li class="lvl lvl--${DIFF_CLASS[g.difficulty]}">${g.difficulty}</li><li>${esc(g.duration)}</li></ul>
       <p class="acard__best" data-best="${g.id}">Sin récord todavía</p>
       <button type="button" class="btn btn--sm btn--banana" data-play="${g.id}">Jugar</button>
     </div>
@@ -156,7 +173,8 @@ for (const file of walk(pagesDir)) {
     ogType: meta.ogType || 'website',
     robots: meta.noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large',
     jsonld, extraHead: meta.head || '', bodyClass: meta.bodyClass || '',
-    scripts: (meta.scripts || []).map(s => `<script type="module" src="${s}"></script>`).join('\n'),
+    scripts: (meta.scripts || []).map(s => `<script type="module" src="${s}?v=${VERSION}"></script>`).join('\n'),
+    ver: VERSION,
     year: String(new Date().getFullYear()), today,
     configJson: JSON.stringify({ whatsapp: site.whatsapp, hours: site.hours, tz: 'America/Argentina/Cordoba' }),
     ...Object.fromEntries(Object.entries(site).filter(([, v]) => typeof v !== 'object').map(([k, v]) => [`site.${k}`, v]))

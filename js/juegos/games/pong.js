@@ -1,7 +1,7 @@
 // BONGI PONG — Duelo de golosinas.
 // Contra el Bongi Bot (3 dificultades), dos jugadores en el mismo dispositivo o modo desafío.
 // Efecto según el movimiento de la barra, velocidad progresiva y tres escenarios.
-import { arcade, FONT, roundRect } from '../core/arcade.js';
+import { arcade, FONT, roundRect } from '../core/arcade.js?v=cfab42284a';
 
 const W = 400, H = 225, PW = 8, PH = 40, BR = 6, WIN = 7;
 const ARENAS = [

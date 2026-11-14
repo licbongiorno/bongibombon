@@ -1,6 +1,6 @@
 // Carrera de Chocolates: corredor de 3 carriles. Juntá chocolates, esquivá obstáculos.
-import { canvasGame } from '../core/loop.js';
-import { candyImage, preload } from '../../candies.js';
+import { canvasGame } from '../core/loop.js?v=cfab42284a';
+import { candyImage, preload } from '../../candies.js?v=cfab42284a';
 
 const OBST = ['piedra', 'brocoli', 'aji'];
 const LANES = 3;

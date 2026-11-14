@@ -1,11 +1,11 @@
 // Plataforma Bongi Arcade: perfil, sonido, desafío diario, logros, récords
 // y el "escenario" (dialog) donde se monta cada juego bajo demanda.
-import { store, today, levelInfo, recordResult, markPlayed, validateNick, touchStreak } from './storage.js';
-import { sfx, music, setSound, setVolume, setMusic, unlock } from './audio.js';
-import { confetti, floatText, shake } from './fx.js';
-import { GAMES, byId, dailyFor, ACHIEVEMENTS, AVATARS } from './registry.js';
-import { candySVG } from '../../candies.js';
-import { track } from '../../analytics.js';
+import { store, today, levelInfo, recordResult, markPlayed, validateNick, touchStreak } from './storage.js?v=cfab42284a';
+import { sfx, music, setSound, setVolume, setMusic, unlock } from './audio.js?v=cfab42284a';
+import { confetti, floatText, shake } from './fx.js?v=cfab42284a';
+import { GAMES, byId, dailyFor, ACHIEVEMENTS, AVATARS } from './registry.js?v=cfab42284a';
+import { candySVG } from '../../candies.js?v=cfab42284a';
+import { track } from '../../analytics.js?v=cfab42284a';
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -14,6 +14,13 @@ const fmt = n => Math.round(n).toLocaleString('es-AR');
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 const stage = $('[data-stage]');
+// Respaldo para navegadores sin <dialog> nativo (por ejemplo iOS anteriores a 15.4)
+for (const d of document.querySelectorAll('dialog')) {
+  if (typeof d.showModal === 'function') continue;
+  d.showModal = () => { d.setAttribute('open', ''); d.classList.add('dialog-fallback'); };
+  d.close = () => { if (!d.hasAttribute('open')) return; d.removeAttribute('open'); d.dispatchEvent(new Event('close')); };
+  d.addEventListener('submit', e => { if (e.target.method === 'dialog' && !e.defaultPrevented) { e.preventDefault(); d.close(); } });
+}
 const body = $('[data-stage-body]');
 const hudEl = $('[data-hud]');
 const gameTools = $$('[data-game-tool]');
@@ -154,7 +161,8 @@ async function openGame(id, { skipIntro = false } = {}) {
   if (!stage.open) stage.showModal();
   document.documentElement.classList.add('is-playing');
   const modP = game.load();
-  if (skipIntro) { const mod = await modP; return startGame(game, mod.default); }
+  modP.catch(() => loadError(game));
+  if (skipIntro) { const mod = await modP.catch(() => null); return mod && startGame(game, mod.default); }
   body.innerHTML = `<div class="intro">
       <div class="intro__icon" aria-hidden="true">${candySVG(game.icon)}</div>
       <h3>Cómo se juega</h3>
@@ -163,7 +171,11 @@ async function openGame(id, { skipIntro = false } = {}) {
       <button class="btn btn--banana" type="button" data-start>¡A jugar!</button>
     </div>`;
   $('[data-start]', body).focus();
-  $('[data-start]', body).addEventListener('click', async () => { const mod = await modP; startGame(game, mod.default); }, { once: true });
+  $('[data-start]', body).addEventListener('click', async () => { const mod = await modP.catch(() => null); if (mod) startGame(game, mod.default); }, { once: true });
+}
+function loadError(game) {
+  body.innerHTML = `<div class="intro"><h3>No se pudo cargar ${esc(game.title)}</h3><p>Revisá tu conexión a internet y probá de nuevo.</p><button class="btn btn--banana" type="button" data-retry>Reintentar</button></div>`;
+  $('[data-retry]', body).addEventListener('click', () => location.reload());
 }
 
 function startGame(game, impl, opts = {}) {
@@ -292,6 +304,7 @@ function closeStage() {
 stage.addEventListener('close', () => {
   teardown(); body.innerHTML = '';
   document.documentElement.classList.remove('is-playing');
+  paintProfile();
   lastTrigger?.focus();
 });
 // Esc pausa el juego en lugar de cerrarlo de golpe
@@ -325,7 +338,10 @@ document.addEventListener('click', e => {
 $$('[data-arcade-filter]').forEach(btn => btn.addEventListener('click', () => {
   const f = btn.dataset.arcadeFilter;
   $$('[data-arcade-filter]').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
-  $$('.acard').forEach(c => { c.hidden = !(f === 'todo' || c.dataset.tags.split(' ').includes(f) || (f === 'fav' && c.classList.contains('is-fav'))); });
+  let shown = 0;
+  $$('.acard').forEach(c => { c.hidden = !(f === 'todo' || c.dataset.tags.split(' ').includes(f) || (f === 'fav' && c.classList.contains('is-fav'))); if (!c.hidden) shown++; });
+  $('[data-arcade-empty]').hidden = shown > 0;
+  sfx.tick();
 }));
 
 /* ---------- Inicio ---------- */

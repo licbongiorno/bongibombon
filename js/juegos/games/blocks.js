@@ -1,7 +1,7 @@
 // BONGI BLOCKS — El desafío de los dulces.
 // Piezas de golosina, rotación con correcciones contra paredes, pieza fantasma, guardar pieza,
 // tres próximas, retardo de fijación, combos, multiplicador por cuádruples seguidos y niveles.
-import { arcade, FONT, roundRect } from '../core/arcade.js';
+import { arcade, FONT, roundRect } from '../core/arcade.js?v=cfab42284a';
 
 const COLS = 10, ROWS = 20, S = 16, BX = 68, BY = 10, W = 296, H = 344;
 const PIECES = {

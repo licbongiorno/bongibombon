@@ -1,5 +1,5 @@
 // Memoria Dulce: encontrar pares. Tres niveles que se desbloquean en orden.
-import { candySVG, SWEET_IDS, CANDIES } from '../../candies.js';
+import { candySVG, SWEET_IDS, CANDIES } from '../../candies.js?v=cfab42284a';
 
 const LEVELS = [
   { n: 1, pairs: 6, cols: 4, label: 'Nivel 1 · 12 cartas' },

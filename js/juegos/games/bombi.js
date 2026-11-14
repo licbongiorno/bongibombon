@@ -1,7 +1,7 @@
 // BOMBI BONGI — Aventura explosiva.
 // Laberinto de bloques, bombas de caramelo en cruz con reacciones en cadena, poderes ocultos,
 // golosinas escondidas, tres tipos de enemigos, portal que se abre al vencerlos, vidas y reloj.
-import { arcade, FONT, roundRect, drawBongi } from '../core/arcade.js';
+import { arcade, FONT, roundRect, drawBongi } from '../core/arcade.js?v=cfab42284a';
 
 const C = 15, R = 13, T = 20, TOP = 24, W = C * T, H = R * T + TOP;
 const DIRS = [[0, -1], [1, 0], [0, 1], [-1, 0]];

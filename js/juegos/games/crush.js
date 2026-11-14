@@ -1,8 +1,8 @@
 // BONGI CRUSH — La fábrica de combinaciones.
 // 30 niveles en 3 mundos, objetivos variados, golosinas especiales, combinaciones
 // entre especiales, cascadas, glaseado, bloques de chocolate y mapa con estrellas.
-import { arcade, FONT, roundRect } from '../core/arcade.js';
-import { candyImage, preload } from '../../candies.js';
+import { arcade, FONT, roundRect } from '../core/arcade.js?v=cfab42284a';
+import { candyImage, preload } from '../../candies.js?v=cfab42284a';
 
 const COLORS = ['caramelo', 'gomita', 'confite', 'chupetin', 'bombon', 'chicle'];
 const NAMES = ['caramelos', 'gomitas', 'confites', 'chupetines', 'bombones', 'chicles'];

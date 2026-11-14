@@ -3,7 +3,7 @@
 // - Lazo con paso fijo de 1/60 s (física estable en cualquier pantalla).
 // - Entrada unificada: teclado + controles táctiles en pantalla + puntero.
 // - Partículas, textos flotantes, sacudón de cámara (opcional), carteles y menú de pausa.
-import { store } from './storage.js';
+import { store } from './storage.js?v=cfab42284a';
 
 const KEYMAP = {
   ArrowLeft: 'left', KeyA: 'left', ArrowRight: 'right', KeyD: 'right',

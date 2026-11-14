@@ -1,7 +1,7 @@
 // Identidad sonora de Bongi Juegos, sintetizada en el navegador con Web Audio.
 // Ventajas: cero archivos que descargar, cero servicios externos, nada suena
 // hasta que la persona interactúa (política de autoplay de los navegadores).
-import { store } from './storage.js';
+import { store } from './storage.js?v=cfab42284a';
 
 let ac = null, master = null, musicGain = null, musicTimer = 0, musicStep = 0;
 

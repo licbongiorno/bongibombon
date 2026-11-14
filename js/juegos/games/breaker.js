@@ -1,7 +1,7 @@
 // BONGI BREAKER — Rompé el dulce.
 // Barra de regaliz, bombón que rebota con física en pasos pequeños (no atraviesa bloques),
 // 10 niveles originales, bloques de varias resistencias, dorados, explosivos, poderes y combos.
-import { arcade, FONT, roundRect } from '../core/arcade.js';
+import { arcade, FONT, roundRect } from '../core/arcade.js?v=cfab42284a';
 
 const W = 300, H = 420, COLS = 10, BW = 27, BH = 12, GAP = 2, OX = (W - COLS * (BW + GAP) + GAP) / 2, OY = 54, PY = 392, R = 5;
 const COLORS = ['#ef476f', '#ffd166', '#06d6a0', '#7ae0ff', '#ff8fb1', '#ff6b35', '#c9a0ff'];

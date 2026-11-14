@@ -1,6 +1,6 @@
 // Frascos Musicales: mirá y escuchá la secuencia de frascos y repetila.
 // Cada ronda suma un frasco más y la secuencia va más rápido. Tenés una segunda oportunidad.
-import { candySVG } from '../../candies.js';
+import { candySVG } from '../../candies.js?v=cfab42284a';
 
 const JARS = [
   { candy: 'caramelo', color: '#ef476f', name: 'frasco de caramelos', key: '1' },

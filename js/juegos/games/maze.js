@@ -1,8 +1,8 @@
 // BONGI MAZE — El laberinto dulce.
 // Laberintos originales generados por nivel (simétricos, sin callejones sin salida),
 // cuatro enemigos con personalidades distintas, Bombón dorado, pasadizos laterales y bonus.
-import { arcade, FONT, roundRect, drawBongi } from '../core/arcade.js';
-import { candyImage, preload } from '../../candies.js';
+import { arcade, FONT, roundRect, drawBongi } from '../core/arcade.js?v=cfab42284a';
+import { candyImage, preload } from '../../candies.js?v=cfab42284a';
 
 const C = 19, R = 21, T = 16, TOP = 26, W = C * T, H = R * T + TOP;
 const TUNNEL = 10, DOOR = { x: 9, y: 8 }, HOUSE = { x: 9, y: 10 }, EXIT = { x: 9, y: 7 }, START = { x: 9, y: 15 };

@@ -1,7 +1,7 @@
 // BONGI WORLD — Aventura de plataformas en 5 mundos dulces.
 // Física con tiempo de gracia, salto variable y salto anticipado; bloques sorpresa y ocultos,
 // plataformas móviles, trampolines, pinches, puntos de control, poderes y jefes.
-import { arcade, FONT, roundRect, drawBongi } from '../core/arcade.js';
+import { arcade, FONT, roundRect, drawBongi } from '../core/arcade.js?v=cfab42284a';
 
 const W = 400, H = 224, T = 16, ROWS = 14;
 const GRAV = 1400, JUMP = 425, JUMP2 = 370, MAXFALL = 520, WALK = 105, RUN = 170, ACC = 900, FRIC = 1200;

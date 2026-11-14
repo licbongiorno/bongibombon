@@ -343,3 +343,17 @@ html.is-playing { overflow: hidden; }
 .arc-pad__dirs, .arc-pad__acts { gap: clamp(4px, 1.6vw, 10px); }
 .arc-btn { width: clamp(46px, 13vw, 64px); height: clamp(46px, 13vw, 64px); }
 .arc-btn--act { width: clamp(52px, 15.5vw, 76px); height: clamp(52px, 15.5vw, 76px); font-size: clamp(.72rem, 2.6vw, .9rem); }
+/* Respaldo de <dialog> para navegadores antiguos */
+dialog.dialog-fallback[open] { position: fixed; inset: 0; z-index: 200; }
+dialog.mini-dialog.dialog-fallback[open] { inset: auto; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+/* Una sola grilla para todos los juegos */
+.arcade-filters .chip span { opacity: .7; font-weight: 700; margin-left: 2px; }
+.arcade__head { flex-direction: column; align-items: stretch; }
+.kind { display: inline-block; font: 800 .74rem var(--font-body); padding: 3px 9px; border-radius: 999px; }
+.acard__meta .kind--arcade, .kind--arcade { background: var(--banana); color: var(--cacao); }
+.acard__meta .kind--mini, .kind--mini { background: #b8f2c8; color: var(--cacao); }
+.arcade__legend { margin: 22px 0 0; color: #f6dbe3; font-size: .92rem; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.arcade__legend .kind--mini { margin-left: 10px; }
+.arcade__empty { margin: 16px 0 0; padding: 18px; border-radius: var(--radius-m); background: rgb(255 255 255 / .08); color: #fff; text-align: center; }
+@media (min-width: 700px) { .arcade-filters { flex-wrap: wrap; overflow: visible; } }

@@ -1,5 +1,5 @@
 // El desafío Bongi: 45 segundos de consignas rápidas en tres modalidades.
-import { candySVG, CANDIES, SWEET_IDS } from '../../candies.js';
+import { candySVG, CANDIES, SWEET_IDS } from '../../candies.js?v=cfab42284a';
 
 const PHOTOS = [
   ['alfajores', 'dulce'], ['chocolates', 'dulce'], ['gomitas', 'dulce'], ['chupetines', 'dulce'], ['caramelos', 'dulce'],

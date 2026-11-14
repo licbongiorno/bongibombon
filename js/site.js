@@ -1,5 +1,5 @@
 // Comportamiento compartido por todas las páginas.
-import { initAnalytics } from './analytics.js';
+import { initAnalytics } from './analytics.js?v=cfab42284a';
 
 const config = JSON.parse(document.getElementById('bb-config')?.textContent || '{}');
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -83,6 +83,6 @@ document.querySelectorAll('[data-map-src]').forEach(box => {
 
 /* ---------- Hero interactivo (solo en la home) ---------- */
 const heroCanvas = document.querySelector('.hero__canvas');
-if (heroCanvas) import('./hero.js').then(m => m.startHero(heroCanvas, { reduceMotion }));
+if (heroCanvas) import('./hero.js?v=cfab42284a').then(m => m.startHero(heroCanvas, { reduceMotion }));
 
 initAnalytics();

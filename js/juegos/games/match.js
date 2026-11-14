@@ -1,6 +1,6 @@
 // Candy Match: intercambiar golosinas vecinas para formar líneas de 3 o más.
 // Controles: tocar + tocar vecina, deslizar, o teclado (Enter para elegir y flechas para intercambiar).
-import { candySVG, CANDIES } from '../../candies.js';
+import { candySVG, CANDIES } from '../../candies.js?v=cfab42284a';
 
 const N = 7;
 const TYPES = ['caramelo', 'chupetin', 'gomita', 'confite', 'bombon', 'chicle'];

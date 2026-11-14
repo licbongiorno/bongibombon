@@ -2,7 +2,7 @@
 // empuja, y que estalla en más confites con un toque.
 // Rendimiento: canvas único, DPR ≤ 2, cantidad según superficie,
 // pausa fuera de pantalla o con la pestaña oculta. Con movimiento reducido se dibuja un cuadro fijo.
-import { candyImage, preload } from './candies.js';
+import { candyImage, preload } from './candies.js?v=cfab42284a';
 
 const COLORS = ['#ffd166', '#06d6a0', '#ff6b35', '#ffffff', '#3b1f2b', '#ff8fb1', '#7ae0ff'];
 const SPRITES = ['caramelo', 'chupetin', 'gomita', 'chocolate', 'alfajor', 'bombon', 'paleta', 'chicle'];

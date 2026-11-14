@@ -1,6 +1,6 @@
 // Catálogo: filtros por sector, lista de favoritos (en este dispositivo)
 // y envío de la lista por WhatsApp. No hay carrito ni pagos: la venta se cierra en el local.
-import { track } from './analytics.js';
+import { track } from './analytics.js?v=cfab42284a';
 
 const KEY = 'bb.favoritos';
 const cfg = JSON.parse(document.getElementById('bb-config').textContent);
