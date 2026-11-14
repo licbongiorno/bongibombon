@@ -86,7 +86,7 @@ export default {
       setTimeout(() => alive && nextRound(), 1200);
     }
 
-    stageEl.addEventListener('pointerdown', e => { e.preventDefault(); stageEl.setPointerCapture?.(e.pointerId); press(); });
+    stageEl.addEventListener('pointerdown', e => { e.preventDefault(); try { stageEl.setPointerCapture(e.pointerId); } catch { /* sin captura */ } press(); });
     stageEl.addEventListener('pointerup', release);
     stageEl.addEventListener('pointercancel', release);
     stageEl.addEventListener('contextmenu', e => e.preventDefault());

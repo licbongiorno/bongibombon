@@ -64,7 +64,7 @@ export function arcade(root, ctx, opts) {
   if (!dirs.length && !(controls.buttons || []).length) pad.remove();
   pad.querySelectorAll('[data-k]').forEach(btn => {
     const k = btn.dataset.k;
-    const on = e => { e.preventDefault(); btn.setPointerCapture?.(e.pointerId); btn.classList.add('is-down'); press(k); };
+    const on = e => { e.preventDefault(); try { btn.setPointerCapture(e.pointerId); } catch { /* sin captura */ } btn.classList.add('is-down'); press(k); };
     const off = () => { btn.classList.remove('is-down'); release(k); };
     btn.addEventListener('pointerdown', on); btn.addEventListener('pointerup', off);
     btn.addEventListener('pointercancel', off); btn.addEventListener('lostpointercapture', off);
@@ -75,7 +75,7 @@ export function arcade(root, ctx, opts) {
   if (onPointer) {
     for (const type of ['pointerdown', 'pointermove', 'pointerup', 'pointercancel']) {
       canvas.addEventListener(type, e => {
-        if (type === 'pointerdown') { canvas.setPointerCapture?.(e.pointerId); e.preventDefault(); }
+        if (type === 'pointerdown') { try { canvas.setPointerCapture(e.pointerId); } catch { /* sin captura */ } e.preventDefault(); }
         if (paused || over) return;
         const p = toLogical(e); onPointer(type.replace('pointer', ''), p.x, p.y, e);
       });

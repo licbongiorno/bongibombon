@@ -131,7 +131,7 @@ export default {
 
     const toX = e => e.clientX - api.wrap.getBoundingClientRect().left;
     const onPointer = e => { s.bag.tx = toX(e); };
-    api.wrap.addEventListener('pointerdown', e => { api.wrap.setPointerCapture?.(e.pointerId); onPointer(e); });
+    api.wrap.addEventListener('pointerdown', e => { try { api.wrap.setPointerCapture(e.pointerId); } catch { /* sin captura */ } onPointer(e); });
     api.wrap.addEventListener('pointermove', e => { if (e.pointerType === 'mouse' || e.buttons) onPointer(e); });
     const keyH = down => e => {
       if (['ArrowLeft', 'a', 'A'].includes(e.key)) { s.keys.l = down; e.preventDefault(); }

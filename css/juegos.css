@@ -337,3 +337,8 @@ html.is-playing { overflow: hidden; }
   .stage--arcade .stage__bar { padding-block: 4px; }
   .stage--arcade .hud__item { padding: 2px 8px; }
 }
+/* Botones táctiles que se adaptan al ancho del celular */
+.arc-pad { gap: 8px; }
+.arc-pad__dirs, .arc-pad__acts { gap: clamp(4px, 1.6vw, 10px); }
+.arc-btn { width: clamp(46px, 13vw, 64px); height: clamp(46px, 13vw, 64px); }
+.arc-btn--act { width: clamp(52px, 15.5vw, 76px); height: clamp(52px, 15.5vw, 76px); font-size: clamp(.72rem, 2.6vw, .9rem); }
