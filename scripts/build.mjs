@@ -45,6 +45,28 @@ const catalogItemList = {
   itemListElement: catalog.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, url: `${site.url}/golosinas#${c.slug}`, description: c.desc }))
 };
 
+// ---------- Bongi Arcade: tarjetas y datos estructurados desde el registro de juegos ----------
+const { GAMES } = await import('../js/juegos/core/registry.js');
+const { POSTERS } = await import('./posters.mjs');
+const { candySVG } = await import('../js/candies.js');
+const DIFF_CLASS = { 'Fácil': 'easy', 'Media': 'mid', 'Difícil': 'hard' };
+partials['arcade-cards'] = `<ul class="arcade-cards" data-arcade-grid>\n${GAMES.filter(g => g.arcade).map(g => `  <li class="acard" id="${g.id}" data-id="${g.id}" data-tags="${g.tags}" style="--c:${g.color}">
+    <div class="acard__screen">${POSTERS[g.id]()}${g.isNew ? '<span class="acard__new">Nuevo</span>' : ''}<span class="acard__fav">Tus más jugados</span></div>
+    <div class="acard__body">
+      <h3>${esc(g.title)}</h3>
+      <p>${esc(g.desc)}</p>
+      <ul class="acard__meta" aria-label="Datos del juego"><li class="lvl lvl--${DIFF_CLASS[g.difficulty]}">${g.difficulty}</li><li>${esc(g.duration)}</li><li>${esc(g.tag)}</li></ul>
+      <p class="acard__best" data-best="${g.id}">Sin récord todavía</p>
+      <button type="button" class="btn btn--sm btn--banana" data-play="${g.id}">Jugar</button>
+    </div>
+  </li>`).join('\n')}\n</ul>`;
+partials['mini-cards'] = `<ul class="arcade__grid" data-grid>\n${GAMES.filter(g => !g.arcade).map(g => `  <li class="gcard" id="${g.id}" style="--c:${g.color}"><div class="gcard__icon" aria-hidden="true">${candySVG(g.icon)}</div><h3>${esc(g.title)}</h3><p>${esc(g.desc)}</p><p class="gcard__best" data-best="${g.id}">Sin récord todavía</p><button type="button" class="btn btn--sm" data-play="${g.id}">Jugar</button></li>`).join('\n')}\n</ul>`;
+const GENRE = { crush: 'Puzle', world: 'Plataformas', maze: 'Laberinto', blocks: 'Puzle', breaker: 'Arcade', bombi: 'Acción y laberinto', pong: 'Deportes', candyof: 'Acción', atrapa: 'Arcade', memoria: 'Memoria', match: 'Puzle', trivia: 'Trivia', desafio: 'Habilidad', carrera: 'Arcade', globo: 'Habilidad', frascos: 'Música y memoria' };
+const gamesItemList = {
+  '@type': 'ItemList', name: 'Bongi Arcade', numberOfItems: GAMES.length,
+  itemListElement: GAMES.map((g, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': 'VideoGame', name: g.title, description: g.desc, url: `${site.url}/juegos#${g.id}`, gamePlatform: 'Navegador web', applicationCategory: 'Game', genre: GENRE[g.id] || 'Arcade', isAccessibleForFree: true, inLanguage: 'es-AR', ...(g.id === 'pong' ? { numberOfPlayers: { '@type': 'QuantitativeValue', minValue: 1, maxValue: 2 } } : {}) } }))
+};
+
 function walk(dir) {
   return readdirSync(dir).flatMap(f => {
     const p = join(dir, f);
@@ -123,6 +145,7 @@ for (const file of walk(pagesDir)) {
   });
   for (const extra of meta.ld || []) graph.push(extra);
   if (meta.catalogLd) graph[graph.length - 1 - (meta.ld || []).length].mainEntity = catalogItemList;
+  if (meta.gamesLd) graph[graph.length - 1 - (meta.ld || []).length].mainEntity = gamesItemList;
   const jsonld = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 1)
     .replace(/</g, '\\u003c');
 

@@ -3,13 +3,15 @@
 const KEY = 'bb.juegos.v1';
 
 const fresh = () => ({
-  nick: '', xp: 0, created: Date.now(),
+  nick: '', avatar: 'bombon', xp: 0, points: 0, created: Date.now(),
+  data: {},             // id → progreso propio de cada juego (mapa de niveles, estrellas, mundos)
+  totals: {},           // contadores globales (golosinas recogidas, etc.)
   streak: { count: 0, last: '' },
   daily: { date: '', done: false },
   stats: { played: 0, finished: 0, ms: 0 },
   games: {},            // id → { played, finished, best, top: [{score, date, nick}] , extra: {} }
   achievements: {},     // id → fecha ISO
-  settings: { sound: true, volume: 0.7, music: false }
+  settings: { sound: true, volume: 0.7, music: false, shake: true }
 });
 
 let state = load();
@@ -28,6 +30,9 @@ export const store = {
   save: persist,
   reset() { state = fresh(); persist(); },
   game(id) { return (state.games[id] ||= { played: 0, finished: 0, best: 0, top: [], extra: {} }); },
+  /** Objeto persistente propio de cada juego (se guarda con store.save()). */
+  data(id) { state.data ||= {}; return (state.data[id] ||= {}); },
+  add(counter, n) { state.totals ||= {}; state.totals[counter] = (state.totals[counter] || 0) + n; return state.totals[counter]; },
   setting(k, v) { if (v === undefined) return state.settings[k]; state.settings[k] = v; persist(); return v; }
 };
 
@@ -70,6 +75,8 @@ export function recordResult(id, result, xpGain) {
   }
   const before = levelInfo();
   state.xp += xpGain;
+  state.points = (state.points || 0) + xpGain;   // Puntos Bongi: virtuales, sin valor monetario
+  if (result.extra?.candies) store.add('candies', result.extra.candies);
   const after = levelInfo();
   persist();
   return { isRecord, prevBest, levelUp: after.level > before.level, level: after };
