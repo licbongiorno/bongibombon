@@ -4,5 +4,6 @@ User-agent: *
 Allow: /
 Disallow: /src/
 Disallow: /scripts/
+Disallow: /vida/
 
 Sitemap: https://bongibombon.com.ar/sitemap.xml

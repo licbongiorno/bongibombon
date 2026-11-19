@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F6F1EB" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1E211B" media="(prefers-color-scheme: dark)">
+<title>Brújula</title>
+<link rel="manifest" href="/vida/manifest.webmanifest">
+<link rel="icon" href="/vida/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/vida/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Brújula">
+<style>
+:root{
+  --bg:#F6F1EB; --surface:#FFFDF9; --surface-2:#EFE8DE; --text:#2E3229; --muted:#6B6E66;
+  --line:#E2DACE; --sage:#A3B18A; --sage-ink:#55643F; --sage-soft:#E6EBDC;
+  --terra:#F4A261; --terra-ink:#9A4E16; --terra-soft:#FCE9D8; --gray:#AFAFAF;
+  --radius:18px; --shadow:0 1px 2px rgba(46,50,41,.06),0 4px 16px rgba(46,50,41,.05);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1E211B; --surface:#272B23; --surface-2:#30352B; --text:#ECE7DE; --muted:#A9AA9F;
+    --line:#3A4033; --sage:#A3B18A; --sage-ink:#BFCBA8; --sage-soft:#343D2B;
+    --terra:#F4A261; --terra-ink:#F6B985; --terra-soft:#43301F; --shadow:none; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1E211B; --surface:#272B23; --surface-2:#30352B; --text:#ECE7DE; --muted:#A9AA9F;
+  --line:#3A4033; --sage:#A3B18A; --sage-ink:#BFCBA8; --sage-soft:#343D2B;
+  --terra:#F4A261; --terra-ink:#F6B985; --terra-soft:#43301F; --shadow:none; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 var(--sans);
+  padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+main{max-width:560px;margin:0 auto;padding:0 16px}
+header.top{max-width:560px;margin:0 auto;padding:calc(14px + env(safe-area-inset-top)) 16px 6px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;margin:0}
+h1{font-size:1.6rem}
+h2{font-size:1.15rem;margin-bottom:10px}
+h3{font-size:1rem}
+p{margin:0 0 10px}
+.muted{color:var(--muted)}
+.small{font-size:.875rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px;margin:14px 0;box-shadow:var(--shadow)}
+.card.quiet{background:transparent;box-shadow:none}
+.question{background:var(--sage-soft);border-color:transparent}
+.question h2{font-size:1.25rem;line-height:1.3}
+.row{display:flex;align-items:center;gap:10px}
+.between{justify-content:space-between}
+.wrap{flex-wrap:wrap}
+.field{margin:16px 0 0}
+.field>label,.label{display:block;font-weight:600;margin-bottom:8px}
+.hint{font-weight:400;color:var(--muted);font-size:.875rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{appearance:none;border:1px solid var(--line);background:var(--bg);color:var(--text);
+  border-radius:999px;padding:9px 14px;font:inherit;font-size:.9rem;min-height:40px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--sage);border-color:var(--sage);color:#1F2618;font-weight:600}
+.chip.terra[aria-pressed="true"]{background:var(--terra);border-color:var(--terra);color:#3A1F08}
+textarea,input[type=text],input[type=number],select{width:100%;font:inherit;color:var(--text);
+  background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:11px 12px}
+textarea{min-height:76px;resize:vertical}
+textarea:focus,input:focus,select:focus,.chip:focus-visible,button:focus-visible,a:focus-visible{
+  outline:2px solid var(--sage-ink);outline-offset:2px}
+input[type=number]{max-width:120px}
+.btn{appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--text);
+  border-radius:12px;padding:10px 14px;font:inherit;font-weight:600;min-height:44px;cursor:pointer}
+.btn.primary{background:var(--sage-ink);border-color:var(--sage-ink);color:var(--bg)}
+.btn.ghost{background:transparent}
+.btn.danger{color:var(--terra-ink);border-color:var(--terra)}
+.icon-btn{appearance:none;border:0;background:transparent;color:var(--text);width:44px;height:44px;
+  border-radius:12px;display:grid;place-items:center;cursor:pointer}
+.icon-btn:hover{background:var(--surface-2)}
+.icon-btn svg{width:22px;height:22px}
+.daynav{display:flex;align-items:center;justify-content:space-between;margin-top:4px}
+.daynav .date{font-family:var(--serif);font-size:1.05rem}
+.saved{font-size:.8rem;color:var(--muted);min-height:1.2em;text-align:right}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);
+  padding:6px 8px calc(6px + env(safe-area-inset-bottom));z-index:5}
+nav.tabs .in{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+nav.tabs button{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;font-size:.75rem;
+  display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 4px;border-radius:12px;cursor:pointer;min-height:52px}
+nav.tabs button svg{width:22px;height:22px}
+nav.tabs button[aria-current="page"]{color:var(--sage-ink);background:var(--sage-soft);font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.stat{background:var(--bg);border-radius:14px;padding:12px}
+.stat b{display:block;font-family:var(--serif);font-size:1.35rem;font-weight:600}
+.stat span{font-size:.8rem;color:var(--muted)}
+.dots{display:flex;gap:6px;margin-top:8px}
+.dot{flex:1;height:8px;border-radius:4px;background:var(--surface-2)}
+.dot.on{background:var(--sage)}
+ul.clean{list-style:none;margin:0;padding:0}
+ul.clean li{padding:10px 0;border-top:1px solid var(--line)}
+ul.clean li:first-child{border-top:0}
+.obs li{padding-left:14px;position:relative}
+.obs li::before{content:"";position:absolute;left:0;top:18px;width:6px;height:6px;border-radius:50%;background:var(--terra)}
+.project{border:1px solid var(--line);border-radius:14px;margin:10px 0;background:var(--bg)}
+.project summary{list-style:none;cursor:pointer;padding:12px 14px;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.project summary::-webkit-details-marker{display:none}
+.project .body{padding:0 14px 14px}
+.tag{font-size:.75rem;padding:3px 9px;border-radius:999px;background:var(--surface-2);color:var(--muted);white-space:nowrap}
+.tag.sage{background:var(--sage-soft);color:var(--sage-ink)}
+.tag.terra{background:var(--terra-soft);color:var(--terra-ink)}
+.banner{border-radius:14px;padding:12px 14px;background:var(--terra-soft);color:var(--text);margin:10px 0}
+.empty{color:var(--muted);font-size:.9rem;padding:6px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.decq{padding:10px 0;border-top:1px solid var(--line)}
+.decq:first-of-type{border-top:0}
+.decq p{margin:0 0 8px}
+.result{margin-top:12px;padding:12px 14px;border-radius:14px;background:var(--sage-soft)}
+.result.no{background:var(--terra-soft)}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (prefers-reduced-motion:no-preference){.view{animation:fade .18s ease-out}}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1 id="title">Hoy</h1>
+  <button class="icon-btn" id="openData" aria-label="Tus datos y ajustes">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>
+  </button>
+</header>
+
+<main>
+<!-- HOY -->
+<section class="view" id="v-hoy" aria-labelledby="title">
+  <div class="daynav">
+    <button class="icon-btn" id="prevDay" aria-label="Día anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <div class="date" id="dayLabel"></div>
+    <button class="icon-btn" id="nextDay" aria-label="Día siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+  <p class="muted small" style="text-align:center">Todo es opcional. Un minuto alcanza.</p>
+
+  <div class="card">
+    <div class="field" style="margin-top:0"><span class="label">Energía</span><div class="chips" data-scale="energia"></div></div>
+    <div class="field"><span class="label">Ánimo</span><div class="chips" data-scale="animo"></div></div>
+    <div class="field"><span class="label">Cómo dormí</span><div class="chips" data-scale="sueno"></div></div>
+  </div>
+
+  <div class="card">
+    <div class="field" style="margin-top:0"><span class="label">Movimiento</span><div class="chips" id="movChips"></div></div>
+    <div class="field">
+      <label for="horas">Horas de trabajo <span class="hint">(clínica + proyectos + administración)</span></label>
+      <input type="number" id="horas" inputmode="decimal" min="0" max="24" step="0.5" placeholder="—">
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="field" style="margin-top:0">
+      <label for="momento">Un momento que valió la pena <span class="hint">— con alguien, solo, afuera</span></label>
+      <textarea id="momento" rows="2"></textarea>
+    </div>
+    <div class="field">
+      <label for="nota">Lo que quiera anotar <span class="hint">— podés dictar con el micrófono del teclado</span></label>
+      <textarea id="nota" rows="3"></textarea>
+    </div>
+    <div class="field">
+      <label for="manana">Mañana, una sola cosa importante</label>
+      <input type="text" id="manana" autocomplete="off">
+    </div>
+  </div>
+  <div class="saved" id="savedHoy" aria-live="polite"></div>
+</section>
+
+<!-- SEMANA -->
+<section class="view" id="v-semana" hidden>
+  <div class="daynav">
+    <button class="icon-btn" id="prevWeek" aria-label="Semana anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <div class="date" id="weekLabel"></div>
+    <button class="icon-btn" id="nextWeek" aria-label="Semana siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+
+  <div class="card question">
+    <h2>¿La vida que estoy construyendo se parece a la vida que quiero vivir?</h2>
+    <div class="chips" id="preguntaChips"></div>
+    <div class="field"><textarea id="preguntaNota" rows="2" placeholder="Por qué, en pocas palabras" aria-label="Por qué"></textarea></div>
+  </div>
+
+  <div class="card">
+    <h2>La semana en datos</h2>
+    <div class="stats" id="weekStats"></div>
+    <p class="small muted" style="margin-top:12px">Días con movimiento</p>
+    <div class="dots" id="movDots" aria-hidden="true"></div>
+  </div>
+
+  <div class="card">
+    <h2>Lo que se ve</h2>
+    <ul class="clean obs" id="obs"></ul>
+  </div>
+
+  <div class="card" id="momentosCard">
+    <h2>Momentos que valieron la pena</h2>
+    <ul class="clean" id="momentos"></ul>
+  </div>
+
+  <div class="card">
+    <h2>Revisión <span class="hint">(20 minutos, una vez por semana)</span></h2>
+    <div class="field" style="margin-top:0"><label for="wDio">¿Qué me dio energía?</label><textarea id="wDio" rows="2"></textarea></div>
+    <div class="field"><label for="wQuito">¿Qué me la quitó?</label><textarea id="wQuito" rows="2"></textarea></div>
+    <div class="field"><label for="wPostergue">¿Qué postergué, y importa?</label><textarea id="wPostergue" rows="2"></textarea></div>
+    <div class="field"><label for="wAjuste">Un solo ajuste para la próxima semana</label><input type="text" id="wAjuste" autocomplete="off"></div>
+    <div class="field"><label for="wDisfrutar">Algo para disfrutar, sin justificarlo</label><input type="text" id="wDisfrutar" autocomplete="off"></div>
+    <div class="saved" id="savedSemana" aria-live="polite"></div>
+  </div>
+
+  <div class="card quiet">
+    <h3>Devolución con IA</h3>
+    <p class="small muted">Nada sale de este dispositivo automáticamente. Este botón copia un resumen de la semana, sin tu nombre, para que lo pegues vos en Claude o en el asistente que elijas.</p>
+    <button class="btn" id="copyPrompt">Copiar resumen para la IA</button>
+    <span class="small muted" id="copyMsg" aria-live="polite"></span>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section class="view" id="v-proyectos" hidden>
+  <div class="card question">
+    <h2>Terminar antes de empezar</h2>
+    <p class="small" style="margin:0">Además de la clínica, hasta <b id="maxLabel">2</b> proyectos activos. Las ideas esperan 30 días antes de volverse proyecto.</p>
+  </div>
+  <div id="limitBanner"></div>
+
+  <div class="card">
+    <h2>Nuevo</h2>
+    <div class="row">
+      <input type="text" id="newProj" placeholder="Nombre del proyecto o idea" aria-label="Nombre del proyecto o idea" autocomplete="off">
+      <button class="btn primary" id="addProj">Agregar</button>
+    </div>
+    <p class="small muted" style="margin:8px 0 0">Entra como idea. La activás cuando haya lugar.</p>
+  </div>
+
+  <div class="card"><h2>Activos</h2><div id="list-activo"></div></div>
+  <div class="card"><h2>Ideas en espera</h2><div id="list-idea"></div></div>
+  <div class="card"><h2>En pausa</h2><div id="list-pausa"></div></div>
+  <div class="card quiet"><h2>Terminados y soltados</h2><div id="list-cerrado"></div></div>
+</section>
+
+<!-- BRÚJULA -->
+<section class="view" id="v-brujula" hidden>
+  <div class="card">
+    <h2>¿Lo hago?</h2>
+    <p class="small muted">Para un proyecto, una compra o una oportunidad. Antes de decir que sí.</p>
+    <input type="text" id="decTitle" placeholder="¿Qué estás considerando?" aria-label="¿Qué estás considerando?" autocomplete="off">
+    <div id="decQs" style="margin-top:8px"></div>
+    <div id="decResult"></div>
+    <div class="row" style="margin-top:12px"><button class="btn" id="decSave" hidden>Guardar decisión</button></div>
+    <details style="margin-top:10px"><summary class="small muted">Decisiones anteriores</summary><ul class="clean small" id="decList"></ul></details>
+  </div>
+
+  <div class="card">
+    <h2>Mi brújula</h2>
+    <p class="small muted">Escribila con tus palabras y revisala cada trimestre. No es un contrato.</p>
+    <div id="brujulaFields"></div>
+    <div class="saved" id="savedBrujula" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- DATOS -->
+<section class="view" id="v-datos" hidden>
+  <div class="card">
+    <h2>Dónde están tus datos</h2>
+    <p class="small">Solo en este navegador y en este dispositivo. No hay cuentas, servidores ni analítica. Si borrás los datos del navegador, se pierden: exportá una copia de vez en cuando.</p>
+    <p class="small muted" id="persistMsg"></p>
+  </div>
+  <div class="card">
+    <h2>Exportar</h2>
+    <div class="grid2">
+      <button class="btn" id="expJson">Copia completa (JSON)</button>
+      <button class="btn" id="expMd">Legible (Markdown)</button>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Importar</h2>
+    <p class="small muted">Reemplaza lo que hay en este dispositivo por una copia JSON exportada antes.</p>
+    <input type="file" id="impFile" accept="application/json,.json" class="sr">
+    <label for="impFile" class="btn" style="display:inline-block">Elegir archivo…</label>
+    <span class="small muted" id="impMsg" aria-live="polite"></span>
+  </div>
+  <div class="card">
+    <h2>Ajustes</h2>
+    <div class="field" style="margin-top:0">
+      <label for="maxActivos">Proyectos activos como máximo <span class="hint">(además de la clínica)</span></label>
+      <input type="number" id="maxActivos" min="1" max="5" step="1">
+    </div>
+    <div class="field">
+      <span class="label">Apariencia</span>
+      <div class="chips" id="themeChips"></div>
+    </div>
+  </div>
+  <div class="card quiet">
+    <button class="btn danger" id="wipe">Borrar todo de este dispositivo</button>
+  </div>
+</section>
+</main>
+
+<nav class="tabs" aria-label="Secciones">
+  <div class="in">
+    <button data-view="hoy" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Hoy</button>
+    <button data-view="semana"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Semana</button>
+    <button data-view="proyectos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 21V11M12 11c0-4 3-6 7-6 0 4-3 6-7 6zM12 14c0-3-2.5-5-6-5 0 3 2.5 5 6 5z"/></svg>Proyectos</button>
+    <button data-view="brujula"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>Brújula</button>
+  </div>
+</nav>
+
+<script>
+(() => {
+'use strict';
+const KEY = 'brujula.v1';
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+
+/* ---------- datos ---------- */
+const BRUJULA = [
+  ['quien','Quién soy'],
+  ['importante','Qué es importante para mí'],
+  ['vida','Qué tipo de vida quiero construir'],
+  ['preservar','Qué quiero preservar'],
+  ['cambiar','Qué quiero cambiar'],
+  ['noSacrifico','Qué no estoy dispuesto a sacrificar'],
+  ['prioridades','Mis prioridades de estos 90 días (dos o tres)'],
+  ['objetivos','Hacia dónde: 1, 3 y 10 años'],
+  ['criterios','Mis criterios para decidir'],
+];
+const DEFAULT_CRITERIOS = '1. ¿Esto mejora mi vida o agrega otra obligación?\n2. ¿Qué dejo de hacer si digo que sí?\n3. ¿Puedo terminarlo, o solo empezarlo?\n4. ¿Lo haría aunque nadie lo viera ni me pagara? Si no, ¿al menos paga bien?\n5. ¿Respeta mi tiempo con la familia y mi descanso?';
+
+function fresh(){
+  return {v:1, days:{}, weeks:{}, projects:[], decisions:[],
+    brujula:{criterios:DEFAULT_CRITERIOS}, settings:{maxActivos:2, theme:'auto'}};
+}
+function load(){
+  try{
+    const raw = localStorage.getItem(KEY);
+    if(!raw) return fresh();
+    const d = JSON.parse(raw), f = fresh();
+    return Object.assign(f, d, {settings:Object.assign(f.settings, d.settings||{})});
+  }catch(e){ return fresh(); }
+}
+let db = load();
+let storageOk = true;
+function save(msgEl){
+  try{ localStorage.setItem(KEY, JSON.stringify(db)); storageOk = true;
+    if(msgEl){ msgEl.textContent = 'Guardado'; clearTimeout(msgEl._t); msgEl._t = setTimeout(()=>msgEl.textContent='', 1500); }
+  }catch(e){ storageOk = false; if(msgEl) msgEl.textContent = 'No se pudo guardar en este navegador. Exportá tus datos.'; }
+}
+const debounce = (fn, ms=400) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(()=>fn(...a), ms); }; };
+const uid = () => Math.random().toString(36).slice(2,10) + Date.now().toString(36).slice(-4);
+
+/* ---------- fechas ---------- */
+const pad = n => String(n).padStart(2,'0');
+const keyOf = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const fromKey = k => { const [y,m,d] = k.split('-').map(Number); return new Date(y, m-1, d); };
+const addDays = (d,n) => { const x = new Date(d); x.setDate(x.getDate()+n); return x; };
+const monday = d => { const x = new Date(d.getFullYear(), d.getMonth(), d.getDate()); const w = (x.getDay()+6)%7; return addDays(x,-w); };
+function isoWeek(d){
+  const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  const day = t.getUTCDay() || 7; t.setUTCDate(t.getUTCDate() + 4 - day);
+  const y0 = new Date(Date.UTC(t.getUTCFullYear(),0,1));
+  return `${t.getUTCFullYear()}-W${pad(Math.ceil(((t - y0)/864e5 + 1)/7))}`;
+}
+const fmtDay = d => d.toLocaleDateString('es-AR',{weekday:'long', day:'numeric', month:'long'});
+const fmtShort = d => d.toLocaleDateString('es-AR',{day:'numeric', month:'short'});
+const today = () => { const n = new Date(); return new Date(n.getFullYear(), n.getMonth(), n.getDate()); };
+const daysBetween = (a,b) => Math.round((b - a)/864e5);
+
+/* ---------- tema ---------- */
+function applyTheme(){
+  const t = db.settings.theme;
+  if(t === 'auto') document.documentElement.removeAttribute('data-theme');
+  else document.documentElement.setAttribute('data-theme', t);
+}
+applyTheme();
+
+/* ---------- navegación ---------- */
+const TITLES = {hoy:'Hoy', semana:'Semana', proyectos:'Proyectos', brujula:'Brújula', datos:'Tus datos'};
+let current = 'hoy';
+function show(v){
+  current = v;
+  $$('.view').forEach(s => s.hidden = s.id !== 'v-'+v);
+  $$('nav.tabs button').forEach(b => b.setAttribute('aria-current', b.dataset.view === v ? 'page' : 'false'));
+  $('#title').textContent = TITLES[v];
+  if(v === 'semana') renderWeek();
+  if(v === 'proyectos') renderProjects();
+  if(v === 'brujula') renderBrujula();
+  if(v === 'datos') renderData();
+  window.scrollTo(0,0);
+}
+$$('nav.tabs button').forEach(b => b.addEventListener('click', () => show(b.dataset.view)));
+$('#openData').addEventListener('click', () => show(current === 'datos' ? 'hoy' : 'datos'));
+
+/* ---------- chips ---------- */
+function chipGroup(el, options, getVal, setVal, {multi=false, cls=''} = {}){
+  el.innerHTML = '';
+  options.forEach(([val,label]) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip ' + cls; b.textContent = label;
+    const sync = () => { const cur = getVal(); b.setAttribute('aria-pressed', multi ? (cur||[]).includes(val) : cur === val); };
+    b.addEventListener('click', () => {
+      const cur = getVal();
+      if(multi){ const arr = new Set(cur||[]); arr.has(val) ? arr.delete(val) : arr.add(val); setVal([...arr]); }
+      else setVal(cur === val ? null : val);
+      [...el.children].forEach(c => c._sync());
+    });
+    b._sync = sync; sync(); el.appendChild(b);
+  });
+}
+
+/* ---------- HOY ---------- */
+const SCALES = {
+  energia:[[1,'Muy baja'],[2,'Baja'],[3,'Media'],[4,'Buena'],[5,'Alta']],
+  animo:[[1,'Muy bajo'],[2,'Bajo'],[3,'Neutro'],[4,'Bueno'],[5,'Muy bueno']],
+  sueno:[[1,'Muy mal'],[2,'Mal'],[3,'Regular'],[4,'Bien'],[5,'Muy bien']],
+};
+const MOV = [['fuerza','Fuerza'],['caminar','Caminar'],['cardio','Cardio'],['movilidad','Movilidad'],['naturaleza','Afuera / naturaleza'],['otro','Otro']];
+let dayKey = keyOf(today());
+const day = () => db.days[dayKey] || {};
+function setDay(field, val){
+  const d = Object.assign({}, db.days[dayKey] || {});
+  if(val === null || val === '' || (Array.isArray(val) && !val.length)) delete d[field]; else d[field] = val;
+  if(Object.keys(d).filter(k => k !== 'updated').length) { d.updated = Date.now(); db.days[dayKey] = d; }
+  else delete db.days[dayKey];
+  save($('#savedHoy'));
+}
+function renderDay(){
+  const d = fromKey(dayKey), t = today();
+  const diff = daysBetween(d, t);
+  $('#dayLabel').textContent = diff === 0 ? 'Hoy, ' + fmtShort(d) : diff === 1 ? 'Ayer, ' + fmtShort(d) : fmtDay(d);
+  $('#nextDay').disabled = diff <= 0; $('#nextDay').style.visibility = diff <= 0 ? 'hidden' : 'visible';
+  $$('[data-scale]').forEach(el => { const f = el.dataset.scale; chipGroup(el, SCALES[f], () => day()[f] ?? null, v => setDay(f, v)); });
+  chipGroup($('#movChips'), MOV, () => day().mov || [], v => setDay('mov', v), {multi:true});
+  ['momento','nota','manana'].forEach(f => $('#'+f).value = day()[f] || '');
+  $('#horas').value = day().horas ?? '';
+}
+['momento','nota','manana'].forEach(f => $('#'+f).addEventListener('input', debounce(e => setDay(f, e.target.value.trim() ? e.target.value : null))));
+$('#horas').addEventListener('input', debounce(e => { const v = parseFloat(e.target.value.replace(',','.')); setDay('horas', isNaN(v) ? null : Math.max(0, Math.min(24, v))); }));
+$('#prevDay').addEventListener('click', () => { dayKey = keyOf(addDays(fromKey(dayKey), -1)); renderDay(); });
+$('#nextDay').addEventListener('click', () => { const n = addDays(fromKey(dayKey), 1); if(n <= today()){ dayKey = keyOf(n); renderDay(); } });
+
+/* ---------- SEMANA ---------- */
+let weekStart = monday(today());
+const weekKey = () => isoWeek(weekStart);
+const week = () => db.weeks[weekKey()] || {};
+function setWeek(field, val){
+  const w = Object.assign({}, db.weeks[weekKey()] || {});
+  if(val === null || val === '') delete w[field]; else w[field] = val;
+  if(Object.keys(w).filter(k => k !== 'updated').length){ w.updated = Date.now(); db.weeks[weekKey()] = w; }
+  else delete db.weeks[weekKey()];
+  save($('#savedSemana'));
+}
+function weekDays(start){
+  return [...Array(7)].map((_,i) => { const d = addDays(start,i), k = keyOf(d); return {k, d, e: db.days[k]}; });
+}
+const avg = arr => arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : null;
+const f1 = n => n == null ? '—' : n.toFixed(1).replace('.',',');
+function summarize(start){
+  const days = weekDays(start), logged = days.filter(x => x.e);
+  const pick = f => logged.map(x => x.e[f]).filter(v => typeof v === 'number');
+  const horas = logged.map(x => x.e.horas).filter(v => typeof v === 'number');
+  const movDays = days.filter(x => x.e && x.e.mov && x.e.mov.length);
+  return {days, logged, energia:avg(pick('energia')), animo:avg(pick('animo')), sueno:avg(pick('sueno')),
+    horas: horas.length ? horas.reduce((a,b)=>a+b,0) : null, horasDias: horas.length,
+    movDays: movDays.length, fuerza: days.filter(x => x.e && (x.e.mov||[]).includes('fuerza')).length,
+    momentos: logged.filter(x => x.e.momento).map(x => ({d:x.d, t:x.e.momento})), manana: logged.filter(x=>x.e.manana).map(x=>x.e.manana)};
+}
+function observations(s){
+  const o = [];
+  if(s.logged.length < 4){
+    o.push(s.logged.length === 0 ? 'Todavía no hay registros esta semana. Está bien: el sistema sirve igual con pocos datos, pero no saca conclusiones.' :
+      `Hay ${s.logged.length} ${s.logged.length===1?'día registrado':'días registrados'}. Con tan poco, cualquier conclusión sería apresurada.`);
+    return o;
+  }
+  if(s.movDays >= 3) o.push(`Te moviste ${s.movDays} días${s.fuerza ? `, ${s.fuerza} con fuerza` : ''}. La base física está en pie.`);
+  else o.push(`Movimiento: ${s.movDays} ${s.movDays===1?'día':'días'}. La meta mínima son 2 o 3. ¿Qué lo hizo difícil: tiempo, energía o ganas?`);
+  if(s.horas != null && s.horasDias >= 3){
+    const proj = s.horasDias < 5 ? s.horas / s.horasDias * 5 : s.horas;
+    if(proj > 45) o.push(`Trabajo: ${f1(s.horas)} h en ${s.horasDias} días registrados${s.horasDias<5?` (a ese ritmo, unas ${Math.round(proj)} h semanales)`:''}. ¿Fue una semana excepcional o se está volviendo la norma?`);
+    else o.push(`Trabajo: ${f1(s.horas)} h en ${s.horasDias} días registrados.`);
+  }
+  if(s.sueno != null && s.sueno <= 2.5) o.push(`El sueño promedió ${f1(s.sueno)} sobre 5. Antes de sumar cualquier otra cosa, vale mirar esto.`);
+  const withMov = s.logged.filter(x => x.e.mov && x.e.mov.length && typeof x.e.energia === 'number').map(x=>x.e.energia);
+  const noMov = s.logged.filter(x => !(x.e.mov && x.e.mov.length) && typeof x.e.energia === 'number').map(x=>x.e.energia);
+  if(withMov.length >= 2 && noMov.length >= 2){
+    const a = avg(withMov), b = avg(noMov);
+    if(Math.abs(a-b) >= 0.7) o.push(`Energía en días con movimiento: ${f1(a)}; sin movimiento: ${f1(b)}. Es una asociación en pocos días, no prueba que una cosa cause la otra.`);
+  }
+  if(s.momentos.length === 0) o.push('No anotaste ningún momento que valiera la pena. Puede ser que no hubo, o que no hubo espacio para notarlos.');
+  // tendencia simple vs. semanas anteriores
+  const prev = [1,2,3].map(i => summarize_light(addDays(s.days[0].d, -7*i))).filter(p => p.n >= 4 && p.energia != null);
+  if(prev.length >= 2 && s.energia != null){
+    const p = avg(prev.map(x=>x.energia));
+    if(s.energia - p <= -0.8) o.push(`La energía viene más baja que en las semanas anteriores (${f1(s.energia)} contra ${f1(p)}). Si se repite, es una señal para hacer menos, no más.`);
+    if(s.energia - p >= 0.8) o.push(`La energía está mejor que en las semanas anteriores (${f1(s.energia)} contra ${f1(p)}). ¿Qué cambió?`);
+  }
+  return o;
+}
+function summarize_light(start){
+  const ds = weekDays(start).filter(x => x.e);
+  return {n: ds.length, energia: avg(ds.map(x=>x.e.energia).filter(v=>typeof v==='number'))};
+}
+const PREG = [[1,'Muy poco'],[2,'Poco'],[3,'En parte'],[4,'Bastante'],[5,'Mucho']];
+function renderWeek(){
+  const end = addDays(weekStart, 6), isCurrent = keyOf(weekStart) === keyOf(monday(today()));
+  $('#weekLabel').textContent = (isCurrent ? 'Esta semana · ' : '') + `${fmtShort(weekStart)} – ${fmtShort(end)}`;
+  $('#nextWeek').style.visibility = isCurrent ? 'hidden' : 'visible';
+  const s = summarize(weekStart);
+  $('#weekStats').innerHTML = [
+    [f1(s.energia),'Energía media'],[f1(s.animo),'Ánimo medio'],[f1(s.sueno),'Sueño medio'],
+    [s.horas == null ? '—' : f1(s.horas) + ' h','Trabajo registrado']
+  ].map(([b,l]) => `<div class="stat"><b>${b}</b><span>${l}</span></div>`).join('');
+  $('#movDots').innerHTML = s.days.map(x => `<div class="dot ${x.e && x.e.mov && x.e.mov.length ? 'on':''}"></div>`).join('');
+  $('#obs').innerHTML = observations(s).map(t => `<li>${esc(t)}</li>`).join('');
+  $('#momentosCard').hidden = !s.momentos.length;
+  $('#momentos').innerHTML = s.momentos.map(m => `<li><span class="small muted">${esc(m.d.toLocaleDateString('es-AR',{weekday:'long'}))}</span><br>${esc(m.t)}</li>`).join('');
+  chipGroup($('#preguntaChips'), PREG, () => week().pregunta ?? null, v => setWeek('pregunta', v), {cls:'terra'});
+  [['preguntaNota','preguntaNota'],['wDio','dio'],['wQuito','quito'],['wPostergue','postergue'],['wAjuste','ajuste'],['wDisfrutar','disfrutar']]
+    .forEach(([id,f]) => $('#'+id).value = week()[f] || '');
+}
+[['preguntaNota','preguntaNota'],['wDio','dio'],['wQuito','quito'],['wPostergue','postergue'],['wAjuste','ajuste'],['wDisfrutar','disfrutar']]
+  .forEach(([id,f]) => $('#'+id).addEventListener('input', debounce(e => setWeek(f, e.target.value.trim() ? e.target.value : null))));
+$('#prevWeek').addEventListener('click', () => { weekStart = addDays(weekStart, -7); renderWeek(); });
+$('#nextWeek').addEventListener('click', () => { const n = addDays(weekStart, 7); if(n <= today()){ weekStart = n; renderWeek(); } });
+
+function weekPrompt(){
+  const s = summarize(weekStart), w = week();
+  const L = [];
+  L.push('Actuá como el integrador de mi sistema personal (LIFE OS). Analizá mi semana con criterio, sin frases motivacionales, sin confundir correlación con causalidad y sin sacar tendencias de un solo día. Si estoy sobrecargado, no me propongas otra rutina.');
+  L.push('');
+  L.push(`Semana del ${fmtShort(weekStart)} al ${fmtShort(addDays(weekStart,6))}. Escalas de 1 a 5.`);
+  L.push('');
+  s.days.forEach(x => {
+    const e = x.e; const name = x.d.toLocaleDateString('es-AR',{weekday:'long'});
+    if(!e){ L.push(`- ${name}: sin registro`); return; }
+    const parts = [];
+    if(e.energia) parts.push(`energía ${e.energia}`);
+    if(e.animo) parts.push(`ánimo ${e.animo}`);
+    if(e.sueno) parts.push(`sueño ${e.sueno}`);
+    if(e.mov && e.mov.length) parts.push(`movimiento: ${e.mov.join(', ')}`);
+    if(typeof e.horas === 'number') parts.push(`${e.horas} h de trabajo`);
+    let line = `- ${name}: ${parts.join('; ') || 'solo notas'}`;
+    if(e.momento) line += `\n  momento: ${e.momento}`;
+    if(e.nota) line += `\n  nota: ${e.nota}`;
+    L.push(line);
+  });
+  L.push('');
+  if(w.pregunta) L.push(`¿La vida que estoy construyendo se parece a la que quiero vivir? ${w.pregunta}/5${w.preguntaNota ? ' — ' + w.preguntaNota : ''}`);
+  if(w.dio) L.push(`Me dio energía: ${w.dio}`);
+  if(w.quito) L.push(`Me la quitó: ${w.quito}`);
+  if(w.postergue) L.push(`Postergué: ${w.postergue}`);
+  const act = db.projects.filter(p => p.estado === 'activo');
+  if(act.length) L.push(`Proyectos activos además de la clínica: ${act.map(p => p.name + (p.balance==='+'?' (me da energía)':p.balance==='-'?' (me la quita)':'')).join(', ')}`);
+  L.push('');
+  L.push('Entregá solamente: 1) diagnóstico semanal breve, 2) tres descubrimientos, 3) un problema que merece atención, 4) tres ajustes concretos (o menos, si menos es mejor), 5) una recomendación para disfrutar más la próxima semana. Distinguí lo que es dato, hipótesis y opinión.');
+  return L.join('\n');
+}
+$('#copyPrompt').addEventListener('click', async () => {
+  const txt = weekPrompt();
+  try{ await navigator.clipboard.writeText(txt); $('#copyMsg').textContent = ' Copiado.'; }
+  catch(e){ download(`semana-${weekKey()}.txt`, txt, 'text/plain'); $('#copyMsg').textContent = ' No se pudo copiar; se descargó como archivo.'; }
+});
+
+/* ---------- PROYECTOS ---------- */
+const ESTADOS = [['activo','Activo'],['idea','Idea'],['pausa','En pausa'],['terminado','Terminado'],['soltado','Soltado']];
+const activos = () => db.projects.filter(p => p.estado === 'activo');
+function renderProjects(){
+  $('#maxLabel').textContent = db.settings.maxActivos;
+  const n = activos().length, max = db.settings.maxActivos;
+  $('#limitBanner').innerHTML = n > max ? `<div class="banner small">Tenés ${n} proyectos activos y tu límite es ${max}. ¿Cuál pasa a pausa? Pausar no es fracasar: es elegir.</div>` : '';
+  const groups = {activo:[], idea:[], pausa:[], cerrado:[]};
+  db.projects.forEach(p => (groups[p.estado === 'terminado' || p.estado === 'soltado' ? 'cerrado' : p.estado] || groups.idea).push(p));
+  const empty = {activo:'Ninguno. Puede ser el momento de elegir uno, o de no elegir ninguno.', idea:'Sin ideas en espera.', pausa:'Nada en pausa.', cerrado:'Todavía nada. Soltar también cuenta.'};
+  Object.entries(groups).forEach(([g, arr]) => {
+    const el = $('#list-'+g); el.innerHTML = '';
+    if(!arr.length){ el.innerHTML = `<p class="empty">${empty[g]}</p>`; return; }
+    arr.sort((a,b) => b.updated - a.updated).forEach(p => el.appendChild(projectEl(p)));
+  });
+}
+function projectEl(p){
+  const det = document.createElement('details'); det.className = 'project';
+  const days = daysBetween(new Date(p.created), new Date());
+  let tag = '';
+  if(p.estado === 'idea') tag = days >= 30 ? `<span class="tag sage">Pasó la espera</span>` : `<span class="tag">Espera ${30-days} d</span>`;
+  else if(p.estado === 'activo') tag = p.balance === '-' ? `<span class="tag terra">Me quita energía</span>` : p.balance === '+' ? `<span class="tag sage">Me da energía</span>` : '';
+  else tag = `<span class="tag">${ESTADOS.find(e=>e[0]===p.estado)[1]}</span>`;
+  det.innerHTML = `<summary><span>${esc(p.name)}</span>${tag}</summary><div class="body">
+    ${p.estado==='idea' && days>=30 ? '<p class="small">Ya pasaron 30 días. ¿Te sigue entusiasmando? Si sí, puede activarse cuando haya lugar. Si no, soltarla está bien.</p>':''}
+    <div class="field" style="margin-top:0"><label>Estado</label><div class="chips" data-f="estado"></div></div>
+    <div class="field"><label>¿Por qué importa?</label><textarea rows="2" data-f="porque"></textarea></div>
+    <div class="field"><label>Próximo paso concreto</label><input type="text" data-f="paso" autocomplete="off"></div>
+    <div class="field"><label>En balance, este proyecto…</label><div class="chips" data-f="balance"></div></div>
+    <div class="row between" style="margin-top:14px"><span class="small muted">Desde ${fmtShort(new Date(p.created))}</span><button class="btn ghost small" data-del>Eliminar</button></div>
+  </div>`;
+  const upd = (f, v, rerender) => { p[f] = v; p.updated = Date.now(); save(); if(rerender) renderProjects(); };
+  chipGroup(det.querySelector('[data-f=estado]'), ESTADOS, () => p.estado, v => {
+    if(!v) return;
+    if(v === 'activo' && p.estado !== 'activo' && activos().length >= db.settings.maxActivos){
+      const names = activos().map(x => x.name).join(', ');
+      if(!confirm(`Ya tenés ${activos().length} proyectos activos (${names}). Tu límite es ${db.settings.maxActivos}.\n\n¿Activarlo igual? Lo honesto sería pausar uno primero.`)) { renderProjects(); return; }
+    }
+    upd('estado', v, true);
+  });
+  chipGroup(det.querySelector('[data-f=balance]'), [['+','Me da energía'],['=','Neutro'],['-','Me la quita']], () => p.balance || null, v => upd('balance', v, false));
+  ['porque','paso'].forEach(f => { const el = det.querySelector(`[data-f=${f}]`); el.value = p[f] || ''; el.addEventListener('input', debounce(e => upd(f, e.target.value, false))); });
+  det.querySelector('[data-del]').addEventListener('click', () => { if(confirm(`¿Eliminar "${p.name}"? Si lo terminaste o lo soltaste, mejor marcalo así: queda el registro.`)){ db.projects = db.projects.filter(x => x !== p); save(); renderProjects(); } });
+  return det;
+}
+function addProject(){
+  const name = $('#newProj').value.trim(); if(!name) return;
+  db.projects.push({id:uid(), name, estado:'idea', created:Date.now(), updated:Date.now()});
+  $('#newProj').value = ''; save(); renderProjects();
+}
+$('#addProj').addEventListener('click', addProject);
+$('#newProj').addEventListener('keydown', e => { if(e.key === 'Enter') addProject(); });
+
+/* ---------- BRÚJULA ---------- */
+const DQ = [
+  ['vida','¿Mejora realmente mi vida (y no solo agrega otra obligación)?', true],
+  ['costo','¿Sé qué dejo de hacer si digo que sí?'],
+  ['termino','¿Lo puedo terminar en un plazo razonable?'],
+  ['familia','¿Respeta mi tiempo con la familia y mi descanso?', true],
+  ['vale','¿Paga bien, o lo haría igual sin paga?'],
+  ['energia','¿Tengo hoy la energía para sostenerlo?'],
+];
+let dec = {};
+function renderDecision(){
+  const box = $('#decQs'); box.innerHTML = '';
+  DQ.forEach(([k,q]) => {
+    const w = document.createElement('div'); w.className = 'decq';
+    w.innerHTML = `<p class="small">${q}</p><div class="chips"></div>`;
+    chipGroup(w.querySelector('.chips'), [['si','Sí'],['nose','No sé'],['no','No']], () => dec[k] ?? null, v => { dec[k] = v; decResult(); });
+    box.appendChild(w);
+  });
+  decResult();
+}
+function decResult(){
+  const ans = DQ.filter(([k]) => dec[k]);
+  const el = $('#decResult');
+  if(ans.length < DQ.length){ el.innerHTML = ''; $('#decSave').hidden = true; return; }
+  const no = DQ.filter(([k]) => dec[k] === 'no'), nose = DQ.filter(([k]) => dec[k] === 'nose');
+  const critical = DQ.filter(([k,,c]) => c && dec[k] === 'no');
+  let verdict, cls = '';
+  if(critical.length){ verdict = 'No, o no ahora. Falla en algo que dijiste que no negociás.'; cls = 'no'; }
+  else if(no.length >= 2){ verdict = 'Probablemente no. Hay demasiados "no" para que sea una buena idea en este momento.'; cls = 'no'; }
+  else if(nose.length >= 3){ verdict = 'Todavía no está claro. Antes de decidir, averiguá lo que no sabés, o dejalo esperar 30 días.'; }
+  else if(no.length === 1){ verdict = 'Puede ser, si resolvés antes el punto que falla.'; }
+  else { verdict = 'Pasa el filtro. Igual preguntate: ¿qué sale de tu agenda para que esto entre?'; }
+  dec._verdict = verdict;
+  el.innerHTML = `<div class="result ${cls}"><b>${verdict}</b></div>`;
+  $('#decSave').hidden = false;
+}
+$('#decSave').addEventListener('click', () => {
+  const t = $('#decTitle').value.trim() || 'Sin título';
+  db.decisions.unshift({id:uid(), date:Date.now(), title:t, answers:Object.fromEntries(DQ.map(([k]) => [k, dec[k]])), verdict:dec._verdict});
+  save(); dec = {}; $('#decTitle').value = ''; renderDecision(); renderDecList();
+});
+function renderDecList(){
+  $('#decList').innerHTML = db.decisions.length ? db.decisions.map(d => `<li><b>${esc(d.title)}</b> <span class="muted">· ${fmtShort(new Date(d.date))}</span><br>${esc(d.verdict)}</li>`).join('') : '<li class="muted">Ninguna todavía.</li>';
+}
+function renderBrujula(){
+  const box = $('#brujulaFields');
+  if(!box.childElementCount){
+    BRUJULA.forEach(([k,label]) => {
+      const f = document.createElement('div'); f.className = 'field';
+      f.innerHTML = `<label for="b-${k}">${label}</label><textarea id="b-${k}" rows="3"></textarea>`;
+      const ta = f.querySelector('textarea');
+      ta.addEventListener('input', debounce(e => { db.brujula[k] = e.target.value; save($('#savedBrujula')); }));
+      box.appendChild(f);
+    });
+  }
+  BRUJULA.forEach(([k]) => { const ta = $('#b-'+k); ta.value = db.brujula[k] || ''; autosize(ta); });
+  renderDecision(); renderDecList();
+}
+function autosize(ta){ ta.style.height = 'auto'; ta.style.height = Math.max(76, ta.scrollHeight + 2) + 'px'; }
+document.addEventListener('input', e => { if(e.target.matches('#brujulaFields textarea')) autosize(e.target); });
+
+/* ---------- DATOS ---------- */
+function renderData(){
+  $('#maxActivos').value = db.settings.maxActivos;
+  chipGroup($('#themeChips'), [['auto','Automática'],['light','Clara'],['dark','Oscura']], () => db.settings.theme, v => { db.settings.theme = v || 'auto'; applyTheme(); save(); });
+  const nd = Object.keys(db.days).length;
+  $('#persistMsg').textContent = `${nd} ${nd===1?'día registrado':'días registrados'}, ${db.projects.length} proyectos.` + (storageOk ? '' : ' Atención: este navegador no está guardando.');
+}
+$('#maxActivos').addEventListener('input', e => { const v = parseInt(e.target.value,10); if(v>=1 && v<=5){ db.settings.maxActivos = v; save(); } });
+function download(name, content, type){
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([content], {type})); a.download = name;
+  document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+}
+$('#expJson').addEventListener('click', () => download(`brujula-${keyOf(today())}.json`, JSON.stringify(db, null, 2), 'application/json'));
+$('#expMd').addEventListener('click', () => download(`brujula-${keyOf(today())}.md`, toMarkdown(), 'text/markdown'));
+function toMarkdown(){
+  const L = ['# Brújula — exportación ' + keyOf(today()), ''];
+  L.push('## Mi brújula', '');
+  BRUJULA.forEach(([k,l]) => { if(db.brujula[k]) L.push(`### ${l}`, '', db.brujula[k], ''); });
+  L.push('## Proyectos', '');
+  ESTADOS.forEach(([e,l]) => { const ps = db.projects.filter(p => p.estado === e); if(ps.length){ L.push(`### ${l}`, ''); ps.forEach(p => L.push(`- **${p.name}**${p.paso ? ` — próximo paso: ${p.paso}` : ''}${p.porque ? `\n  - Por qué: ${p.porque}` : ''}`)); L.push(''); } });
+  L.push('## Semanas', '');
+  Object.keys(db.weeks).sort().reverse().forEach(k => { const w = db.weeks[k]; L.push(`### ${k}`, '');
+    if(w.pregunta) L.push(`- ¿Se parece a la vida que quiero? ${w.pregunta}/5${w.preguntaNota ? ' — ' + w.preguntaNota : ''}`);
+    [['dio','Me dio energía'],['quito','Me la quitó'],['postergue','Postergué'],['ajuste','Ajuste'],['disfrutar','Para disfrutar']].forEach(([f,l]) => { if(w[f]) L.push(`- ${l}: ${w[f]}`); });
+    L.push(''); });
+  L.push('## Días', '');
+  Object.keys(db.days).sort().reverse().forEach(k => { const e = db.days[k]; L.push(`### ${k}`, '');
+    const parts = []; if(e.energia) parts.push(`energía ${e.energia}/5`); if(e.animo) parts.push(`ánimo ${e.animo}/5`); if(e.sueno) parts.push(`sueño ${e.sueno}/5`);
+    if(e.mov) parts.push(`movimiento: ${e.mov.join(', ')}`); if(typeof e.horas === 'number') parts.push(`${e.horas} h de trabajo`);
+    if(parts.length) L.push('- ' + parts.join(' · '));
+    if(e.momento) L.push(`- Momento: ${e.momento}`); if(e.nota) L.push(`- Nota: ${e.nota}`); if(e.manana) L.push(`- Para mañana: ${e.manana}`);
+    L.push(''); });
+  if(db.decisions.length){ L.push('## Decisiones', ''); db.decisions.forEach(d => L.push(`- ${keyOf(new Date(d.date))} · **${d.title}** — ${d.verdict}`)); }
+  return L.join('\n');
+}
+$('#impFile').addEventListener('change', async e => {
+  const file = e.target.files[0]; if(!file) return;
+  try{
+    const data = JSON.parse(await file.text());
+    if(!data || typeof data !== 'object' || !data.days) throw new Error('formato');
+    if(!confirm('Esto reemplaza todos los datos de este dispositivo por los del archivo. ¿Seguir?')) return;
+    const f = fresh(); db = Object.assign(f, data, {settings:Object.assign(f.settings, data.settings||{})});
+    save(); applyTheme(); $('#impMsg').textContent = ' Importado.'; renderDay(); renderData();
+  }catch(err){ $('#impMsg').textContent = ' El archivo no parece una copia de Brújula.'; }
+  e.target.value = '';
+});
+$('#wipe').addEventListener('click', () => {
+  if(!confirm('¿Borrar todos tus registros de este dispositivo? No se puede deshacer. Si no exportaste una copia, se pierden.')) return;
+  if(!confirm('Última confirmación: ¿borrar todo?')) return;
+  db = fresh(); save(); applyTheme(); renderDay(); renderData();
+});
+
+/* ---------- util ---------- */
+function esc(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+/* ---------- inicio ---------- */
+renderDay();
+document.addEventListener('visibilitychange', () => {
+  if(document.visibilityState === 'visible' && current === 'hoy'){ const t = keyOf(today()); if(dayKey !== t && !db.days[dayKey]){ dayKey = t; renderDay(); } }
+});
+if(navigator.storage && navigator.storage.persist){ navigator.storage.persist().catch(()=>{}); }
+if('serviceWorker' in navigator && location.pathname.startsWith('/vida')){
+  navigator.serviceWorker.register('/vida/sw.js', {scope:'/vida'}).catch(()=>{});
+}
+})();
+</script>
+</body>
+</html>

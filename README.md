@@ -44,3 +44,7 @@ docs/INFORME.md       informe del proyecto
 ## Medición
 
 `js/analytics.js` envía eventos a `window.dataLayer` (whatsapp_click, maps_click, category_view, game_start, game_end, etc.). Para activar Google Analytics 4, pegar el ID real en `GA_MEASUREMENT_ID`: se pide consentimiento antes de medir.
+
+## Brújula (`/vida`)
+
+App personal aparte del sitio de la golosinería: registro diario breve, revisión semanal, poda de proyectos y filtro de decisiones. Es un único `vida/index.html` sin dependencias, instalable como PWA y con funcionamiento sin conexión (`vida/sw.js`). Los datos quedan solo en el navegador del dispositivo (localStorage); se exportan en JSON o Markdown desde el ícono de ajustes. No se indexa (`noindex` + `robots.txt`) ni está enlazada desde el sitio.
