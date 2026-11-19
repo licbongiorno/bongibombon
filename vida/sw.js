@@ -1,5 +1,5 @@
 // Brújula: funciona sin conexión. Red primero, caché como respaldo.
-const CACHE = 'brujula-v1';
+const CACHE = 'brujula-v2';
 const SHELL = ['/vida', '/vida/manifest.webmanifest', '/vida/icon.svg', '/vida/icon-192.png', '/vida/icon-512.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
